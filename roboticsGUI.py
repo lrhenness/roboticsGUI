@@ -8,11 +8,13 @@ def main():
     layout = [
         [sg.Text('This is a text element')],
         [sg.Input()],
-        [sg.Combo(['Combo 1'])],
+        [sg.Combo(['Combo 1','Combo 2'])],
         [sg.Text('If you close the browser tab, the app will exit gracefully')],
         [sg.InputText('Source')],
         [sg.InputText('Dest')],
-        [sg.Ok(), sg.Cancel()]
+        [sg.Ok(), 
+        sg.Cancel(),
+        sg.Button('Yo', key='button_yo')]
     ]
 
     window = sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
@@ -21,8 +23,9 @@ def main():
         event, values = window.read(timeout=1)
         if event != sg.TIMEOUT_KEY:
             print(event, values)
+        if event == 'button_yo':
+            yo()
         if event is None:
-            print("made it here")
             break
         i += 1
     window.close()
