@@ -25,7 +25,7 @@ def main():
             print('event called: ', event)
             print('should now be moving to the next if statement')
         if event == 'button_yo':
-            pint('Calling yo function...')
+            print('Calling yo function...')
             yo()
         if event is None:
             break
