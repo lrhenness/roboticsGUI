@@ -21,8 +21,9 @@ def main():
     #i = 0
     while True:
         event, values = window.read(timeout=100)
-        #if event != sg.TIMEOUT_KEY:
-        #    print(event, values)
+        if event != sg.TIMEOUT_KEY:
+            print('event called: ', event)
+            print('should now be moving to the next if statement')
         if event == 'button_yo':
             pint('Calling yo function...')
             yo()
