@@ -20,10 +20,11 @@ def main():
     window = sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     #i = 0
     while True:
-        event, values = window.read(timeout=1)
+        event, values = window.read(timeout=100)
         #if event != sg.TIMEOUT_KEY:
         #    print(event, values)
         if event == 'button_yo':
+            pint('Calling yo function...')
             yo()
         if event is None:
             break
