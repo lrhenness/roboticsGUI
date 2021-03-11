@@ -4,6 +4,7 @@ import PySimpleGUIWeb as sg
 # Basic example of PSGWeb
 
 def main():
+    # Define the layout of the page. This can be done in multiple functions.
     layout = [
         [sg.Text('This is a text element')],
         [sg.Input()],
@@ -24,6 +25,16 @@ def main():
             break
         i += 1
     window.close()
+
+def yo()
+    # Testing multiple layouts
+    layout = [
+        [sg.Text('Hello World!')],
+        [sg.Ok(), sg.Cancel()]
+    ]
+
+    window = sg.Window('Yo test window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+
 
 main()
 print('Program terminating normally')
