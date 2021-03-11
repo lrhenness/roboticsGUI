@@ -22,11 +22,12 @@ def main():
         if event != sg.TIMEOUT_KEY:
             print(event, values)
         if event is None:
+            print("made it here")
             break
         i += 1
     window.close()
 
-def yo()
+def yo():
     # Testing multiple layouts
     layout = [
         [sg.Text('Hello World!')],
