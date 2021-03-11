@@ -23,7 +23,7 @@ def main():
         event, values = window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
             print('event called: ', event)
-            print('should now be moving to the next if statement')
+            #print('should now be moving to the next if statement')
         if event == 'button_yo':
             print('Calling yo function...')
             yo()
@@ -34,12 +34,13 @@ def main():
 
 def yo():
     # Testing multiple layouts
-    layout = [
+    print('Made it to the yo function')
+    layout_yo = [
         [sg.Text('Hello World!')],
         [sg.Ok(), sg.Cancel()]
     ]
 
-    window = sg.Window('Yo test window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    window = sg.Window('Yo test window..', layout_yo, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
 
 main()
