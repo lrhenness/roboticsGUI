@@ -4,37 +4,38 @@ import time
 
 # Basic example of PSGWeb
 
-def main():
+def make_win1():
     # Define the layout of the page. This can be done in multiple functions.
     layout = [
-        #[sg.Text('This is a text element')],
-        #[sg.Input()],
-        #[sg.Combo(['Combo 1','Combo 2'])],
-        [sg.Text('If you close the browser tab, the app will exit gracefully')],
-        #[sg.InputText('Source')],
-        #[sg.InputText('Dest')],
-        #[sg.Ok(), sg.Cancel()], 
-        [sg.Button('Press me to open a new window', key='new_window')]
+        [sg.Text('This is window 1!')],
+        [sg.Button('Press me to open a window2', key='open_window2')]
     ]
+    return window = sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
-    window = sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-    #i = 0
+def make_win1():
+    # Define the layout of the page. This can be done in multiple functions.
+    layout = [
+        [sg.Text('This is window 2! Hell yeah.')],
+        [sg.Button('Press me to open a window1', key='open_window1')]
+    ]
+    return window = sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+
+window1, window2 = make_win1(), None    # Start off with first window open
+
+def main():
     while True:
-        event, values = window.read(timeout=100)
+        window, event, values = window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
             print('event called: ', event)
-        if event == 'new_window':
-            print('Calling yo function...')
-            yo()
+        if event == 'open_window1':
+            print('Opening window 1...')
+            window1 = make_win1()
+        if event == 'open_window2':
+            print('Opening window 2...')
+            window2 = make_win2()
         if event is None:
             break
-        #i += 1
     window.close()
-
-def yo():
-    # Testing multiple layouts
-    print('Made it to the yo function')
-    sg.popup('This is a BLOCKING popup','all windows remain inactive while popup active')
 
 main()
 print('Program terminating normally')
