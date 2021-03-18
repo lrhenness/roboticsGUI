@@ -1,42 +1,24 @@
-#!/usr/bin/env python
 import PySimpleGUIWeb as sg
-
-# Basic example of PSGWeb
-
-def make_win1():
-    # Define the layout of the page. This can be done in multiple functions.
-    layout = [
-        [sg.Text('This is window 1!')],
-        [sg.Button('Press me to open a window2', key='open_window2')]
-    ]
-    print('make_win1 function ran')
-    return sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-
-def make_win2():
-    # Define the layout of the page. This can be done in multiple functions.
-    layout = [
-        [sg.Text('This is window 2! Hell yeah.')],
-        [sg.Button('Press me to open a window1', key='open_window1')]
-    ]
-    print('make_win2 function ran')
-    return sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-
-def main():
-    #window = make_win1(), None    # Start off with first window open
+def open_window():
+    layout = [[sg.Text("New Window", key="new")]]
+    window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    choice = None
     while True:
         event, values = window.read()
-        if event != sg.TIMEOUT_KEY:
-            print('event called: ', event)
-        if event == 'open_window1':
-            print('Opening window 1...')
-            window1 = make_win1()
-        if event == 'open_window2':
-            print('Opening window 2...')
-            window2 = make_win2()
-        if event is None:
+        if event == "Exit" or event == sg.WIN_CLOSED:
             break
+        
     window.close()
-
-window = make_win1(), None    # Start off with first window open
-main()
-print('Program terminating normally')
+def main():
+    layout = [[sg.Button("Open Window", key="open")]]
+    window = sg.Window("Main Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    while True:
+        event, values = window.read()
+        if event == "Exit" or event == sg.WIN_CLOSED:
+            break
+        if event == "open":
+            open_window()
+        
+    window.close()
+if __name__ == "__main__":
+    main()
