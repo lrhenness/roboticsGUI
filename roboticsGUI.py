@@ -37,5 +37,6 @@ def main():
             break
     window.close()
 
+window = make_win1(), None    # Start off with first window open
 main()
 print('Program terminating normally')
