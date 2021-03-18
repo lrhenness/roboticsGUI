@@ -41,7 +41,7 @@ def yo():
     ]
 
     window = sg.Window('Yo test window..', layout_yo, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-
+    time.sleep(10)
 
 main()
 print('Program terminating normally')
