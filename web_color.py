@@ -126,5 +126,5 @@ while True:
     # -- Create a secondary window that shows white and black text on chosen color
     layout2 = [[sg.DummyButton(event, button_color=('white', event)),
                 sg.DummyButton(event, button_color=('black', event))]]
-    sg.Window('Buttons with white and black text', web_debug=False, web_ip='0.0.0.0', web_port=8080,
+    sg.Window('Buttons with white and black text',
               layout2, keep_on_top=True).read(timeout=0)
