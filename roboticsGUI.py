@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import PySimpleGUIWeb as sg
-import time
 
 # Basic example of PSGWeb
 
@@ -25,7 +24,7 @@ window = make_win1(), None    # Start off with first window open
 def main():
     window = make_win1(), None    # Start off with first window open
     while True:
-        window, event, values = window.read(timeout=100)
+        event, values = window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
             print('event called: ', event)
         if event == 'open_window1':
