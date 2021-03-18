@@ -9,14 +9,16 @@ def make_win1():
         [sg.Text('This is window 1!')],
         [sg.Button('Press me to open a window2', key='open_window2')]
     ]
+    print('make_win1 function ran')
     return sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
-def make_win1():
+def make_win2():
     # Define the layout of the page. This can be done in multiple functions.
     layout = [
         [sg.Text('This is window 2! Hell yeah.')],
         [sg.Button('Press me to open a window1', key='open_window1')]
     ]
+    print('make_win2 function ran')
     return sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
 def main():
