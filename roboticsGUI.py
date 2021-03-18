@@ -15,9 +15,9 @@ def open_window():
         
     window.close()
 def main():
-    layout = [[sg.Text("How large is the working area?")],
-              [sg.Text("Height (meters)...... "), sg.In(key='-h-')],
-              [sg.Text("Width (meters)....... "), sg.In(key='-w-')],
+    layout = [[sg.Text('How large is the working area?', font='Any 24')],
+              [TextLabel("Height (meters)...... "), sg.Input(key='-h-')],
+              [TextLabel("Width (meters)....... "), sg.Input(key='-w-')],
               [sg.Button("Continue", key="open")]]
     window = sg.Window("Main Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
