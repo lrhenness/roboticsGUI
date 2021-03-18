@@ -23,6 +23,7 @@ def make_win1():
 window = make_win1(), None    # Start off with first window open
 
 def main():
+    window = make_win1(), None    # Start off with first window open
     while True:
         window, event, values = window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
@@ -37,6 +38,5 @@ def main():
             break
     window.close()
 
-window = make_win1(), None    # Start off with first window open
 main()
 print('Program terminating normally')
