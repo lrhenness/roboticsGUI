@@ -24,7 +24,7 @@ def make_win2():
 def main():
     #window = make_win1(), None    # Start off with first window open
     while True:
-        event, values = window.read(timeout=100)
+        event, values = window.read()
         if event != sg.TIMEOUT_KEY:
             print('event called: ', event)
         if event == 'open_window1':
