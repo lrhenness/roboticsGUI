@@ -19,10 +19,8 @@ def make_win1():
     ]
     return sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
-window = make_win1(), None    # Start off with first window open
-
 def main():
-    window = make_win1(), None    # Start off with first window open
+    #window = make_win1(), None    # Start off with first window open
     while True:
         event, values = window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
@@ -37,5 +35,6 @@ def main():
             break
     window.close()
 
+window = make_win1(), None    # Start off with first window open
 main()
 print('Program terminating normally')
