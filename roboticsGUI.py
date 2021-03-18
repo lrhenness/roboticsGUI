@@ -1,5 +1,5 @@
 import PySimpleGUIWeb as sg
-sg.theme('Dark Grey 13')
+sg.theme('Dark Blue 13')
 
 def open_window():
     layout = [[sg.Text("New Window", key="new")]]
@@ -7,19 +7,19 @@ def open_window():
     choice = None
     while True:
         event, values = window.read()
-        if event == "Exit" or event == sg.WIN_CLOSED:
+        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         
     window.close()
 def main():
     layout = [[sg.Text("How large is the working area?")],
-              [sg.Text("Height (meters) : ")],
-              [sg.Text("Width (meters)  : ")],
+              [sg.Text("Height (meters)...... ")],
+              [sg.Text("Width (meters)....... ")],
               [sg.Button("Continue", key="open")]]
     window = sg.Window("Main Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()
-        if event == "Exit" or event == sg.WIN_CLOSED:
+        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         if event == "open":
             open_window()
