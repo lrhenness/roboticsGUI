@@ -20,7 +20,7 @@ def make_win1():
     ]
     return sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
-window1, window2 = make_win1(), None    # Start off with first window open
+window = make_win1(), None    # Start off with first window open
 
 def main():
     while True:
