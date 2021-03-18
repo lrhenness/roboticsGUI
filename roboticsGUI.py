@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 import PySimpleGUIWeb as sg
+import time
 
 # Basic example of PSGWeb
 
 def main():
     # Define the layout of the page. This can be done in multiple functions.
     layout = [
-        [sg.Text('This is a text element')],
-        [sg.Input()],
-        [sg.Combo(['Combo 1','Combo 2'])],
+        #[sg.Text('This is a text element')],
+        #[sg.Input()],
+        #[sg.Combo(['Combo 1','Combo 2'])],
         [sg.Text('If you close the browser tab, the app will exit gracefully')],
-        [sg.InputText('Source')],
-        [sg.InputText('Dest')],
-        [sg.Ok(), 
-        sg.Cancel(),
-        sg.Button('Yo', key='button_yo')]
+        #[sg.InputText('Source')],
+        #[sg.InputText('Dest')],
+        #[sg.Ok(), sg.Cancel()], 
+        [sg.Button('Press me to open a new window', key='new_window')]
     ]
 
     window = sg.Window('Demo window..', layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
@@ -23,8 +23,7 @@ def main():
         event, values = window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
             print('event called: ', event)
-            #print('should now be moving to the next if statement')
-        if event == 'button_yo':
+        if event == 'new_window':
             print('Calling yo function...')
             yo()
         if event is None:
@@ -35,13 +34,7 @@ def main():
 def yo():
     # Testing multiple layouts
     print('Made it to the yo function')
-    layout_yo = [
-        [sg.Text('Hello World!')],
-        [sg.Ok(), sg.Cancel()]
-    ]
-
-    window = sg.Window('Yo test window..', layout_yo, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-    time.sleep(10)
+    sg.popup('This is a BLOCKING popup','all windows remain inactive while popup active')
 
 main()
 print('Program terminating normally')
