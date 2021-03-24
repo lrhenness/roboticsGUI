@@ -19,8 +19,8 @@ def open_window():
             [sg.Button('yo', size=(5, 2), key=(x13,13), pad=(0,0)) for x13 in range(15)],
             [sg.Button('yo', size=(5, 2), key=(x14,14), pad=(0,0)) for x14 in range(15)]]
 
-    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", size=(30, 1), font='Any 48', auto_size_text='True')],
-              [sg.Text('Made by Luken Henness', justification="center", size=(20, 1), font='Any 24', auto_size_text='True')],
+    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 48', auto_size_text='True')],
+              [sg.Text('Made by Luken Henness', justification="center", font='Any 24', auto_size_text='True')],
               [sg.Text('')],
               [sg.Frame('Inputs',[[
                   sg.Column(grid)
@@ -40,8 +40,8 @@ def open_window():
     window.close()
 
 def main():
-    layout = [[sg.Text('Welcome to the Robotics GUI Capstone Project!', justification='center', size=(30, 1), font='Any 48', auto_size_text='True')],
-              [sg.Text('Please make a selection.', justification="center", size=(20, 1), font='Any 36', auto_size_text='True')],
+    layout = [[sg.Text('Welcome to the Robotics GUI Capstone Project!', justification='center', font='Any 48', auto_size_text='True')],
+              [sg.Text('Please make a selection.', justification="center", font='Any 36', auto_size_text='True')],
               [sg.Button("Start Program", size=(10,4), pad=(5,15), key="open")]]
     window = sg.Window("Main Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
