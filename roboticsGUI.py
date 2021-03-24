@@ -31,7 +31,10 @@ def open_window():
                   sg.VerticalSeparator(),
                   sg.Text(' '),
                   sg.Column(options, pad=(15,15))
-                  ]]
+                  ]],
+                  title_location=TITLE_LOCATION_TOP
+                  pad=((25,25),(25,25)),
+
               )]
               ]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
