@@ -3,12 +3,12 @@ import PySimpleGUIWeb as sg
 sg.theme('Dark Blue 13')
 
 # Global Variables
-height = int()
-width = int()
-height_grid = int()
-width_grid = int()
+#height = int()
+#width = int()
+#height_grid = int()
+#width_grid = int()
 
-def open_window():
+def open_window(height,width):
     layout = [[sg.Text("You've entered:")],
               [sg.Text('Height: '), sg.Text(key='-h-')],
               [sg.Text('Width: '), sg.Text(key='-w-')],
@@ -56,7 +56,7 @@ def main():
             print('width: ', width)
             print('height_grid: ', height_grid)
             print('width_grid: ', width_grid)
-            open_window()
+            open_window(height,width)
             # /Debug
         
     window.close()
