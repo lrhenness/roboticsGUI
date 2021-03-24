@@ -14,7 +14,9 @@ def open_window():
               [sg.Text('Width: '), sg.Text(key='-w-')],
               [sg.Button("Back"), sg.Button("Close")]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-    choice = None
+    #choice = None
+    window['-h-'].update(height)
+    window['-w-'].update(width)
     while True:
         event, values = window.read()
         if event == "Exit" or event == "Close" or event == sg.WIN_CLOSED or event is None:
