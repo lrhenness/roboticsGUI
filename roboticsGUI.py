@@ -51,8 +51,8 @@ def main():
             print('width: ', width)
             print('height_grid: ', height_grid)
             print('width_grid: ', width_grid)
-            window.close()
             open_window(height,width)
+            window.close()
             # /Debug
         
     window.close()
