@@ -10,23 +10,17 @@ sg.theme('Dark Blue 13')
 
 def open_window(height,width):
     layout = [[sg.Text("You've entered:")],
-              [sg.Text('Height: ' + str(height))],
-              [sg.Text('Width: ' + str(width))],
-              [sg.Button("Back"), sg.Button("Close")]]
+              [sg.Text('Height: ' + str(height)), sg.Text('  Width: ' + str(width)), sg.Button("Clear"), sg.Button("Close")],
+              [sg.Button("Place"), sg.Button("Holder")]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-    #choice = None
 
-    # Debug/
-    print('open_window() height: ', height)
-    print('open_window() width: ', width)
-    # /Debug
     #window['-output1-'].update('height variable goes here')
     #window['-output2-'].update('width variable goes here')
     while True:
         event, values = window.read()
         if event == "Exit" or event == "Close" or event == sg.WIN_CLOSED or event is None:
             break
-        elif event == "Back":
+        elif event == "Clear":
             main()
         
     window.close()
