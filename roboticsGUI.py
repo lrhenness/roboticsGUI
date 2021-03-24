@@ -3,15 +3,17 @@ sg.theme('Dark Blue 13')
 
 def open_window():
     layout = [[sg.Text("You've entered:")],
-              [sg.Text('Height: height')],
-              [sg.Text('Width: width')],
+              [sg.Text('Height: ', height)],
+              [sg.Text('Width: ', width)],
               [sg.Button("Back"), sg.Button("Close")]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     choice = None
     while True:
         event, values = window.read()
-        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
+        if event == "Exit" or event == "Close" or event == sg.WIN_CLOSED or event is None:
             break
+        elif event == "Back":
+            main()
         
     window.close()
 def main():
@@ -25,10 +27,19 @@ def main():
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         if event == "open":
+            # ============================================================================
+            # Insert input validation to make sure height and width entered are integers
+            # https://stackoverflow.com/questions/27310631/checking-if-input-is-an-integer
+            # ============================================================================
             height = values['-h-']
             width = values['-w-']
-            print(height)
-            print(width)
+            # Set grid variables
+            height_grid = height*3
+            width_grid = height*3
+            print('height: ', height)
+            print('width: ', width)
+            print('height_grid: ', height_grid)
+            print('width_grid: ', width_grid)
             open_window()
         
     window.close()
