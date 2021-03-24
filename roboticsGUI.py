@@ -25,7 +25,7 @@ def open_window():
     layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 24', auto_size_text='True')],
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', auto_size_text='True')],
               [sg.Text('')],
-              [sg.Frame('Inputs Inputs Inputs Inputs Inputs', border_width=5, title_location='TITLE_LOCATION_TOP'[[
+              [sg.Frame("Inputs Inputs Inputs Inputs Inputs", border_width=5, title_location="TITLE_LOCATION_TOP", [[
                   sg.Column(grid, pad=(5,5), justification='left'),  sg.Column(options, pad=(5,5), justification='right')
                   ]]
               )]
