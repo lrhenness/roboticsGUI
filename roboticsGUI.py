@@ -29,6 +29,7 @@ def open_window():
                   sg.VerticalSeparator(),
                   sg.Column(grid, pad=((50,15),(15,15))),
                   sg.VerticalSeparator(),
+                  sg.Text(' '),
                   sg.Column(options, pad=(15,15))
                   ]]
               )]
@@ -52,7 +53,7 @@ def main():
               [sg.Text('Please make a selection.', justification="center", font='Any 36', auto_size_text='True')],
               [sg.Text('')],
               [sg.Button("Start Program", size=(40,4), pad=(5,15), key="open")]]
-    window = sg.Window("Main Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    window = sg.Window("RobGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
