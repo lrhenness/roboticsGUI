@@ -3,10 +3,10 @@ import PySimpleGUIWeb as sg
 sg.theme('Dark Blue 13')
 
 # Global Variables
-height = 0
-width = 0
-height_grid = 0
-width_grid = 0
+height = int()
+width = int()
+height_grid = int()
+width_grid = int()
 
 def open_window():
     layout = [[sg.Text("You've entered:")],
@@ -15,6 +15,11 @@ def open_window():
               [sg.Button("Back"), sg.Button("Close")]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     #choice = None
+
+    # Debug/
+    print('open_window() height: ', height)
+    print('open_window() width: ', width)
+    # /Debug
     window['-h-'].update(height)
     window['-w-'].update(width)
     while True:
@@ -46,11 +51,13 @@ def main():
             # Set grid variables
             height_grid = int(height*3)
             width_grid = int(width*3)
+            # Debug/
             print('height: ', height)
             print('width: ', width)
             print('height_grid: ', height_grid)
             print('width_grid: ', width_grid)
             open_window()
+            # /Debug
         
     window.close()
 if __name__ == "__main__":
