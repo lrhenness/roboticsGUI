@@ -3,7 +3,7 @@ import PySimpleGUIWeb as sg
 sg.theme('Dark Blue 13')
 
 def open_window():
-    grid = [[sg.Button('yo', size=(4, 2), key=(x0,0), pad=(0,0)) for x0 in range(15)],
+    grid = [[sg.Button('yo', size=(4, 1.5), key=(x0,0), pad=(0,0)) for x0 in range(15)],
             [sg.Button('yo', size=(4, 2), key=(x1,1), pad=(0,0)) for x1 in range(15)],
             [sg.Button('yo', size=(4, 2), key=(x2,2), pad=(0,0)) for x2 in range(15)],
             [sg.Button('yo', size=(4, 2), key=(x3,3), pad=(0,0)) for x3 in range(15)],
@@ -26,7 +26,7 @@ def open_window():
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', auto_size_text='True')],
               [sg.Text('')],
               [sg.Frame('Inputs Inputs Inputs Inputs Inputs',[[
-                  sg.Column(grid),  sg.Column(options)
+                  sg.Column(grid, pad(5,5)),  sg.Column(options, pad(5,5))
                   ]]
               )]
               ]
