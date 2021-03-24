@@ -11,7 +11,7 @@ sg.theme('Dark Blue 13')
 def open_window(height,width):
     layout = [[sg.Text("You've entered:")],
               [sg.Text('Height: ' + str(height)), sg.Text('  Width: ' + str(width)), sg.Button("Clear"), sg.Button("Close")],
-              [sg.Button("Place"), sg.Button("Holder")]]
+              [sg.Button(' ', size=5, 5), key=(x,y), pad=(0,0) for x in range(width) for y in range(height)]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
     #window['-output1-'].update('height variable goes here')
@@ -51,6 +51,7 @@ def main():
             print('height_grid: ', height_grid)
             print('width_grid: ', width_grid)
             open_window(height,width)
+            window.close()
             # /Debug
         
     window.close()
