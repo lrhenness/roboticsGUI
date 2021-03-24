@@ -12,7 +12,7 @@ def open_window(height,width):
     layout = [[sg.Text("You've entered:")],
               [sg.Text('Height: ' + str(height)),  sg.Text('Width: ' + str(width)),  sg.Button("Clear"), sg.Button("Close")],
               [sg.Text('')],
-              [sg.Button('yo', size=(5, 2), key=(x,y), pad=(0,0)) for x in range(width) for y in range(height)]]
+              [[sg.Button('yo', size=(5, 2), key=(x,y), pad=(0,0)) for x in range(width)] for y in range(height)]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
     #window['-output1-'].update('height variable goes here')
@@ -43,15 +43,6 @@ def main():
             # ============================================================================
             height = int(values['-h-'])
             width = int(values['-w-'])
-            # Set grid variables
-            height_grid = int(height*3)
-            width_grid = int(width*3)
-            # Debug/
-            print('height: ', height)
-            print('width: ', width)
-            print('height_grid: ', height_grid)
-            print('width_grid: ', width_grid)
-            # /Debug
             open_window(height,width)
             window.close()
         
