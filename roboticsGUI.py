@@ -10,8 +10,8 @@ width_grid = 0
 
 def open_window():
     layout = [[sg.Text("You've entered:")],
-              [sg.Text('Height: ', height)],
-              [sg.Text('Width: ', width)],
+              [sg.Text('Height: '), sg.Text(key='-h-')],
+              [sg.Text('Width: '), sg.Text(key='-w-')],
               [sg.Button("Back"), sg.Button("Close")]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     choice = None
