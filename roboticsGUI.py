@@ -19,12 +19,17 @@ def open_window():
             [sg.Button('yo', size=(5, 2), key=(x13,13), pad=(0,0)) for x13 in range(15)],
             [sg.Button('yo', size=(5, 2), key=(x14,14), pad=(0,0)) for x14 in range(15)]]
 
+    options = [[sg.Text('Test Element')],
+               [sg.Text('Test Element 2')]]
+
     layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 24', auto_size_text='True')],
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', auto_size_text='True')],
               [sg.Text('')],
               [sg.Frame('Inputs Inputs Inputs Inputs Inputs',[[
-                  sg.Column(grid)
-              ]])]
+                  sg.Column(grid),
+                  sg.Column(options)
+                  ]]
+              )]
               ]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
