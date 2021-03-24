@@ -1,5 +1,12 @@
 import PySimpleGUIWeb as sg
+
 sg.theme('Dark Blue 13')
+
+# Global Variables
+height = 0
+width = 0
+height_grid = 0
+width_grid = 0
 
 def open_window():
     layout = [[sg.Text("You've entered:")],
@@ -16,6 +23,7 @@ def open_window():
             main()
         
     window.close()
+
 def main():
     layout = [[sg.Text('How large is the working area?', font='Any 24')],
               [sg.Text('Height (meters)'), sg.Input(key='-h-')],
