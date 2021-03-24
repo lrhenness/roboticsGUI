@@ -52,8 +52,8 @@ def main():
             print('height_grid: ', height_grid)
             print('width_grid: ', width_grid)
             # /Debug
-            window.close()
             open_window(height,width)
+            window.close()
         
     window.close()
 if __name__ == "__main__":
