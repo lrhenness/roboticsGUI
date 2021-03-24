@@ -32,7 +32,7 @@ def open_window():
                   sg.Text(' '),
                   sg.Column(options, pad=(15,15))
                   ]],
-                  title_location=TITLE_LOCATION_TOP
+                  title_location='TITLE_LOCATION_TOP',
                   pad=((25,25),(25,25)),
 
               )]
