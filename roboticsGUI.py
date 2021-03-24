@@ -31,11 +31,11 @@ def main():
             # Insert input validation to make sure height and width entered are integers
             # https://stackoverflow.com/questions/27310631/checking-if-input-is-an-integer
             # ============================================================================
-            height = values['-h-']
-            width = values['-w-']
+            int(height) = values['-h-']
+            int(width) = values['-w-']
             # Set grid variables
-            height_grid = height*3
-            width_grid = height*3
+            int(height_grid) = height*3
+            int(width_grid) = width*3
             print('height: ', height)
             print('width: ', width)
             print('height_grid: ', height_grid)
