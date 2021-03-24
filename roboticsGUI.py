@@ -8,11 +8,26 @@ sg.theme('Dark Blue 13')
 #height_grid = int()
 #width_grid = int()
 
-def open_window(height,width):
-    layout = [[sg.Text("You've entered:")],
-              [sg.Text('Height: ' + str(height)),  sg.Text('Width: ' + str(width)),  sg.Button("Clear"), sg.Button("Close")],
+def open_window():
+    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 48')],
+              [sg.Text('Made by Luken Henness', justification="center", font='Any 24')],
               [sg.Text('')],
-              [(sg.Button('yo', size=(5, 2), key=(x,y), pad=(0,0)) for x in range(width)) for y in range(height)]]
+              [sg.Button('yo', size=(5, 2), key=(x0,y0), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x1,y1), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x2,y2), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x3,y3), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x4,y4), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x5,y5), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x6,y6), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x7,y7), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x8,y8), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x9,y9), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x10,y10), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x11,y11), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x12,y12), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x13,y13), pad=(0,0)) for x in range(15)],
+              [sg.Button('yo', size=(5, 2), key=(x14,y14), pad=(0,0)) for x in range(15)],
+              ]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
     #window['-output1-'].update('height variable goes here')
@@ -27,23 +42,16 @@ def open_window(height,width):
     window.close()
 
 def main():
-    layout = [[sg.Text('How large is the working area?', font='Any 24')],
-              [sg.Text('Height (meters)'), sg.Input(key='-h-')],
-              [sg.Text('Width (meters)'), sg.Input(key='-w-')],
-              [sg.Button("Continue", key="open")]]
+    layout = [[sg.Text('Welcome to the Robotics GUI Capstone Project!', justification="center", font='Any 48')],
+              [sg.Text('Please make a selection.', justification="center", font='Any 36')],
+              [sg.Button("Start Program", size=(10,4), pad=(5,5), key="open")]]
     window = sg.Window("Main Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         if event == "open":
-            # ============================================================================
-            # Insert input validation to make sure height and width entered are integers
-            # https://stackoverflow.com/questions/27310631/checking-if-input-is-an-integer
-            # ============================================================================
-            height = int(values['-h-'])
-            width = int(values['-w-'])
-            open_window(height,width)
+            open_window()
             window.close()
         
     window.close()
