@@ -26,7 +26,9 @@ def open_window():
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', auto_size_text='True')],
               [sg.Text('')],
               [sg.Frame('Inputs Inputs Inputs Inputs Inputs',[[
+                  sg.VerticalSeparator(),
                   sg.Column(grid, pad=((50,15),(15,15))),
+                  sg.VerticalSeparator(),
                   sg.Column(options, pad=(15,15))
                   ]]
               )]
