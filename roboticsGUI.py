@@ -10,8 +10,8 @@ sg.theme('Dark Blue 13')
 
 def open_window(height,width):
     layout = [[sg.Text("You've entered:")],
-              [sg.Text('Height: ', height)],
-              [sg.Text('Width: ', width)],
+              [sg.Text('Height: ' + str(height))],
+              [sg.Text('Width: ' + str(width))],
               [sg.Button("Back"), sg.Button("Close")]]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     #choice = None
