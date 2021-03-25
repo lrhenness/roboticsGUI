@@ -1,6 +1,6 @@
 import PySimpleGUIWeb as sg
 
-sg.theme('Dark Blue 13')
+sg.theme('Dark')
 
 def open_window():
     grid = [[sg.Button('yo', size=(5, 2), key=(x0,0), pad=(0,0)) for x0 in range(15)],
@@ -19,8 +19,10 @@ def open_window():
             [sg.Button('yo', size=(5, 2), key=(x13,13), pad=(0,0)) for x13 in range(15)],
             [sg.Button('yo', size=(5, 2), key=(x14,14), pad=(0,0)) for x14 in range(15)]]
 
-    options = [[sg.Text('Test Element'),  sg.Button('yo what up')],
-               [sg.Text('Test Element 2'),  sg.Button('yo what up')]]
+    options = [[sg.Input(size=(15,1), key='-r1_v-'), sg.Text('Velocity for Robot 1 in meters/second', size=(20,1))],
+               [sg.Input(size=(15,1), key='-r2_v-'), sg.Text('Velocity for Robot 2 in meters/second', size=(20,1))],
+               [sg.Text('Test Element 2')]
+               ]
 
     layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 24', auto_size_text='True')],
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', auto_size_text='True')],
@@ -34,7 +36,6 @@ def open_window():
                   ]],
                   title_location='TITLE_LOCATION_TOP',
                   pad=((25,25),(25,25)),
-
               )]
               ]
     window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
