@@ -21,7 +21,7 @@ def open_window():
 
     options = [[sg.Input(size=(5,1), key='-r1_v-'), sg.Text('Velocity for Robot 1 in meters/second', size=(35,1))],
                [sg.Input(size=(5,1), key='-r2_v-'), sg.Text('Velocity for Robot 2 in meters/second', size=(35,1))],
-               [sg.CalendarButton('Calendar', size=(10,1), target='-start_date-', key='-calendar-'), sg.Text('Date chosen:', size=(15,1)), sg.Text('None yet', size=(25,1), key='-start_date-')],
+               [sg.CalendarButton('Calendar', size=(10,1), target='-start_date-', key='-calendar-'), sg.Text('Date chosen: '), sg.Text('None yet', size=(25,1), key='-start_date-')],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(30,1))],
                [sg.Text('Last button pushed:'), sg.Text(' ', key=('-pushed-'))],
                [sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
