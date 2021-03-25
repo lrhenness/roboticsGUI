@@ -27,9 +27,9 @@ def open_window():
                [sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
                ]
 
-    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(50,2))],
-              [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(50,2))],
-              [sg.Text('')],
+    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
+              [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
+              #[sg.Text('')],
               [sg.Frame('Inputs Inputs Inputs Inputs Inputs',[[
                   sg.Column(grid, pad=((50,15),(15,15))),
                   sg.Text(' '),
