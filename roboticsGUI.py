@@ -55,11 +55,9 @@ def open_window():
     window.close()
 
 def main():
-    layout = [[sg.Text('Welcome to the Robotics GUI Capstone Project!', justification='center', font='Any 48', auto_size_text='True')],
-              [sg.Text('')],
-              [sg.Text('Please make a selection.', justification="center", font='Any 36', auto_size_text='True')],
-              [sg.Text('')],
-              [sg.Button("Start Program", size=(40,4), pad=(5,15), key="open")]]
+    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
+              [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
+              [sg.Button("Start Program", size=(35,4), pad=((45,45),(15,15)), key="open")]]
     window = sg.Window("RobGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()
