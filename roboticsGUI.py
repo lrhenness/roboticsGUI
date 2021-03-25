@@ -3,6 +3,10 @@ import PySimpleGUIWeb as sg
 sg.theme('Dark')
 
 def open_window():
+    # Appologies for the giant and un-maintainable wall of text that follows.
+    # I messed with for loops to draw out the layout for the grid but with
+    # needing to change multiple things in each button it was going to be
+    # quicker for me to just write it out like this. Please merge a fix if desired!
     grid = [
            [sg.B('*', size=(5, 2), key=(0,0), pad=((1,0),(1,0))),sg.B('*', size=(5, 2), key=(1,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(2,0), pad=((0,1),(1,0))),sg.B('*', size=(5, 2), key=(3,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(4,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(5,0), pad=((0,1),(1,0))),sg.B('*', size=(5, 2), key=(6,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(7,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(8,0), pad=((0,1),(1,0))),sg.B('*', size=(5, 2), key=(9,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(10,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(11,0), pad=((0,1),(1,0))),sg.B('*', size=(5, 2), key=(12,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(13,0), pad=((0,0),(1,0))),sg.B('*', size=(5, 2), key=(14,0), pad=((0,1),(1,0)))],
            [sg.B('*', size=(5, 2), key=(0,1), pad=((1,0),(0,0))),sg.B('*', size=(5, 2), key=(1,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(2,1), pad=((0,1),(0,0))),sg.B('*', size=(5, 2), key=(3,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(4,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(5,1), pad=((0,1),(0,0))),sg.B('*', size=(5, 2), key=(6,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(7,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(8,1), pad=((0,1),(0,0))),sg.B('*', size=(5, 2), key=(9,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(10,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(11,1), pad=((0,1),(0,0))),sg.B('*', size=(5, 2), key=(12,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(13,1), pad=((0,0),(0,0))),sg.B('*', size=(5, 2), key=(14,1), pad=((0,1),(0,0)))],
