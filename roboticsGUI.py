@@ -24,7 +24,7 @@ def open_window():
                [sg.CalendarButton('Calendar', size=(10,1), target='-calendar-', key='-calendar-'), sg.Text('Date for movement', size=(30,1))],
                [sg.Text('No date chosen', size=(10,1), key='-start_date-')],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(30,1))],
-               [sg.Text('Last button pushed:', key=('-pushed'))],
+               [sg.Text('Last button pushed:', key=('-pushed-'))],
                [sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
                ]
 
