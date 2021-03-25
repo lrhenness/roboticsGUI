@@ -25,7 +25,6 @@ def open_window():
                [sg.Text('No date chosen', size=(10,1), key='-start_date-')],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(30,1))],
                [sg.Text('Test Element 2')],
-               [sg.HorizontalSeparator(color='black')],
                [sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
                ]
 
@@ -33,9 +32,7 @@ def open_window():
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', auto_size_text='True')],
               [sg.Text('')],
               [sg.Frame('Inputs Inputs Inputs Inputs Inputs',[[
-                  sg.VerticalSeparator(),
                   sg.Column(grid, pad=((50,15),(15,15))),
-                  sg.VerticalSeparator(color='black'),
                   sg.Text(' '),
                   sg.Column(options, pad=(15,15))
                   ]],
