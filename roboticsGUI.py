@@ -51,7 +51,7 @@ def open_window():
         elif event == "Clear":
             main()
         print('Button pushed: ', event)
-        window['-pushed-'].update('Button pushed: ', event)
+        window['-pushed-'].update('Button pushed: ' + str(event))
         
     window.close()
 
