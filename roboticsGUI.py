@@ -19,8 +19,10 @@ def open_window():
             [sg.Button('yo', size=(5, 2), key=(x13,13), pad=(0,0)) for x13 in range(15)],
             [sg.Button('yo', size=(5, 2), key=(x14,14), pad=(0,0)) for x14 in range(15)]]
 
-    options = [[sg.Input(size=(15,1), key='-r1_v-'), sg.Text('Velocity for Robot 1 in meters/second', size=(20,1))],
-               [sg.Input(size=(15,1), key='-r2_v-'), sg.Text('Velocity for Robot 2 in meters/second', size=(20,1))],
+    options = [[sg.Input(size=(5,1), key='-r1_v-'), sg.Text('Velocity for Robot 1 in meters/second', size=(35,1))],
+               [sg.Input(size=(5,1), key='-r2_v-'), sg.Text('Velocity for Robot 2 in meters/second', size=(35,1))],
+               [sg.CalendarButton(size=(20,1), key='-r2_v-'), sg.Text('Date for movement', size=(20,1))],
+               [sg.Input(size=(5,1), key='-r2_v-'), sg.Text('Time for movement: HH:MM:SS', size=(35,1))],
                [sg.Text('Test Element 2')]
                ]
 
