@@ -34,9 +34,11 @@ def open_window():
             [sg.B('*', size=(3, 1), key=(0,0), pad=((1,0),(0,1))),sg.B('*', size=(3, 1), key=(1,0), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(2,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(3,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(4,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(5,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(6,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(7,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(8,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(9,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(10,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(11,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(12,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(13,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(14,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(15,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(16,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(17,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(18,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(19,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(20,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(21,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(22,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(23,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(24,0), pad=((0,1),(1,0)))]
             ]
 
-    options = [[sg.Input(size=(5,1), key='-r1_v-'), sg.Text('Velocity for Robot 1 in meters/second', size=(35,1))],
-               [sg.Input(size=(5,1), key='-r2_v-'), sg.Text('Velocity for Robot 2 in meters/second', size=(35,1))],
-               [sg.CalendarButton('Calendar', size=(10,1), target='-start_date-', key='-calendar-'), sg.Text('Date chosen: '), sg.Text('None yet', size=(25,1), key='-start_date-')],
+    options = [[sg.Input(size=(5,1), key='-r1_heading-'), sg.Text('Current heading for Robot 1 reletive to grid. 0 for directly up', size=(35,1))],
+               [sg.Input(size=(5,1), key='-r2_heading-'), sg.Text('Current heading for Robot 2 reletive to grid. 0 for directly up', size=(35,1))],
+               [sg.Input(size=(5,1), key='-r1_velocity-'), sg.Text('Velocity for Robot 1 in meters/second', size=(35,1))],
+               [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(35,1))],
+               [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(30,1))],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(30,1))],
                [sg.Text('Last button pushed:'), sg.Text(' ', key=('-pushed-'))],
                [sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
