@@ -2,7 +2,7 @@ import PySimpleGUIWeb as sg
 import re
 
 sg.theme('Dark')
-str(grid)='(0, 0)'
+grid='(0, 0)'
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
