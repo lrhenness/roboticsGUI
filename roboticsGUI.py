@@ -48,13 +48,14 @@ def open_window():
                [sg.Text('Selected for Robot 1: '), sg.Text(' ', key=('-r1_location-'))],
                [sg.Text('Choose the starting location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1))],
                [sg.Text('Selected for Robot 2: '), sg.Text(' ', key=('-r2_location-'))],
-               [sg.Button('Random', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
+               [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))],
+               [sg.Text(' ', size=(50,10), key='-debug-')]
                ]
 
     layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
               #[sg.Text('')],
-              [sg.Frame('Inputs Inputs Inputs Inputs Inputs',[[
+              [sg.Frame('Inputs',[[
                   sg.Column(grid, pad=((50,15),(15,15))),
                   sg.Text(' '),
                   sg.Column(options, pad=(15,15))
@@ -68,18 +69,35 @@ def open_window():
     #Main Event Loop
     while True:
         event, values = window.read()
-        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
-            break
-        elif event == "Clear":
-            main()
-        print('event: ', event)
 
+        # Print event to command line
+        print('event: ', event)
+        # Check if event is a grid button being pressed
+        # There's likely a better way to do this but I like regex :)
         if re.match('\([0-9]*\,\ *[0-9]*\)', str(event)):
             window['-is_grid-'].update('Yes')
             grid = str(event)
             window['-pushed-'].update(str(grid))
         else:
             window['-is_grid-'].update('No')
+        
+        # Button Checking
+        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
+            break
+        elif event == "Clear":
+            main()
+        elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
+            # Input validation for the following inputs:
+            # -r1_heading-
+            # -r2_heading-
+            # -r1_velocity-
+            # -r2_velocity-
+            # -start_date-
+            # -start_time-
+            # -r1_location-
+            # -r2_location-
+
+            window['-debug-'].update('Debug output goes here')
         
     window.close()
 
