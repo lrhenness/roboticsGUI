@@ -32,15 +32,19 @@ def open_window():
             [sg.B('*', size=(3, 1), key=(0,2), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(2,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(3,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(4,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(5,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(6,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(7,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(8,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(9,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(10,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(11,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(12,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(13,2), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(14,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(15,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(16,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(17,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(18,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(19,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(20,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(21,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(22,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(23,2), pad=((0,1),(0,1))),sg.B('*', size=(3, 1), key=(24,2), pad=((0,1),(0,1)))],
             [sg.B('*', size=(3, 1), key=(0,1), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(2,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(3,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(4,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(5,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(6,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(7,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(8,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(9,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(10,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(11,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(12,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(13,1), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(14,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(15,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(16,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(17,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(18,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(19,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(20,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(21,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(22,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(23,1), pad=((0,1),(0,0))),sg.B('*', size=(3, 1), key=(24,1), pad=((0,1),(0,0)))],
             [sg.B('*', size=(3, 1), key=(0,0), pad=((1,0),(0,1))),sg.B('*', size=(3, 1), key=(1,0), pad=((0,0),(0,1))),sg.B('*', size=(3, 1), key=(2,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(3,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(4,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(5,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(6,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(7,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(8,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(9,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(10,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(11,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(12,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(13,0), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(14,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(15,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(16,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(17,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(18,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(19,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(20,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(21,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(22,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(23,0), pad=((0,1),(1,0))),sg.B('*', size=(3, 1), key=(24,0), pad=((0,1),(1,0)))]
+            [sg.Text('Currently Selected Space: '), sg.Text(' ', key=('-pushed-'))],
             ]
 
-    options = [[sg.Input(size=(5,1), key='-r1_heading-'), sg.Text('Current heading for Robot 1 reletive to grid. 0 for directly up', size=(35,1))],
-               [sg.Input(size=(5,1), key='-r2_heading-'), sg.Text('Current heading for Robot 2 reletive to grid. 0 for directly up', size=(35,1))],
-               [sg.Input(size=(5,1), key='-r1_velocity-'), sg.Text('Velocity for Robot 1 in meters/second', size=(35,1))],
-               [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(35,1))],
-               [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(30,1))],
-               [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(30,1))],
-               [sg.Text('Last button pushed:'), sg.Text(' ', key=('-pushed-'))],
+    options = [[sg.Input(size=(5,1), key='-r1_heading-'), sg.Text('Current heading for Robot 1 reletive to grid. 0 for directly up', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r2_heading-'), sg.Text('Current heading for Robot 2 reletive to grid. 0 for directly up', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r1_velocity-'), sg.Text('Velocity for Robot 1 in meters/second', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(45,1))],
+               [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(40,1))],
+               [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(40,1))],
+               [sg.Text('Choose the starting location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1))],
+               [sg.Text('Selected for Robot 1: '), sg.Text(' ', key=('-r1_location-'))],
+               [sg.Text('Choose the starting location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1))],
+               [sg.Text('Selected for Robot 2: '), sg.Text(' ', key=('-r2_location-'))],
                [sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))]
                ]
 
@@ -56,7 +60,7 @@ def open_window():
                   pad=((25,25),(25,25)),
               )]
               ]
-    window = sg.Window("Second Window", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
 
     #Main Event Loop
     while True:
@@ -66,7 +70,8 @@ def open_window():
         elif event == "Clear":
             main()
         #print('Button pushed: ', event)
-        window['-pushed-'].update(str(event))
+        pushed = str(event)
+        window['-pushed-'].update(str(pushed))
         
     window.close()
 
@@ -74,7 +79,7 @@ def main():
     layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
               [sg.Button("Start Program", size=(35,4), pad=((150,150),(15,15)), key="open")]]
-    window = sg.Window("RobGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
