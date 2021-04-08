@@ -96,7 +96,7 @@ def open_window():
                 # Make sure the grid selected is not selected by another location
                 print('The event was R1_0!')
                 Robot1_L0 = str(grid)
-                window[grid].update('S', color=Blue)
+                window[grid].update('S', color=('green', 'blue'))
                 window['R1_0'].update(visible=False)
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
