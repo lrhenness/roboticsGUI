@@ -91,8 +91,11 @@ def open_window():
         elif event == "Clear":
             main()
         elif event == "R1_0":
-            print('The event was R1_0!')
-            print('Location for R1_0 is ' + grid)
+            # Make sure a grid is selected
+            # Make sure the grid selected is not selected by another location
+            print('The event was R1_0! Changing button for ' + grid)
+            window['grid'].update('S')
+            
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
             # -r1_heading-
