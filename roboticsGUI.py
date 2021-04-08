@@ -140,7 +140,7 @@ def open_window():
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             print(location)
-            if len(location) == 7:
+            if len(location) == 8:
                 print('Length is good to go')
             else:
                 print('Length is too short!')
