@@ -68,7 +68,7 @@ def open_window():
               )]
               ]
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-    location = [0, 0, 0]
+    location = []
     #Main Event Loop
     while True:
         event, values = window.read()
@@ -92,49 +92,49 @@ def open_window():
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
-                location[0] = str(grid)
+                location.append(str(grid))
                 window[grid].update('S', button_color=('white', 'blue'))
                 window['R1_0'].update(visible=False)
                 window['R1_1'].update(visible=True)
             elif event == "R1_1":
                 # Make sure the grid selected is not selected by another location
-                location[1] = str(grid)
+                location.append(str(grid))
                 window[grid].update('1', button_color=('white', 'blue'))
                 window['R1_1'].update(visible=False)
                 window['R1_2'].update(visible=True)
             elif event == "R1_2":
                 # Make sure the grid selected is not selected by another location
-                location[2] = str(grid)
+                location.append(str(grid))
                 window[grid].update('2', button_color=('white', 'blue'))
                 window['R1_2'].update(visible=False)
                 window['R1_3'].update(visible=True)
             elif event == "R1_3":
                 # Make sure the grid selected is not selected by another location
-                location[3] = str(grid)
+                location.append(str(grid))
                 window[grid].update('3', button_color=('white', 'blue'))
                 window['R1_3'].update(visible=False)
                 window['R2_0'].update(visible=True)
             elif event == "R2_0":
                 # Make sure the grid selected is not selected by another location
-                location[4] = str(grid)
+                location.append(str(grid))
                 window[grid].update('S', button_color=('white', 'red'))
                 window['R2_0'].update(visible=False)
                 window['R2_1'].update(visible=True)
             elif event == "R2_1":
                 # Make sure the grid selected is not selected by another location
-                location[5] = str(grid)
+                location.append(str(grid))
                 window[grid].update('1', button_color=('white', 'red'))
                 window['R2_1'].update(visible=False)
                 window['R2_2'].update(visible=True)
             elif event == "R2_2":
                 # Make sure the grid selected is not selected by another location
-                location[6] = str(grid)
+                location.append(str(grid))
                 window[grid].update('2', button_color=('white', 'red'))
                 window['R2_2'].update(visible=False)
                 window['R2_3'].update(visible=True)
             elif event == "R2_3":
                 # Make sure the grid selected is not selected by another location
-                location[7] = str(grid)
+                location.append(str(grid))
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
