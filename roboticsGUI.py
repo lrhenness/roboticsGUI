@@ -88,9 +88,9 @@ def open_window():
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
             # -r1_heading-
-            print('-r1_heading-')
+            print(int(-r1_heading-))
             # -r2_heading-
-            print('-r2_heading-')
+            print(int(-r2_heading-))
             # -r1_velocity-
             # -r2_velocity-
             # -start_date-
