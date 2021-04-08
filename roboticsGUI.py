@@ -84,6 +84,7 @@ def open_window():
             window['-pushed-'].update(str(grid))
         else:
             window['-is_grid-'].update('No')
+            grid = 0
         
         # Button Checking
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
@@ -91,7 +92,7 @@ def open_window():
         elif event == "Clear":
             main()
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3'):
-            if re.match('\([0-9]*\,\ *[0-9]*\)', str(event)):
+            if re.match('\([0-9]*\,\ *[0-9]*\)', str(grid)):
                 if event == "R1_0":
                     # Make sure the grid selected is not selected by another location
                     print('The event was R1_0!')
