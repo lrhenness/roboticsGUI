@@ -2,7 +2,6 @@ import PySimpleGUIWeb as sg
 import re
 
 #sg.theme('Dark')
-#grid = '(0, 0)'
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
@@ -69,7 +68,7 @@ def open_window():
               )]
               ]
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
-
+    location = [0, 0, 0]
     #Main Event Loop
     while True:
         event, values = window.read()
@@ -139,7 +138,7 @@ def open_window():
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
-        elif event == "Submit" and 'location' in locals(): # Create and send MySQL command and output to -debug- textbox
+        elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             print(location)
             if len(location) == 7:
                 print('Length is good to go')
