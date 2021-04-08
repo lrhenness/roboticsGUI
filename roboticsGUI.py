@@ -90,7 +90,7 @@ def open_window():
             break
         elif event == "Clear":
             main()
-        elif event == "R1_0":
+        elif event in ('R1_0', 'R1_1'):
             # Make sure a grid is selected
             # Make sure the grid selected is not selected by another location
             print('The event was R1_0! Changing button for ' + str(grid))
