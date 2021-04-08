@@ -95,6 +95,7 @@ def open_window():
             # Make sure the grid selected is not selected by another location
             print('The event was R1_0! Changing button for ' + str(grid))
             window[grid].update('S')
+            window[R1_0].update(visible=False)
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
