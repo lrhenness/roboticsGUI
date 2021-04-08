@@ -80,7 +80,7 @@ def open_window():
         # There's likely a better way to do this but I like regex :)
         if re.match('\([0-9]*\,\ *[0-9]*\)', str(event)):
             window['-is_grid-'].update('Yes')
-            grid = str(event)
+            grid = event
             window['-pushed-'].update(str(grid))
         else:
             window['-is_grid-'].update('No')
