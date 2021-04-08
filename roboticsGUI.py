@@ -43,9 +43,14 @@ def open_window():
                [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(45,1))],
                [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(40,1))],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(40,1))],
-               [sg.Text('Choose the starting location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1))],
-               [sg.Text('Selected for Robot 1: '), sg.Text(' ', key=('-r1_location-'))],
-               [sg.Text('Choose the starting location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1))],
+               [sg.Text('Choose the starting location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'))],
+               [sg.Text('Choose the first location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'))],
+               [sg.Text('Choose the second location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_2'))],
+               [sg.Text('Choose the third location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_3'))],
+                [sg.Text('Choose the starting location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_0'))],
+               [sg.Text('Choose the first location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_1'))],
+               [sg.Text('Choose the second location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_2'))],
+               [sg.Text('Choose the third location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_3'))],
                [sg.Text('Selected for Robot 2: '), sg.Text(' ', key=('-r2_location-'))],
                [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))],
                [sg.Text(' ', size=(50,10), key='-debug-')]
@@ -85,6 +90,9 @@ def open_window():
             break
         elif event == "Clear":
             main()
+        elif event == "R1_0":
+            print('The event was R1_0!')
+            print('Location for R1_0 is ' + grid)
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
             # -r1_heading-
