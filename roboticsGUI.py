@@ -93,53 +93,53 @@ def open_window():
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
-                Robot1_L0 = str(grid)
+                location[0] = str(grid)
                 window[grid].update('S', button_color=('white', 'blue'))
                 window['R1_0'].update(visible=False)
                 window['R1_1'].update(visible=True)
             elif event == "R1_1":
                 # Make sure the grid selected is not selected by another location
-                Robot1_L1 = str(grid)
+                location[1] = str(grid)
                 window[grid].update('1', button_color=('white', 'blue'))
                 window['R1_1'].update(visible=False)
                 window['R1_2'].update(visible=True)
             elif event == "R1_2":
                 # Make sure the grid selected is not selected by another location
-                Robot1_L2 = str(grid)
+                location[2] = str(grid)
                 window[grid].update('2', button_color=('white', 'blue'))
                 window['R1_2'].update(visible=False)
                 window['R1_3'].update(visible=True)
             elif event == "R1_3":
                 # Make sure the grid selected is not selected by another location
-                Robot1_L3 = str(grid)
+                location[3] = str(grid)
                 window[grid].update('3', button_color=('white', 'blue'))
                 window['R1_3'].update(visible=False)
                 window['R2_0'].update(visible=True)
             elif event == "R2_0":
                 # Make sure the grid selected is not selected by another location
-                Robot2_L0 = str(grid)
+                location[4] = str(grid)
                 window[grid].update('S', button_color=('white', 'red'))
                 window['R2_0'].update(visible=False)
                 window['R2_1'].update(visible=True)
             elif event == "R2_1":
                 # Make sure the grid selected is not selected by another location
-                Robot2_L1 = str(grid)
+                location[5] = str(grid)
                 window[grid].update('1', button_color=('white', 'red'))
                 window['R2_1'].update(visible=False)
                 window['R2_2'].update(visible=True)
             elif event == "R2_2":
                 # Make sure the grid selected is not selected by another location
-                Robot2_L2 = str(grid)
+                location[6] = str(grid)
                 window[grid].update('2', button_color=('white', 'red'))
                 window['R2_2'].update(visible=False)
                 window['R2_3'].update(visible=True)
             elif event == "R2_3":
                 # Make sure the grid selected is not selected by another location
-                Robot2_L3 = str(grid)
+                location[7] = str(grid)
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
-        elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
+        elif event == "Submit" and ( len(location) = 7 ): # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
             # -r1_heading-
             print('r1_heading: ' + values['-r1_heading-'])
@@ -154,8 +154,23 @@ def open_window():
             # -start_time-
             print('start_time: ' + values['-start_time-'])
 
+            # Calculate values
+            #   id
+            #   robot_id
+            #   Command_id
+            #   Day_set
+            #   Time_start
+            #   Time_end
+            #   Linear_velocity
+            #   Angular_velocity
+
+            # Determine the number of commands to be sent
+            # Construct commands
+            
             # Print debug text or SQL command
             window['-debug-'].update('Debug output goes here.')
+
+            #Send commands to MySQL
         
     window.close()
 
