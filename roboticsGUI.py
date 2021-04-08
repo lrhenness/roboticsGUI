@@ -91,7 +91,6 @@ def open_window():
         elif event == "Clear":
             main()
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and grid:
-            print('Event is a button press')
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
                 Robot1_L0 = str(grid)
@@ -104,6 +103,41 @@ def open_window():
                 window[grid].update('1', button_color=('white', 'blue'))
                 window['R1_1'].update(visible=False)
                 window['R1_2'].update(visible=True)
+            elif event == "R1_2":
+                # Make sure the grid selected is not selected by another location
+                Robot1_L2 = str(grid)
+                window[grid].update('2', button_color=('white', 'blue'))
+                window['R1_2'].update(visible=False)
+                window['R1_3'].update(visible=True)
+            elif event == "R1_3":
+                # Make sure the grid selected is not selected by another location
+                Robot1_L3 = str(grid)
+                window[grid].update('3', button_color=('white', 'blue'))
+                window['R1_3'].update(visible=False)
+                window['R2_0'].update(visible=True)
+            elif event == "R2_0":
+                # Make sure the grid selected is not selected by another location
+                Robot2_L0 = str(grid)
+                window[grid].update('S', button_color=('white', 'red'))
+                window['R2_0'].update(visible=False)
+                window['R2_1'].update(visible=True)
+            elif event == "R2_1":
+                # Make sure the grid selected is not selected by another location
+                Robot2_L1 = str(grid)
+                window[grid].update('1', button_color=('white', 'red'))
+                window['R2_1'].update(visible=False)
+                window['R2_2'].update(visible=True)
+            elif event == "R2_2":
+                # Make sure the grid selected is not selected by another location
+                Robot2_L2 = str(grid)
+                window[grid].update('2', button_color=('white', 'red'))
+                window['R2_2'].update(visible=False)
+                window['R2_3'].update(visible=True)
+            elif event == "R2_3":
+                # Make sure the grid selected is not selected by another location
+                Robot2_L3 = str(grid)
+                window[grid].update('3', button_color=('white', 'red'))
+                window['R2_3'].update(visible=False)
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
