@@ -143,7 +143,7 @@ def open_window():
             if len(location) == 7:
                 print('Length is good to go')
             else:
-                pring('Length is too short!')
+                print('Length is too short!')
             # Input validation for the following inputs:
             # -r1_heading-
             print('r1_heading: ' + values['-r1_heading-'])
