@@ -139,8 +139,12 @@ def open_window():
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
-        elif event == "Submit" and len(location) == 7: # Create and send MySQL command and output to -debug- textbox
+        elif event == "Submit" and 'location' in locals(): # Create and send MySQL command and output to -debug- textbox
             print(location)
+            if len(location) == 7:
+                print('Length is good to go')
+            else:
+                pring('Length is too short!')
             # Input validation for the following inputs:
             # -r1_heading-
             print('r1_heading: ' + values['-r1_heading-'])
