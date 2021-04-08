@@ -1,7 +1,7 @@
 import PySimpleGUIWeb as sg
 import re
 
-sg.theme('Dark')
+#sg.theme('Dark')
 grid='(0, 0)'
 
 def open_window():
@@ -90,12 +90,16 @@ def open_window():
             break
         elif event == "Clear":
             main()
-        elif event in ('R1_0', 'R1_1'):
-            # Make sure a grid is selected
-            # Make sure the grid selected is not selected by another location
-            print('The event was R1_0! Changing button for ' + str(grid))
-            window[grid].update('S')
-            window['R1_0'].update(visible=False)
+        elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3'):
+            if re.match('\([0-9]*\,\ *[0-9]*\)', str(event)):
+                if event == "R1_0":
+                    # Make sure the grid selected is not selected by another location
+                    print('The event was R1_0!')
+                    Robot1_L0 = str(grid)
+                    window[grid].update('S', color=Blue)
+                    window['R1_0'].update(visible=False)
+            else:
+                # No grid is selected
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
@@ -111,10 +115,6 @@ def open_window():
             print('start_date: ' + values['-start_date-'])
             # -start_time-
             print('start_time: ' + values['-start_time-'])
-            # -r1_location-
-            print('r1_location: ' + values['-r1_location-'])
-            # -r2_location-
-            print('r2_location: ' + values['-r2_location-'])
 
             # Print debug text or SQL command
             window['-debug-'].update('Debug output goes here.')
