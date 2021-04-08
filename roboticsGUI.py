@@ -8,7 +8,7 @@ def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
     # I messed with for loops to draw out the layout for the grid but with
     # needing to change multiple things in each button it was going to be
-    # quicker for me to just write it out like this. Please merge a fix if desired!
+    # quicker for me to just write it out like this. Please merge a fix!
     grid = [[sg.B('*', size=(3, 1), key=(0,24), pad=((1,0),(1,0))),sg.B('*', size=(3, 1), key=(1,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(2,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(3,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(4,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(5,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(6,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(7,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(8,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(9,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(10,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(11,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(12,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(13,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(14,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(15,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(16,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(17,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(18,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(19,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(20,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(21,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(22,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(23,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(24,24), pad=((0,1),(0,0)))],
             [sg.B('*', size=(3, 1), key=(0,23), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(2,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(3,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(4,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(5,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(6,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(7,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(8,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(9,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(10,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(11,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(12,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(13,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(14,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(15,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(16,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(17,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(18,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(19,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(20,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(21,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(22,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(23,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(24,23), pad=((0,1),(0,0)))],
             [sg.B('*', size=(3, 1), key=(0,22), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(2,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(3,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(4,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(5,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(6,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(7,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(8,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(9,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(10,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(11,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(12,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(13,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(14,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(15,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(16,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(17,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(18,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(19,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(20,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(21,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(22,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(23,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(24,22), pad=((0,1),(0,0)))],
@@ -88,7 +88,9 @@ def open_window():
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
             # -r1_heading-
+            print('-r1_heading-')
             # -r2_heading-
+            print('-r2_heading-')
             # -r1_velocity-
             # -r2_velocity-
             # -start_date-
@@ -96,7 +98,7 @@ def open_window():
             # -r1_location-
             # -r2_location-
 
-            window['-debug-'].update('Debug output goes here')
+            window['-debug-'].update('Debug output goes here.')
         
     window.close()
 
