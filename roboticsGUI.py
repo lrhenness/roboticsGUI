@@ -43,14 +43,14 @@ def open_window():
                [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(45,1))],
                [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(40,1))],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS', size=(40,1))],
-               [sg.Text('Choose the starting location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'))],
-               [sg.Text('Choose the first location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'))],
-               [sg.Text('Choose the second location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_2'))],
-               [sg.Text('Choose the third location for Robot 1 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_3'))],
-                [sg.Text('Choose the starting location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_0'))],
-               [sg.Text('Choose the first location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_1'))],
-               [sg.Text('Choose the second location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_2'))],
-               [sg.Text('Choose the third location for Robot 2 then press select', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_3'))],
+               [sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'), visible=True)],
+               [sg.Text('Robot 1 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'), visible=False)],
+               [sg.Text('Robot 1 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_2'), visible=False)],
+               [sg.Text('Robot 1 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_3'), visible=False)],
+                [sg.Text('Robot 2 starting location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_0'), visible=False)],
+               [sg.Text('Robot 2 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_1'), visible=False)],
+               [sg.Text('Robot 2 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_2'), visible=False)],
+               [sg.Text('Robot 2 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_3'), visible=False)],
                [sg.Text('Selected for Robot 2: '), sg.Text(' ', key=('-r2_location-'))],
                [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))],
                [sg.Text(' ', size=(50,10), key='-debug-')]
@@ -94,10 +94,16 @@ def open_window():
             print('Event is a button press')
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
-                print('The event was R1_0!')
                 Robot1_L0 = str(grid)
-                window[grid].update('S', button_color=('green', 'blue'))
+                window[grid].update('S', button_color=('white', 'blue'))
                 window['R1_0'].update(visible=False)
+                window['R1_1'].update(visible=True)
+            elif event == "R1_1":
+                # Make sure the grid selected is not selected by another location
+                Robot1_L1 = str(grid)
+                window[grid].update('1', button_color=('white', 'blue'))
+                window['R1_1'].update(visible=False)
+                window['R1_2'].update(visible=True)
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
