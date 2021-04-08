@@ -140,6 +140,7 @@ def open_window():
                 window['R2_3'].update(visible=False)
             
         elif event == "Submit" and ( len(location) = 7 ): # Create and send MySQL command and output to -debug- textbox
+            print(location)
             # Input validation for the following inputs:
             # -r1_heading-
             print('r1_heading: ' + values['-r1_heading-'])
