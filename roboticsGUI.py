@@ -139,7 +139,7 @@ def open_window():
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
-        elif event == "Submit" and ( len(location) = 7 ): # Create and send MySQL command and output to -debug- textbox
+        elif event == "Submit" and len(location) == 7: # Create and send MySQL command and output to -debug- textbox
             print(location)
             # Input validation for the following inputs:
             # -r1_heading-
