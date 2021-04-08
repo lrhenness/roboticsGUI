@@ -98,8 +98,6 @@ def open_window():
                     Robot1_L0 = str(grid)
                     window[grid].update('S', color=Blue)
                     window['R1_0'].update(visible=False)
-            else:
-                # No grid is selected
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
