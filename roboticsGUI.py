@@ -92,12 +92,19 @@ def open_window():
             # -r2_heading-
             print('r1_heading: ' + values['-r2_heading-'])
             # -r1_velocity-
+            print('r1_velocity: ' + values['-r1_velocity-'])
             # -r2_velocity-
+            print('r2_velocity: ' + values['-r2_velocity-'])
             # -start_date-
+            print('start_date: ' + values['-start_date-'])
             # -start_time-
+            print('start_time: ' + values['-start_time-'])
             # -r1_location-
+            print('r1_location: ' + values['-r1_location-'])
             # -r2_location-
+            print('r2_location: ' + values['-r2_location-'])
 
+            # Print debug text or SQL command
             window['-debug-'].update('Debug output goes here.')
         
     window.close()
