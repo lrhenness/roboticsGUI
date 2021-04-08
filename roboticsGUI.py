@@ -2,14 +2,14 @@ import PySimpleGUIWeb as sg
 import re
 
 #sg.theme('Dark')
-grid='(0, 0)'
+#grid = '(0, 0)'
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
     # I messed with for loops to draw out the layout for the grid but with
     # needing to change multiple things in each button it was going to be
     # quicker for me to just write it out like this. Please merge a fix!
-    grid = [[sg.B('*', size=(3, 1), key=(0,24), pad=((1,0),(1,0))),sg.B('*', size=(3, 1), key=(1,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(2,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(3,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(4,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(5,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(6,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(7,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(8,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(9,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(10,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(11,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(12,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(13,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(14,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(15,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(16,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(17,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(18,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(19,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(20,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(21,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(22,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(23,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(24,24), pad=((0,1),(0,0)))],
+    layout_grid = [[sg.B('*', size=(3, 1), key=(0,24), pad=((1,0),(1,0))),sg.B('*', size=(3, 1), key=(1,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(2,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(3,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(4,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(5,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(6,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(7,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(8,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(9,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(10,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(11,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(12,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(13,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(14,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(15,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(16,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(17,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(18,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(19,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(20,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(21,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(22,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(23,24), pad=((0,0),(1,0))),sg.B('*', size=(3, 1), key=(24,24), pad=((0,1),(0,0)))],
             [sg.B('*', size=(3, 1), key=(0,23), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(2,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(3,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(4,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(5,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(6,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(7,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(8,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(9,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(10,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(11,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(12,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(13,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(14,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(15,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(16,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(17,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(18,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(19,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(20,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(21,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(22,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(23,23), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(24,23), pad=((0,1),(0,0)))],
             [sg.B('*', size=(3, 1), key=(0,22), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(2,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(3,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(4,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(5,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(6,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(7,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(8,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(9,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(10,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(11,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(12,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(13,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(14,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(15,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(16,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(17,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(18,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(19,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(20,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(21,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(22,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(23,22), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(24,22), pad=((0,1),(0,0)))],
             [sg.B('*', size=(3, 1), key=(0,21), pad=((1,0),(0,0))),sg.B('*', size=(3, 1), key=(1,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(2,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(3,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(4,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(5,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(6,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(7,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(8,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(9,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(10,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(11,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(12,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(13,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(14,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(15,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(16,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(17,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(18,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(19,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(20,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(21,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(22,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(23,21), pad=((0,0),(0,0))),sg.B('*', size=(3, 1), key=(24,21), pad=((0,1),(0,0)))],
@@ -37,7 +37,7 @@ def open_window():
             [sg.Text('Currently Selected Space: '), sg.Text(' ', key=('-pushed-'), size=(10,1)), sg.Text('Is a grid square? '), sg.Text(' ', key=('-is_grid-'))]
             ]
 
-    options = [[sg.Input(size=(5,1), key='-r1_heading-'), sg.Text('Current heading for Robot 1 reletive to grid. 0 for directly up', size=(45,1))],
+    layout_options = [[sg.Input(size=(5,1), key='-r1_heading-'), sg.Text('Current heading for Robot 1 reletive to grid. 0 for directly up', size=(45,1))],
                [sg.Input(size=(5,1), key='-r2_heading-'), sg.Text('Current heading for Robot 2 reletive to grid. 0 for directly up', size=(45,1))],
                [sg.Input(size=(5,1), key='-r1_velocity-'), sg.Text('Velocity for Robot 1 in meters/second', size=(45,1))],
                [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(45,1))],
@@ -60,9 +60,9 @@ def open_window():
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
               #[sg.Text('')],
               [sg.Frame('Inputs',[[
-                  sg.Column(grid, pad=((50,15),(15,15))),
+                  sg.Column(layout_grid, pad=((50,15),(15,15))),
                   sg.Text(' '),
-                  sg.Column(options, pad=(15,15))
+                  sg.Column(layout_options, pad=(15,15))
                   ]],
                   title_location='TITLE_LOCATION_TOP',
                   pad=((25,25),(25,25)),
@@ -84,22 +84,20 @@ def open_window():
             window['-pushed-'].update(str(grid))
         else:
             window['-is_grid-'].update('No')
-            grid = 0
         
         # Button Checking
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         elif event == "Clear":
             main()
-        elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3'):
-            if ( grid != 0 ):
-                print('Event is a button press')
-                if event == "R1_0":
-                    # Make sure the grid selected is not selected by another location
-                    print('The event was R1_0!')
-                    Robot1_L0 = str(grid)
-                    window[grid].update('S', color=Blue)
-                    window['R1_0'].update(visible=False)
+        elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and grid:
+            print('Event is a button press')
+            if event == "R1_0":
+                # Make sure the grid selected is not selected by another location
+                print('The event was R1_0!')
+                Robot1_L0 = str(grid)
+                window[grid].update('S', color=Blue)
+                window['R1_0'].update(visible=False)
             
         elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
             # Input validation for the following inputs:
