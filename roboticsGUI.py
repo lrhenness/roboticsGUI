@@ -138,12 +138,11 @@ def open_window():
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
-        elif event == "Submit": # Create and send MySQL command and output to -debug- textbox
-            print(location)
-            if len(location) == 8:
-                print('Length is good to go')
-            else:
-                print('Length is too short!')
+        elif event == "Submit":
+            # Making sure the location list is filled else show error
+            if len(location) != 8:
+                window['-debug-'].update('Error: Please select all locations before submitting.')
+                break
             # Input validation for the following inputs:
             # -r1_heading-
             print('r1_heading: ' + values['-r1_heading-'])
@@ -158,6 +157,7 @@ def open_window():
             # -start_time-
             print('start_time: ' + values['-start_time-'])
 
+            
             # Calculate values
             #   id
             #   robot_id
