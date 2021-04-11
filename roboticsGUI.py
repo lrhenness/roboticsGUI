@@ -205,7 +205,7 @@ def open_window():
                 start_day = datetime.today().weekday() # 0 (Monday) through 6 (Sunday)
                 # The following translates weeday from 0-6 (Monday-Sunday) to 1-7 (Sunday-Saturday)
                 start_day += 2
-                if start_day = 8:
+                if start_day == 8:
                     start_day = 1
             # Calculate time if none given
             if values['-start_time-']:
