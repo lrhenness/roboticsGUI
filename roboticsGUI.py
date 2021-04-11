@@ -185,7 +185,7 @@ def open_window():
                 
                 # robot_id
                 robot_id.insert(x, 'r1d1')
-            
+                x += 1
 
             # Debug calculated values
             y = 0
