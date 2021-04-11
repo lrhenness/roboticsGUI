@@ -198,7 +198,7 @@ def open_window():
 
             # Debug calculated values
             y = 0
-            while  y < < (( len(location) - 2 ) * 2 ):
+            while  y < (( len(location) - 2 ) * 2 ):
                 print('Printing position in lists: ' + str(y))
                 print('id:' + id[y])
                 print('robot_id:' + robot_id[y])
