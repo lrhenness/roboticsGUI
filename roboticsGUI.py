@@ -220,7 +220,7 @@ def open_window():
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
                 seconds_to_add = 30
-                r1_time += datetime.timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
+                r1_time += timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S")))
             
@@ -237,7 +237,7 @@ def open_window():
                 time_start.insert(x, str(r2_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
                 seconds_to_add = 30
-                r2_time += datetime.timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
+                r2_time += timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
                 time_end.insert(x, str(r2_time.strftime("%H:%M:%S")))
             # Debug calculated values
