@@ -200,8 +200,8 @@ def open_window():
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('Printing position in lists: ' + str(y))
-                print('id:' + id[y])
-                print('robot_id:' + robot_id[y])
+                print('id:' id[y])
+                print('robot_id:' robot_id[y])
                 #print('command_id:' + command_id[y])
                 #print('day_set:' + day_set[y])
                 #print('time_start:' + time_start[y])
