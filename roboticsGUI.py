@@ -193,12 +193,12 @@ def open_window():
                 print('Printing position in lists: ' + str(y))
                 print(id[y])
                 print(robot_id[y])
-                print(command_id[y])
-                print(day_set[y])
-                print(time_start[y])
-                print(time_end[y])
-                print(linear_velocity[y])
-                print(angular_velocity[y])
+                #print(command_id[y])
+                #print(day_set[y])
+                #print(time_start[y])
+                #print(time_end[y])
+                #print(linear_velocity[y])
+                #print(angular_velocity[y])
                 y += 1
 
             # Print debug text or SQL command
