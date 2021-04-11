@@ -202,8 +202,7 @@ def open_window():
             if values['-start_time-']:
                 start_time = values['-start_time-']
             else:
-                time = datetime.now().time()
-                time = time + datetime.timedelta(seconds=10)
+                time = datetime.now() + timedelta(seconds=10)
                 r1_time = time
                 r2_time = time
                 print("start time =", r1_time)
