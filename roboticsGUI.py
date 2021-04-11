@@ -262,7 +262,7 @@ def open_window():
                 print('id:', id[y])
                 print('robot_id:', robot_id[y])
                 #print('command_id:' + str(command_id[y]))
-                #print('day_set:' + str(day_set[y]))
+                print('day_set:', day_set[y])
                 print('time_start:', time_start[y])
                 print('time_end:', time_end[y])
                 #print('linear_velocity:' + str(linear_velocity[y]))
