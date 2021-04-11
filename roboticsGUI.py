@@ -171,20 +171,29 @@ def open_window():
             #print('start_time: ' + values['-start_time-'])
 
             # Grabbing values from input
-            #last_command_in_db = GET LAST COMMAND IN DB
-            last_command_in_db = 0
+            #last_command = GET LAST COMMAND IN DB
+            last_command = 0
             #r1_last_angle = int(values['-r1_heading-'])
             #r2_last_angle = int(values['-r2_heading-'])
             r1_last_angle = 0
             r2_last_angle = 0
             x = 0
             while x < ( len(location) - 2 ): # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
-
+                last_command += 1
                 # id
-                id.insert(x, last_command_in_db + 1)
+                id.insert(x, last_command)
                 
                 # robot_id
                 robot_id.insert(x, 'r1d1')
+                x += 1
+            
+            while x < (( len(location) - 2 ) * 2 ): # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
+                last_command += 1
+                # id
+                id.insert(x, last_command)
+                
+                # robot_id
+                robot_id.insert(x, 'r2d2')
                 x += 1
 
             # Debug calculated values
