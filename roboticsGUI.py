@@ -184,9 +184,9 @@ def open_window():
                 start_time = values['-start_time-']
             else:
                 time = datetime.now().time()
-                time = time + datetime.timedelta(seconds=10)
-                r1_time = time.strftime("%H:%M:%S")
-                r2_time = r1_time
+                time = time + timedelta(seconds=10)
+                r1_time = time
+                r2_time = time
                 print("start time =", r1_time)
             x = 0
             while x < ( len(location) - 2 ): # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
@@ -199,12 +199,12 @@ def open_window():
                 x += 1
 
                 # time_start
-                time_start.insert(x, str(r1_time))
+                time_start.insert(x, str(r1_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
                 seconds_to_add = 30
                 r1_time += datetime.timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
-                time_end.insert(x, str(r1_time))
+                time_end.insert(x, str(r1_time.strftime("%H:%M:%S")))
             
             while x < (( len(location) - 2 ) * 2 ): # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
                 last_command += 1
@@ -216,12 +216,12 @@ def open_window():
                 x += 1
 
                 # time_start
-                time_start.insert(x, str(r2_time))
+                time_start.insert(x, str(r2_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
                 seconds_to_add = 30
                 r2_time += datetime.timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
-                time_end.insert(x, str(r2_time))
+                time_end.insert(x, str(r2_time.strftime("%H:%M:%S")))
             # Debug calculated values
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
