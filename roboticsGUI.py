@@ -110,6 +110,14 @@ def open_window():
             location.insert(6, '(12, 12)')
             location.insert(7, '(17, 12)')
             window[2,2].update('S', button_color=('white', 'blue'))
+            window[7,2].update('1', button_color=('white', 'blue'))
+            window[12,2].update('2', button_color=('white', 'blue'))
+            window[12,7].update('3', button_color=('white', 'blue'))
+            window[2,22].update('S', button_color=('white', 'red'))
+            window[7,17].update('1', button_color=('white', 'red'))
+            window[12,12].update('2', button_color=('white', 'red'))
+            window[17,12].update('3', button_color=('white', 'red'))
+            window['R1_0'].update(visible=False)
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
