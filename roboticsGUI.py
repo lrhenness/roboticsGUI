@@ -1,6 +1,6 @@
 import PySimpleGUIWeb as sg
 import re
-import datetime
+from datetime import datetime, timedelta
 
 #sg.theme('Dark')
 
@@ -183,7 +183,7 @@ def open_window():
             if values['-start_time-']:
                 start_time = values['-start_time-']
             else:
-                time = datetime.datetime.now().time()
+                time = datetime.now().time()
                 time = time + datetime.timedelta(seconds=10)
                 r1_time = time.strftime("%H:%M:%S")
                 r2_time = r1_time
