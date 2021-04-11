@@ -43,7 +43,7 @@ def open_window():
                [sg.Input(size=(5,1), key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
                [sg.Input(size=(5,1), key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
                [sg.Input(size=(5,1), key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(45,1))],
-               [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(40,1))],
+               [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(40,1))],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
                [sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'), visible=True)],
                [sg.Text('Robot 1 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'), visible=False)],
@@ -198,6 +198,15 @@ def open_window():
             r1_last_angle = 0
             r2_last_angle = 0
 
+            # Calculate weekday if non given
+            if values['-start_day-']:
+                start_day = values['-start_day-']
+            else:
+                start_day = datetime.today().weekday() # 0 (Monday) through 6 (Sunday)
+                # The following translates weeday from 0-6 (Monday-Sunday) to 1-7 (Sunday-Saturday)
+                start_day += 2
+                if start_day = 8:
+                    start_day = 1
             # Calculate time if none given
             if values['-start_time-']:
                 start_time = values['-start_time-']
@@ -216,6 +225,9 @@ def open_window():
                 robot_id.insert(x, 'r1d1')
                 x += 1
 
+                # day_set
+                day_set.insert(x, str(start_day))
+
                 # time_start
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
@@ -232,6 +244,9 @@ def open_window():
                 # robot_id
                 robot_id.insert(x, 'r2d2')
                 x += 1
+
+                # day_set
+                day_set.insert(x, str(start_day))
 
                 # time_start
                 time_start.insert(x, str(r2_time.strftime("%H:%M:%S")))
