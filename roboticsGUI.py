@@ -198,16 +198,16 @@ def open_window():
 
             # Debug calculated values
             y = 0
-            while  y < ( len(location) * 2 ):
+            while  y < < (( len(location) - 2 ) * 2 ):
                 print('Printing position in lists: ' + str(y))
-                print(id[y])
-                print(robot_id[y])
-                #print(command_id[y])
-                #print(day_set[y])
-                #print(time_start[y])
-                #print(time_end[y])
-                #print(linear_velocity[y])
-                #print(angular_velocity[y])
+                print('id:' + id[y])
+                print('robot_id:' + robot_id[y])
+                #print('command_id:' + command_id[y])
+                #print('day_set:' + day_set[y])
+                #print('time_start:' + time_start[y])
+                #print('time_end:' + time_end[y])
+                #print('linear_velocity:' + linear_velocity[y])
+                #print('angular_velocity' + angular_velocity[y])
                 y += 1
 
             # Print debug text or SQL command
