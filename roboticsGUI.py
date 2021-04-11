@@ -199,6 +199,7 @@ def open_window():
                 print(time_end[y])
                 print(linear_velocity[y])
                 print(angular_velocity[y])
+                y += 1
 
             # Print debug text or SQL command
             window['-debug-'].update('Debug output goes here.')
