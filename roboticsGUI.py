@@ -38,8 +38,10 @@ def open_window():
 
     layout_options = [[sg.Input(size=(5,1), key='-r1_heading-'), sg.Text('Current heading for Robot 1 reletive to grid. 0 for directly up', size=(45,1))],
                [sg.Input(size=(5,1), key='-r2_heading-'), sg.Text('Current heading for Robot 2 reletive to grid. 0 for directly up', size=(45,1))],
-               [sg.Input(size=(5,1), key='-r1_velocity-'), sg.Text('Velocity for Robot 1 in meters/second', size=(45,1))],
-               [sg.Input(size=(5,1), key='-r2_velocity-'), sg.Text('Velocity for Robot 2 in meters/second', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
+               [sg.Input(size=(5,1), key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(45,1))],
                [sg.Input(size=(10,1), key='-start_date-'), sg.Text('Date for movement: D/M/YYYY or blank for today', size=(40,1))],
                [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
                [sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'), visible=True)],
@@ -69,6 +71,14 @@ def open_window():
               ]
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     location = []
+    id = []
+    robot_id = []
+    command_id = []
+    day_set = []
+    time_start = []
+    time_end = []
+    linear_velocity = []
+    angular_velocity = []
     #Main Event Loop
     while True:
         event, values = window.read()
@@ -145,32 +155,49 @@ def open_window():
                 break
             # Input validation for the following inputs:
             # -r1_heading-
-            print('r1_heading: ' + values['-r1_heading-'])
+            #print('r1_heading: ' + values['-r1_heading-'])
             # -r2_heading-
-            print('r1_heading: ' + values['-r2_heading-'])
-            # -r1_velocity-
-            print('r1_velocity: ' + values['-r1_velocity-'])
-            # -r2_velocity-
-            print('r2_velocity: ' + values['-r2_velocity-'])
+            #print('r1_heading: ' + values['-r2_heading-'])
+            # -r1_linear_velocity-
+            #print('r1_linear_velocity: ' + values['-r1_linear_velocity-'])
+            # -r2_linear_velocity-
+            #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
+            # -r1_angular_velocity-
+            #print('r1_angular_velocity: ' + values['-r1_angular_velocity-'])
+            # -r2_angular_velocity-
+            #print('r2_angular_velocity: ' + values['-r2_angular_velocity-'])
             # -start_date-
-            print('start_date: ' + values['-start_date-'])
+            #print('start_date: ' + values['-start_date-'])
             # -start_time-
-            print('start_time: ' + values['-start_time-'])
+            #print('start_time: ' + values['-start_time-'])
 
-            
-            # Calculate values
-            #   id
-            #   robot_id
-            #   Command_id
-            #   Day_set
-            #   Time_start
-            #   Time_end
-            #   Linear_velocity
-            #   Angular_velocity
+            #last_command_in_db = GET LAST COMMAND IN DB
+            last_command_in_db = 0
+            r1_last_angle = int(values['-r1_heading-'])
+            r2_last_angle = int(values['-r2_heading-'])
+            x = 0
+            while x < ( len(location) - 2 ): # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
 
-            # Determine the number of commands to be sent
-            # Construct commands
+                # id
+                id.insert(x, last_command_in_db + 1)
+                
+                # robot_id
+                robot_id.insert(x, r1d1)
             
+
+            # Debug calculated values
+            y = 0
+            while  y < ( len(location) * 2 ):
+                print('Printing position in lists: ' + y)
+                print(id[y])
+                print(robot_id[y])
+                print(command_id[y])
+                print(day_set[y])
+                print(time_start[y])
+                print(time_end[y])
+                print(linear_velocity[y])
+                print(angular_velocity[y])
+
             # Print debug text or SQL command
             window['-debug-'].update('Debug output goes here.')
 
