@@ -148,11 +148,10 @@ def open_window():
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
-        elif event == "Submit":
+        elif event == "Submit" and len(location) != 8:
             # Making sure the location list is filled else show error
-            if len(location) != 8:
-                window['-debug-'].update('Error: Please select all locations before submitting.')
-                break
+            window['-debug-'].update('Error: Please select all locations before submitting.')
+        elif event == "Submit" and len(location) == 8:
             # Input validation for the following inputs:
             # -r1_heading-
             #print('r1_heading: ' + values['-r1_heading-'])
