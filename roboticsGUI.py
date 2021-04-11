@@ -1,5 +1,6 @@
 import PySimpleGUIWeb as sg
 import re
+import datetime
 
 #sg.theme('Dark')
 
@@ -177,6 +178,16 @@ def open_window():
             #r2_last_angle = int(values['-r2_heading-'])
             r1_last_angle = 0
             r2_last_angle = 0
+
+            # Calculate time if none given
+            if values['-start_time-']:
+                start_time = values['-start_time-']
+            else:
+                time = datetime.now()
+                time = time + datetime.timedelta(seconds=10)
+                r1_time = time.strftime("%H:%M:%S")
+                r2_time = r1_time
+                print("start time =", r1_time)
             x = 0
             while x < ( len(location) - 2 ): # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
                 last_command += 1
@@ -186,6 +197,14 @@ def open_window():
                 # robot_id
                 robot_id.insert(x, 'r1d1')
                 x += 1
+
+                # time_start
+                time_start.insert(x, str(r1_time))
+                minutes_to_add = 0
+                seconds_to_add = 30
+                r1_time += datetime.timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
+                # time_end
+                time_end.insert(x, str(r1_time))
             
             while x < (( len(location) - 2 ) * 2 ): # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
                 last_command += 1
@@ -196,16 +215,23 @@ def open_window():
                 robot_id.insert(x, 'r2d2')
                 x += 1
 
+                # time_start
+                time_start.insert(x, str(r2_time))
+                minutes_to_add = 0
+                seconds_to_add = 30
+                r2_time += datetime.timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
+                # time_end
+                time_end.insert(x, str(r2_time))
             # Debug calculated values
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                print('Printing position in lists: ' + str(y))
-                print('id:' + str(id[y]))
-                print('robot_id:' + str(robot_id[y]))
+                print('Printing position in lists: ', y)
+                print('id:', id[y])
+                print('robot_id:', robot_id[y])
                 #print('command_id:' + str(command_id[y]))
                 #print('day_set:' + str(day_set[y]))
-                #print('time_start:' + str(time_start[y]))
-                #print('time_end:' + str(time_end[y]))
+                print('time_start:', time_start[y])
+                print('time_end:', time_end[y])
                 #print('linear_velocity:' + str(linear_velocity[y]))
                 #print('angular_velocity' + str(angular_velocity[y]))
                 y += 1
