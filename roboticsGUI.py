@@ -54,7 +54,7 @@ def open_window():
                [sg.Text('Robot 2 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_2'), visible=False)],
                [sg.Text('Robot 2 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_3'), visible=False)],
                [sg.Text('Selected for Robot 2: '), sg.Text(' ', key=('-r2_location-'))],
-               [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1))],
+               [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1)), sg.Button('Debug Fill', size=(10,1))],
                [sg.Text(' ', size=(50,10), key='-debug-')]
                ]
 
@@ -100,6 +100,17 @@ def open_window():
             break
         elif event == "Clear":
             main()
+        elif event == "Debug Fill":
+            location.insert(0, '(2, 2)')
+            location.insert(1, '(7, 2)')
+            location.insert(2, '(12, 2)')
+            location.insert(3, '(12, 7)')
+            location.insert(4, '(2, 22)')
+            location.insert(5, '(7, 17)')
+            location.insert(6, '(12, 12)')
+            location.insert(7, '(17, 12)')
+            window['(2,2)'].update('S', button_color=('white', 'blue'))
+
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
