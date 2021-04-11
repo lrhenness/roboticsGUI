@@ -182,7 +182,7 @@ def open_window():
                 id.insert(x, last_command_in_db + 1)
                 
                 # robot_id
-                robot_id.insert(x, r1d1)
+                robot_id.insert(x, 'r1d1')
             
 
             # Debug calculated values
