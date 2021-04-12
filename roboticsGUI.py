@@ -119,6 +119,8 @@ def open_window():
             window[12,12].update('2', button_color=('white', 'red'))
             window[17,12].update('3', button_color=('white', 'red'))
             window['R1_0'].update(visible=False)
+            window['-r1_units_heading-'].update('0')
+            window['-r2_units_heading-'].update('0')
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
@@ -196,16 +198,12 @@ def open_window():
             last_command = 0
             if values['-r1_units_heading-'] == "degrees":
                 r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
-                print('r1_last_angle from degrees to radians:', r1_last_angle)
             else:
-                r1_last_angle = values['-r1_heading-']
+                r1_last_angle = float(values['-r1_heading-'])
             if values['-r2_units_heading-'] == "degrees":
                 r2_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
-                print('r2_last_angle from degrees to radians:', r2_last_angle)
             else:
-                r2_last_angle = values['-r2_heading-']
-            r1_last_angle = 0
-            r2_last_angle = 0
+                r2_last_angle = float(values['-r2_heading-'])
 
             # Calculate weekday if non given
             if values['-start_day-']:
@@ -223,7 +221,6 @@ def open_window():
                 time = datetime.now() + timedelta(seconds=10)
                 r1_time = time
                 r2_time = time
-                print("start time =", r1_time)
             x = 0
 
             # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
