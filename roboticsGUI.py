@@ -242,12 +242,12 @@ def open_window():
                 #Calculate duration of rotation/movement. This will allow us to find time_end
                 if (x % 2) == 0: #even = rotation movement
                     #calculate new_angle given coordinates
-                    l = int(((int(x)+2)/2)-1)
-                    coordinate0 = location[l] #translates coordinates in location[] array with position in current array
+                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
-                    opp = ( coordinate0[1] - coordinate1[1] )
+                    opp = ( coordinate1[1] - coordinate0[1] )
                     print('opp: ', opp)
-                    adj = ( coordinate0[0] - coordinate1[0] )
+                    adj = ( coordinate1[0] - coordinate0[0] )
                     print('adj: ', adj)
                     new_angle = math.atan(opp/adj)
                     print('new_angle: ', new_angle)
