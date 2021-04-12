@@ -39,8 +39,8 @@ def open_window():
         ]
 
     layout_options = [
-        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size(5,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 0 for directly up', size=(40,1))],
-        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size(5,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 0 for directly up', size=(40,1))],
+        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(5,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 0 for directly up', size=(40,1))],
+        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(5,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 0 for directly up', size=(40,1))],
         [sg.Input(size=(5,1), key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
