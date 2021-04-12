@@ -39,8 +39,8 @@ def open_window():
         ]
 
     layout_options = [
-        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 0 for directly up', size=(35,1))],
-        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 0 for directly up', size=(35,1))],
+        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
         [sg.Input(size=(5,1), key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
@@ -248,7 +248,14 @@ def open_window():
                     print('opp: ', opp)
                     adj = ( coordinate1[0] - coordinate0[0] )
                     print('adj: ', adj)
-                    new_angle = math.atan(opp/adj)
+                    if opp == 0:
+                        new_angle = 0 #0 degrees right
+                    elif adj == 0:
+                        new_angle = 1.5707963268 #90 degrees up
+                    else:
+                        new_angle = math.atan(opp/adj)
+                    if new_angle < 0:
+                        new_angle = new_angle + 6.2831853072
                     print('new_angle: ', new_angle)
                     #calculate turn_angle given last_angle and new_angle
                 else: #odd = forward movement
