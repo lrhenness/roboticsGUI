@@ -1,6 +1,7 @@
 import PySimpleGUIWeb as sg
 import re
 from datetime import datetime, timedelta
+import math
 
 #sg.theme('Dark')
 
@@ -85,9 +86,8 @@ def open_window():
         event, values = window.read()
 
         # Print event to command line
-        print('event: ', event)
+        #print('event: ', event)
         # Check if event is a grid button being pressed
-        # There's likely a better way to do this but I like regex :)
         if re.match('\([0-9]*\,\ *[0-9]*\)', str(event)):
             window['-is_grid-'].update('Yes')
             grid = event
@@ -100,7 +100,7 @@ def open_window():
             break
         elif event == "Clear":
             main()
-        elif event == "Debug Fill":
+        elif event == "Debug Fill": # Fills location list with pre-determined grid coordinates as if selecting manually
             location.insert(0, '(2, 2)')
             location.insert(1, '(7, 2)')
             location.insert(2, '(12, 2)')
@@ -122,49 +122,49 @@ def open_window():
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('S', button_color=('white', 'blue'))
                 window['R1_0'].update(visible=False)
                 window['R1_1'].update(visible=True)
             elif event == "R1_1":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('1', button_color=('white', 'blue'))
                 window['R1_1'].update(visible=False)
                 window['R1_2'].update(visible=True)
             elif event == "R1_2":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('2', button_color=('white', 'blue'))
                 window['R1_2'].update(visible=False)
                 window['R1_3'].update(visible=True)
             elif event == "R1_3":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('3', button_color=('white', 'blue'))
                 window['R1_3'].update(visible=False)
                 window['R2_0'].update(visible=True)
             elif event == "R2_0":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('S', button_color=('white', 'red'))
                 window['R2_0'].update(visible=False)
                 window['R2_1'].update(visible=True)
             elif event == "R2_1":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('1', button_color=('white', 'red'))
                 window['R2_1'].update(visible=False)
                 window['R2_2'].update(visible=True)
             elif event == "R2_2":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('2', button_color=('white', 'red'))
                 window['R2_2'].update(visible=False)
                 window['R2_3'].update(visible=True)
             elif event == "R2_3":
                 # Make sure the grid selected is not selected by another location
-                location.append(str(grid))
+                location.append(grid)
                 window[grid].update('3', button_color=('white', 'red'))
                 window['R2_3'].update(visible=False)
             
@@ -216,7 +216,9 @@ def open_window():
                 r2_time = time
                 print("start time =", r1_time)
             x = 0
-            while x < ( len(location) - 2 ): # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
+
+            # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
+            while x < ( len(location) - 2 ):
                 last_command += 1
                 # id
                 id.insert(x, last_command)
@@ -228,6 +230,14 @@ def open_window():
                 # day_set
                 day_set.insert(x, str(start_day))
 
+                # Calculating the duration of movements
+                if (x % 2) == 0: #even = rotation movement
+                    adj=
+                
+                else: #odd = forward movement
+                    command_id.insert(x, 'C01')
+                
+
                 # time_start
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
@@ -236,7 +246,8 @@ def open_window():
                 # time_end
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S")))
             
-            while x < (( len(location) - 2 ) * 2 ): # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
+            # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
+            while x < (( len(location) - 2 ) * 2 ):
                 last_command += 1
                 # id
                 id.insert(x, last_command)
@@ -255,6 +266,7 @@ def open_window():
                 r2_time += timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
                 time_end.insert(x, str(r2_time.strftime("%H:%M:%S")))
+
             # Debug calculated values
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
