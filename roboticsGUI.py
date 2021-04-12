@@ -232,7 +232,6 @@ def open_window():
 
                 # Calculating the duration of movements
                 if (x % 2) == 0: #even = rotation movement
-                    adj=
                 
                 else: #odd = forward movement
                     command_id.insert(x, 'C01')
