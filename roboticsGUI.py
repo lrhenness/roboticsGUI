@@ -196,6 +196,8 @@ def open_window():
             # Grabbing values from input
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
+
+            # Calculate rx_last_angle and convert if necissary
             if values['-r1_units_heading-'] == "degrees":
                 r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
             else:
@@ -214,6 +216,7 @@ def open_window():
                 start_day += 2
                 if start_day == 8:
                     start_day = 1
+
             # Calculate time if none given
             if values['-start_time-']:
                 start_time = values['-start_time-']
@@ -236,10 +239,19 @@ def open_window():
                 # day_set
                 day_set.insert(x, str(start_day))
 
-                # Calculating the duration of movements
+                #Calculate duration of rotation/movement. This will allow us to find time_end
                 if (x % 2) == 0: #even = rotation movement
-                    #calculate 
-                #else: #odd = forward movement
+                    #calculate new_angle given coordinates
+                    coordinate0 = (((x+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    coordinate1 = (coordinate0+1)
+                    opp = ( location[coordinate0[1]] - location[(coordinate1[1])])
+                    print('opp: ', opp)
+                    adj = ( location[coordinate0[0]] - location[(coordinate1[0])])
+                    print('adj: ', adj)
+                    new_angle = math.atan(opp/adj)
+                    print('new_angle: ', new_angle)
+                    #calculate turn_angle given last_angle and new_angle
+                else: #odd = forward movement
                     command_id.insert(x, 'C01')
                 
 
@@ -264,6 +276,8 @@ def open_window():
                 # day_set
                 day_set.insert(x, str(start_day))
 
+                #calculate duration of rotation/movement. This will allow us to find time_end
+
                 # time_start
                 time_start.insert(x, str(r2_time.strftime("%H:%M:%S")))
                 minutes_to_add = 0
@@ -275,13 +289,13 @@ def open_window():
             # Debug calculated values
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                print('\nPrinting position in lists: ', y)
-                print('id:', id[y])
-                print('robot_id:', robot_id[y])
+                #print('\nPrinting position in lists: ', y)
+                #print('id:', id[y])
+                #print('robot_id:', robot_id[y])
                 #print('command_id:' + str(command_id[y]))
-                print('day_set:', day_set[y])
-                print('time_start:', time_start[y])
-                print('time_end:', time_end[y])
+                #print('day_set:', day_set[y])
+                #print('time_start:', time_start[y])
+                #print('time_end:', time_end[y])
                 #print('linear_velocity:' + str(linear_velocity[y]))
                 #print('angular_velocity' + str(angular_velocity[y]))
                 y += 1
