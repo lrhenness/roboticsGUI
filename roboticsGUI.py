@@ -39,8 +39,8 @@ def open_window():
         ]
 
     layout_options = [
-        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(5,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 0 for directly up', size=(40,1))],
-        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(5,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 0 for directly up', size=(40,1))],
+        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 0 for directly up', size=(35,1))],
+        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 0 for directly up', size=(35,1))],
         [sg.Input(size=(5,1), key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
@@ -194,12 +194,12 @@ def open_window():
             # Grabbing values from input
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
-            if values['-r1_units_heading-'] == degrees:
+            if values['-r1_units_heading-'] == "degrees":
                 r1_last_angle = ( values['-r1_heading-'] * ( math.pi / 180 )) #convert degrees to radians
                 print('r1_last_angle from degrees to radians:', r1_last_angle)
             else:
                 r1_last_angle = values['-r1_heading-']
-            if values['-r2_units_heading-'] == degrees:
+            if values['-r2_units_heading-'] == "degrees":
                 r1_last_angle = ( values['-r2_heading-'] * ( math.pi / 180 )) #convert degrees to radians
                 print('r2_last_angle from degrees to radians:', r2_last_angle)
             else:
