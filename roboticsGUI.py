@@ -287,6 +287,7 @@ def open_window():
                     else: #turn_angle should be exactly 180 degrees
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
+                    r1_last_angle = new_angle
                 else: #odd = forward movement
                     command_id.insert(x, 'C01')
                 
