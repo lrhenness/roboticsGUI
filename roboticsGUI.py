@@ -245,7 +245,7 @@ def open_window():
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     opp = ( coordinate1[1] - coordinate0[1] )
-                    print('opp: ', opp)
+                    print('\nopp: ', opp)
                     adj = ( coordinate1[0] - coordinate0[0] )
                     print('adj: ', adj)
                     if opp == 0 and adj >= 0:
@@ -259,17 +259,34 @@ def open_window():
                     else:
                         if opp < 1 and adj < 1:
                             new_angle = (math.atan(opp/adj) + 3.1415926536) #to account for horseplay in the way degrees/radians relate to grid locations
-                            print('opp < 1 and adj < 1')
                         elif opp < 1 and adj > 1:
                             new_angle = (math.atan(opp/adj) + 6.2831853072)
-                            print('opp < 1 and adj > 1')
                         elif opp > 1 and adj < 1:
                             new_angle = (math.atan(opp/adj) + 3.1415926536)
-                            print('opp > 1 and adj < 1')
                         else:
                             new_angle = math.atan(opp/adj)
-                    print('new_angle: ', new_angle, '\n')
+                    print('r1_last_angle: ', r1_last_angle)
+                    print('new_angle: ', new_angle,)
                     #calculate turn_angle given last_angle and new_angle
+                    turn_angle = float(new_angle) - float(r1_last_angle)
+                    if turn_angle < -3.1415926536:
+                        turn_angle += 6.2831853072
+                        #left turn
+                        command_id.insert(x, 'C03')
+                    elif turn_angle > 3.1415926536:
+                        turn_angle = abs(turn_angle - 6.2831853072)
+                        #right turn
+                        command_id.insert(x, 'C04')
+                    elif turn_angle < 0 and turn_angle > -3.1415926536:
+                        turn_angle = abs(turn_angle)
+                        #right turn
+                        command_id.insert(x, 'C04')
+                    elif turn_angle > 0 and turn_angle < 3.1415926536:
+                        #left turn
+                        command_id.insert(x, 'C03')
+                    else: #turn_angle should be exactly 180 degrees
+                        #turn right 180 degrees
+                        command_id.insert(x, 'C04')
                 else: #odd = forward movement
                     command_id.insert(x, 'C01')
                 
@@ -310,10 +327,10 @@ def open_window():
             # Debug calculated values
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                #print('\nPrinting position in lists: ', y)
-                #print('id:', id[y])
+                print('\nPrinting position in lists: ', y)
+                print('id:', id[y])
                 #print('robot_id:', robot_id[y])
-                #print('command_id:' + str(command_id[y]))
+                print('command_id:', command_id[y])
                 #print('day_set:', day_set[y])
                 #print('time_start:', time_start[y])
                 #print('time_end:', time_end[y])
