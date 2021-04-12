@@ -1,0 +1,9 @@
+Script needs:
+
+1. Make sure timezone & time is set correctly
+2. install all python dependencies:
+    - pySimpleGUI
+    - rest
+3. Spin up MySQL DB
+4. find the IP of local machine and ask for port input
+4. Spin up python3 script given web port
