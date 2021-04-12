@@ -234,7 +234,6 @@ def open_window():
                 
                 # robot_id
                 robot_id.insert(x, 'r1d1')
-                x += 1
 
                 # day_set
                 day_set.insert(x, str(start_day))
@@ -264,6 +263,8 @@ def open_window():
                 # time_end
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S")))
             
+                x += 1
+
             # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
             while x < (( len(location) - 2 ) * 2 ):
                 last_command += 1
@@ -272,7 +273,6 @@ def open_window():
                 
                 # robot_id
                 robot_id.insert(x, 'r2d2')
-                x += 1
 
                 # day_set
                 day_set.insert(x, str(start_day))
@@ -287,6 +287,7 @@ def open_window():
                 # time_end
                 time_end.insert(x, str(r2_time.strftime("%H:%M:%S")))
 
+                x += 1
             # Debug calculated values
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
