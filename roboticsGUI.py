@@ -248,13 +248,17 @@ def open_window():
                     print('opp: ', opp)
                     adj = ( coordinate1[0] - coordinate0[0] )
                     print('adj: ', adj)
-                    if opp == 0:
-                        new_angle = 0 #0 degrees right
-                    elif adj == 0:
-                        new_angle = 1.5707963268 #90 degrees up
+                    if opp == 0 and adj >= 0:
+                        new_angle = 0 #0 degrees (right)
+                    elif opp == 0 and adj < 0:
+                        new_angle = 3.1415926536 #180 degrees (left)
+                    elif adj == 0 and opp >= 0:
+                        new_angle = 1.5707963268 #90 degrees (up)
+                    elif adj == 0 and opp < 0:
+                        new_angle = 4.7123889804 #270 degrees (down)
                     else:
                         if opp < 1 and adj < 1:
-                            new_angle = (math.atan(opp/adj) + 1.5707963268) #to account for horseplay in the way degrees/radians relate to grid locations
+                            new_angle = (math.atan(opp/adj) + 3.1415926536) #to account for horseplay in the way degrees/radians relate to grid locations
                         else:
                             new_angle = math.atan(opp/adj)
                     if new_angle < 0:
