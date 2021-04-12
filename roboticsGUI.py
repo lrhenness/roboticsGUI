@@ -195,12 +195,12 @@ def open_window():
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
             if values['-r1_units_heading-'] == degrees:
-                r1_last_angle = ( values['-r1_heading-'] * ( math.pi / 180 ))) #convert degrees to radians
+                r1_last_angle = ( values['-r1_heading-'] * ( math.pi / 180 )) #convert degrees to radians
                 print('r1_last_angle from degrees to radians:', r1_last_angle)
             else:
                 r1_last_angle = values['-r1_heading-']
             if values['-r2_units_heading-'] == degrees:
-                r1_last_angle = ( values['-r2_heading-'] * ( math.pi / 180 ))) #convert degrees to radians
+                r1_last_angle = ( values['-r2_heading-'] * ( math.pi / 180 )) #convert degrees to radians
                 print('r2_last_angle from degrees to radians:', r2_last_angle)
             else:
                 r1_last_angle = values['-r2_heading-']
