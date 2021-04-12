@@ -119,8 +119,8 @@ def open_window():
             window[12,12].update('2', button_color=('white', 'red'))
             window[17,12].update('3', button_color=('white', 'red'))
             window['R1_0'].update(visible=False)
-            window['-r1_units_heading-'].update('0')
-            window['-r2_units_heading-'].update('0')
+            window['-r1_heading-'].update('0')
+            window['-r2_heading-'].update('0')
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
