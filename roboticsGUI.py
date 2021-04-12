@@ -254,7 +254,7 @@ def open_window():
                         new_angle = 1.5707963268 #90 degrees up
                     else:
                         if opp < 1 and adj < 1:
-                            new_angle = (math.atan(opp/adj) * -1) #to account for horseplay in the way degrees/radians relate to grid locations
+                            new_angle = (math.atan(opp/adj) + 1.5707963268) #to account for horseplay in the way degrees/radians relate to grid locations
                         else:
                             new_angle = math.atan(opp/adj)
                     if new_angle < 0:
