@@ -200,10 +200,10 @@ def open_window():
             else:
                 r1_last_angle = values['-r1_heading-']
             if values['-r2_units_heading-'] == "degrees":
-                r1_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
+                r2_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
                 print('r2_last_angle from degrees to radians:', r2_last_angle)
             else:
-                r1_last_angle = values['-r2_heading-']
+                r2_last_angle = values['-r2_heading-']
             r1_last_angle = 0
             r2_last_angle = 0
 
