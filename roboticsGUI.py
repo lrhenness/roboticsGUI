@@ -259,10 +259,12 @@ def open_window():
                     else:
                         if opp < 1 and adj < 1:
                             new_angle = (math.atan(opp/adj) + 3.1415926536) #to account for horseplay in the way degrees/radians relate to grid locations
+                        elif opp < 1 and adj > 1:
+                            new_angle = new_angle + 3.1415926536
+                        elif opp > 1 and adj < 1:
+                            new_angle = abs(new_angle - 3.1415926536)
                         else:
                             new_angle = math.atan(opp/adj)
-                    if new_angle < 0:
-                        new_angle = new_angle + 3.1415926536
                     print('new_angle: ', new_angle)
                     #calculate turn_angle given last_angle and new_angle
                 else: #odd = forward movement
