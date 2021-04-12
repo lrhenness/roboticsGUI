@@ -231,10 +231,10 @@ def open_window():
                 day_set.insert(x, str(start_day))
 
                 # Calculating the duration of movements
-                if (x % 2) == 0: #even = rotation movement
+                #if (x % 2) == 0: #even = rotation movement
                 
-                else: #odd = forward movement
-                    command_id.insert(x, 'C01')
+                #else: #odd = forward movement
+                #    command_id.insert(x, 'C01')
                 
 
                 # time_start
