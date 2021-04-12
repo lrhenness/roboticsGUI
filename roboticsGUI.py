@@ -264,9 +264,7 @@ def open_window():
                             new_angle = (math.atan(opp/adj) + 3.1415926536)
                             print('opp < 1 and adj > 1')
                         elif opp > 1 and adj < 1:
-                            temp_new_angle = (math.atan(opp/adj) - 3.1415926536)
-                            print('temp_new_angle: ', temp_new_angle)
-                            new_angle = abs(temp_new_angle)
+                            new_angle = (math.atan(opp/adj) + 3.1415926536)
                             print('opp > 1 and adj < 1')
                         else:
                             new_angle = math.atan(opp/adj)
