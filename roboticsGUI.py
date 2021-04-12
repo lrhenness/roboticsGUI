@@ -255,7 +255,7 @@ def open_window():
                     else:
                         new_angle = math.atan(opp/adj)
                     if new_angle < 0:
-                        new_angle = new_angle + 6.2831853072
+                        new_angle = new_angle + 3.1415926536
                     print('new_angle: ', new_angle)
                     #calculate turn_angle given last_angle and new_angle
                 else: #odd = forward movement
