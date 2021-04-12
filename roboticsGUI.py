@@ -244,7 +244,7 @@ def open_window():
                     #calculate new_angle given coordinates
                     l = int(((int(x)+2)/2)-1)
                     coordinate0 = location[l] #translates coordinates in location[] array with position in current array
-                    coordinate1 = location[(coordinate0+1)]
+                    coordinate1 = location[(l+1)]
                     opp = ( coordinate0[1] - coordinate1[1] )
                     print('opp: ', opp)
                     adj = ( coordinate0[0] - coordinate1[0] )
