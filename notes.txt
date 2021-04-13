@@ -2,6 +2,7 @@ Pick up:
 Just finished adding in rotational calculations. The only thing left to do for the rotations are the following:
 - Add in lines to calculate rotation duration  given turn_angle and r1_angular_velocity
 - Then, make sure it works and port it over to r2!
+- Change weekday to 0-6 (starting Sunday)
 
 
 Script needs:
