@@ -130,7 +130,7 @@ def open_window():
                 except IndexError:
                     pass
                 else:
-                    window[location[0]].update('*', button_color=('None'))
+                    window[location[0]].update('*', button_color=(sg.theme_button_color))
                 finally:
                     location.insert(0, grid)
                     window[grid].update('S', button_color=('white', 'blue'))
