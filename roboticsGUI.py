@@ -123,8 +123,7 @@ def open_window():
             window['-r2_heading-'].update('0')
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
-            if event == "R1_0":
-                # Make sure the grid selected is not selected by another location
+            if event == "R1_0" and grid not in location: # Make sure the grid selected is not selected by another location
                 try:
                     location[0]
                 except IndexError:
@@ -135,41 +134,83 @@ def open_window():
                     location.insert(0, grid)
                     window[grid].update('S', button_color=('white', 'blue'))
                     window['R1_0'].update(button_color=('white', 'green'))
-            elif event == "R1_1":
-                # Make sure the grid selected is not selected by another location
-                location.insert(1, grid)
-                window[grid].update('1', button_color=('white', 'blue'))
-                window['R1_1'].update(button_color=('white', 'green'))
-            elif event == "R1_2":
-                # Make sure the grid selected is not selected by another location
-                location.insert(2, grid)
-                window[grid].update('2', button_color=('white', 'blue'))
-                window['R1_2'].update(button_color=('white', 'green'))
-            elif event == "R1_3":
-                # Make sure the grid selected is not selected by another location
-                location.insert(3, grid)
-                window[grid].update('3', button_color=('white', 'blue'))
-                window['R1_3'].update(button_color=('white', 'green'))
-            elif event == "R2_0":
-                # Make sure the grid selected is not selected by another location
-                location.insert(4, grid)
-                window[grid].update('S', button_color=('white', 'red'))
-                window['R2_0'].update(button_color=('white', 'green'))
-            elif event == "R2_1":
-                # Make sure the grid selected is not selected by another location
-                location.insert(5, grid)
-                window[grid].update('1', button_color=('white', 'red'))
-                window['R2_1'].update(button_color=('white', 'green'))
-            elif event == "R2_2":
-                # Make sure the grid selected is not selected by another location
-                location.insert(6, grid)
-                window[grid].update('2', button_color=('white', 'red'))
-                window['R2_2'].update(button_color=('white', 'green'))
-            elif event == "R2_3":
-                # Make sure the grid selected is not selected by another location
-                location.insert(7, grid)
-                window[grid].update('3', button_color=('white', 'red'))
-                window['R2_3'].update(button_color=('white', 'green'))
+            elif event == "R1_1" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[1]
+                except IndexError:
+                    pass
+                else:
+                    window[location[1]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(1, grid)
+                    window[grid].update('1', button_color=('white', 'blue'))
+                    window['R1_1'].update(button_color=('white', 'green'))
+            elif event == "R1_2" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[2]
+                except IndexError:
+                    pass
+                else:
+                    window[location[2]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(2, grid)
+                    window[grid].update('2', button_color=('white', 'blue'))
+                    window['R1_2'].update(button_color=('white', 'green'))
+            elif event == "R1_3" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[3]
+                except IndexError:
+                    pass
+                else:
+                    window[location[3]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(3, grid)
+                    window[grid].update('3', button_color=('white', 'blue'))
+                    window['R1_3'].update(button_color=('white', 'green'))
+            elif event == "R2_0" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[4]
+                except IndexError:
+                    pass
+                else:
+                    window[location[4]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(4, grid)
+                    window[grid].update('S', button_color=('white', 'red'))
+                    window['R2_0'].update(button_color=('white', 'green'))
+            elif event == "R2_1" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[5]
+                except IndexError:
+                    pass
+                else:
+                    window[location[5]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(5, grid)
+                    window[grid].update('1', button_color=('white', 'red'))
+                    window['R2_1'].update(button_color=('white', 'green'))
+            elif event == "R2_2" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[6]
+                except IndexError:
+                    pass
+                else:
+                    window[location[6]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(6, grid)
+                    window[grid].update('2', button_color=('white', 'red'))
+                    window['R2_2'].update(button_color=('white', 'green'))
+            elif event == "R2_3" and grid not in location: # Make sure the grid selected is not selected by another location
+                try:
+                    location[7]
+                except IndexError:
+                    pass
+                else:
+                    window[location[7]].update('*', button_color=(sg.theme_button_color()))
+                finally:
+                    location.insert(7, grid)
+                    window[grid].update('3', button_color=('white', 'red'))
+                    window['R2_3'].update(button_color=('white', 'green'))
             
         elif event == "Submit" and len(location) != 8:
             # Making sure the location list is filled else show error
