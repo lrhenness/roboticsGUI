@@ -132,7 +132,7 @@ def open_window():
                     window[grid].update('S', button_color=('white', 'blue'))
                     window['R1_0'].update(button_color=('white', 'green'))
                 else:
-                    window[location[0]].update('*', button_color=(None))
+                    window[location[0]].update('*', button_color=('None'))
             elif event == "R1_1":
                 # Make sure the grid selected is not selected by another location
                 location.insert(1, grid)
