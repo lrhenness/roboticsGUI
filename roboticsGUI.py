@@ -48,13 +48,13 @@ def open_window():
         [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(40,1))],
         [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
         [sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'), visible=True)],
-        [sg.Text('Robot 1 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'), visible=False)],
-        [sg.Text('Robot 1 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_2'), visible=False)],
-        [sg.Text('Robot 1 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_3'), visible=False)],
-        [sg.Text('Robot 2 starting location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_0'), visible=False)],
-        [sg.Text('Robot 2 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_1'), visible=False)],
-        [sg.Text('Robot 2 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_2'), visible=False)],
-        [sg.Text('Robot 2 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_3'), visible=False)],
+        [sg.Text('Robot 1 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'))],
+        [sg.Text('Robot 1 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_2'))],
+        [sg.Text('Robot 1 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_3'))],
+        [sg.Text('Robot 2 starting location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_0'))],
+        [sg.Text('Robot 2 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_1'))],
+        [sg.Text('Robot 2 second location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_2'))],
+        [sg.Text('Robot 2 third location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R2_3'))],
         [sg.Text('Selected for Robot 2: '), sg.Text(' ', key=('-r2_location-'))],
         [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1)), sg.Button('Debug Fill', size=(10,1))],
         [sg.Text(' ', size=(50,10), key='-debug-')]
@@ -118,58 +118,51 @@ def open_window():
             window[7,17].update('1', button_color=('white', 'red'))
             window[12,12].update('2', button_color=('white', 'red'))
             window[17,12].update('3', button_color=('white', 'red'))
-            window['R1_0'].update(visible=False)
+            window['R1_0'].update(button_color=('white', 'green'))
             window['-r1_heading-'].update('0')
             window['-r2_heading-'].update('0')
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(0, grid)
                 window[grid].update('S', button_color=('white', 'blue'))
-                window['R1_0'].update(visible=False)
-                window['R1_1'].update(visible=True)
+                window['R1_0'].update(button_color=('white', 'green'))
             elif event == "R1_1":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(1, grid)
                 window[grid].update('1', button_color=('white', 'blue'))
-                window['R1_1'].update(visible=False)
-                window['R1_2'].update(visible=True)
+                window['R1_1'].update(button_color=('white', 'green'))
             elif event == "R1_2":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(2, grid)
                 window[grid].update('2', button_color=('white', 'blue'))
-                window['R1_2'].update(visible=False)
-                window['R1_3'].update(visible=True)
+                window['R1_2'].update(button_color=('white', 'green'))
             elif event == "R1_3":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(3, grid)
                 window[grid].update('3', button_color=('white', 'blue'))
-                window['R1_3'].update(visible=False)
-                window['R2_0'].update(visible=True)
+                window['R1_3'].update(button_color=('white', 'green'))
             elif event == "R2_0":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(4, grid)
                 window[grid].update('S', button_color=('white', 'red'))
-                window['R2_0'].update(visible=False)
-                window['R2_1'].update(visible=True)
+                window['R2_0'].update(button_color=('white', 'green'))
             elif event == "R2_1":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(5, grid)
                 window[grid].update('1', button_color=('white', 'red'))
-                window['R2_1'].update(visible=False)
-                window['R2_2'].update(visible=True)
+                window['R2_1'].update(button_color=('white', 'green'))
             elif event == "R2_2":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(6, grid)
                 window[grid].update('2', button_color=('white', 'red'))
-                window['R2_2'].update(visible=False)
-                window['R2_3'].update(visible=True)
+                window['R2_2'].update(button_color=('white', 'green'))
             elif event == "R2_3":
                 # Make sure the grid selected is not selected by another location
-                location.append(grid)
+                location.insert(7, grid)
                 window[grid].update('3', button_color=('white', 'red'))
-                window['R2_3'].update(visible=False)
+                window['R2_3'].update(button_color=('white', 'green'))
             
         elif event == "Submit" and len(location) != 8:
             # Making sure the location list is filled else show error
