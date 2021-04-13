@@ -125,8 +125,8 @@ def open_window():
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0":
                 # Make sure the grid selected is not selected by another location
-                if location(0):
-                    window[location(0)].update('*', button_color=(None))
+                if location[0]:
+                    window[location[0]].update('*', button_color=(None))
                 location.insert(0, grid)
                 window[grid].update('S', button_color=('white', 'blue'))
                 window['R1_0'].update(button_color=('white', 'green'))
