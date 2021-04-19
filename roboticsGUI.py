@@ -230,8 +230,10 @@ def open_window():
             #print('r1_heading: ' + values['-r2_heading-'])
             # -r1_linear_velocity-
             #print('r1_linear_velocity: ' + values['-r1_linear_velocity-'])
+            r1_linear_velocity = float(values['-r1_linear_velocity-'])
             # -r2_linear_velocity-
             #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
+            r2_linear_velocity = float(values['-r2_linear_velocity-'])
             # -r1_angular_velocity-
             # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
             #print('r1_angular_velocity: ' + values['-r1_angular_velocity-'])
@@ -354,9 +356,18 @@ def open_window():
                 else: #odd = forward movement
                     command_id.insert(x, 'C01') 
                     angular_velocity.insert(x, '0')
-                    ### DEBUG, REMOVE WHEN BUILDING OUT LINEAR VELOCITY ###
-                    linear_velocity.insert(x, '1')
-                
+                    linear_velocity.insert(x, r1_linear_velocity)
+                    #calculate distance given pythagorean theorem
+                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    coordinate0 = location[l]
+                    coordinate1 = location[(l+1)]
+                    #finding opposite and adjacent sides of the triange to calculate distance
+                    opp = ( coordinate1[1] - coordinate0[1] )
+                    adj = ( coordinate1[0] - coordinate0[0] )
+                    #pythagorean theorem to find missing side's length using math.hypot
+                    hyp = math.hypot(opp,adj)
+                    #calculate duration given distance and linear_velocity
+                    duration = (float(hyp) / float(r1_linear_velocity))
 
                 # time_start
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
