@@ -39,7 +39,7 @@ def open_window():
         ]
 
     layout_options = [
-        [sg.Input(size=(5,1), default_text='0', key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(5,1), focus=True, default_text='0', key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
         [sg.Input(size=(5,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
         [sg.Input(size=(5,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(5,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
