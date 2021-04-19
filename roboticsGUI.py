@@ -80,6 +80,7 @@ def open_window():
     day_set = []
     time_start = []
     time_end = []
+    angular_velocity = []
     #Main Event Loop
     while True:
         event, values = window.read()
@@ -335,12 +336,18 @@ def open_window():
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r1_angular_velocity
                     duration = (float(turn_angle) / float(r1_angular_velocity))
+                    #change angular_velocity to positive or negative depending on the direction of turn needed
+                    #and add result to the list
+
+                    #debug
                     print('turn angle: ', turn_angle)
                     print('duration: ', duration)
+                    #set last_angle for next iteration
                     r1_last_angle = new_angle
                     
                 else: #odd = forward movement
-                    command_id.insert(x, 'C01')
+                    command_id.insert(x, 'C01') 
+                    angular_velocity.insert(x, '0')
                 
 
                 # time_start
