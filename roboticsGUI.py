@@ -121,6 +121,10 @@ def open_window():
             window['R1_0'].update(button_color=('white', 'green'))
             window['-r1_heading-'].update('0')
             window['-r2_heading-'].update('0')
+            window['-r1_linear_velocity-'].update('1')
+            window['-r1_linear_velocity-'].update('1')
+            window['-r1_angular_velocity-'].update('0.1745329252')
+            window['-r2_angular_velocity-'].update('0.1745329252')
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0" and grid not in location: # Make sure the grid selected is not selected by another location
