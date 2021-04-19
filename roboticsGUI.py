@@ -39,12 +39,12 @@ def open_window():
         ]
 
     layout_options = [
-        [sg.Input(size=(5,1), key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
-        [sg.Input(size=(5,1), key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
-        [sg.Input(size=(5,1), key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
-        [sg.Input(size=(5,1), key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
-        [sg.Input(size=(5,1), key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
-        [sg.Input(size=(5,1), key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(45,1))],
+        [sg.Input(size=(5,1), default_text='0', key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(5,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(5,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
+        [sg.Input(size=(5,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
+        [sg.Input(size=(5,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(45,1))],
+        [sg.Input(size=(5,1), default_text='0.2617994', key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(45,1))],
         [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(40,1))],
         [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
         [sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'), visible=True)],
@@ -254,9 +254,9 @@ def open_window():
             else:
                 start_day = datetime.today().weekday() # 0 (Monday) through 6 (Sunday)
                 # The following translates weeday from 0-6 (Monday-Sunday) to 1-7 (Sunday-Saturday)
-                start_day += 2
-                if start_day == 8:
-                    start_day = 1
+                start_day += 1
+                if start_day == 7:
+                    start_day = 0
 
             # Calculate time if none given
             if values['-start_time-']:
@@ -307,7 +307,7 @@ def open_window():
                         else:
                             new_angle = math.atan(opp/adj)
                     print('r1_last_angle: ', r1_last_angle)
-                    print('new_angle: ', new_angle,)
+                    print('new_angle: ', new_angle)
                     #calculate turn_angle given last_angle and new_angle
                     turn_angle = float(new_angle) - float(r1_last_angle)
                     if turn_angle < -3.1415926536:
@@ -328,7 +328,10 @@ def open_window():
                     else: #turn_angle should be exactly 180 degrees
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
+                    #calculate duration given last_angle, new_angle, and r1_angular_velocity
+                    print('turn angle: ', turn_angle)
                     r1_last_angle = new_angle
+                    
                 else: #odd = forward movement
                     command_id.insert(x, 'C01')
                 
