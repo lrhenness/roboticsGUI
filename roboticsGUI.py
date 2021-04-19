@@ -360,6 +360,8 @@ def open_window():
                 else: #odd = forward movement
                     command_id.insert(x, 'C01') 
                     angular_velocity.insert(x, '0')
+                    ### DEBUG, REMOVE WHEN BUILDING OUT LINEAR VELOCITY ###
+                    linear_velocity.insert(x, '1')
                 
 
                 # time_start
