@@ -335,7 +335,6 @@ def open_window():
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r1_angular_velocity
                     duration_seconds = (float(turn_angle) / float(r1_angular_velocity))
-                    duration = str(timedelta(seconds = duration_seconds).strftime("%H:%M:%S"))
                     print('turn angle: ', turn_angle)
                     print('duration: ', duration)
                     r1_last_angle = new_angle
@@ -346,10 +345,8 @@ def open_window():
 
                 # time_start
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S")))
-                minutes_to_add = 0
-                seconds_to_add = 30
-                r1_time += timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
+                r1_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S")))
             
                 x += 1
@@ -385,10 +382,10 @@ def open_window():
                 #print('robot_id:', robot_id[y])
                 print('command_id:', command_id[y])
                 #print('day_set:', day_set[y])
-                #print('time_start:', time_start[y])
-                #print('time_end:', time_end[y])
+                print('time_start:', time_start[y])
+                print('time_end:', time_end[y])
                 #print('linear_velocity:' + str(linear_velocity[y]))
-                #print('angular_velocity' + str(angular_velocity[y]))
+                print('angular_velocity', angular_velocity[y])
                 y += 1
 
             # Print debug text or SQL command
