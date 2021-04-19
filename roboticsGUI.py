@@ -45,7 +45,7 @@ def open_window():
         [sg.Input(size=(5,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
         [sg.Input(size=(10,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(40,1))],
         [sg.Input(size=(10,1), default_text='0.2617994', key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(40,1))],
-        [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(40,1))],
+        [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(45,1))],
         [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
         [sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_0'), visible=True)],
         [sg.Text('Robot 1 first location', size=(40,1)), sg.Button('Select', size=(10,1), key=('R1_1'))],
