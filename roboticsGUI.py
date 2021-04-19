@@ -346,7 +346,8 @@ def open_window():
                     if command_id[x] == 'C03':
                         #left turn, make angular velocity negative
                         angular_velocity.insert(x, (0 - r1_angular_velocity))
-                    else:
+                    elif command_id[x] == 'C04':
+                        #right turn, keep angular velocity positive
                         angular_velocity.insert(x, r1_angular_velocity)
                     linear_velocity.insert(x, '0')
 
