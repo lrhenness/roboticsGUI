@@ -122,7 +122,7 @@ def open_window():
             window['-r1_heading-'].update('0')
             window['-r2_heading-'].update('0')
             window['-r1_linear_velocity-'].update('1')
-            window['-r1_linear_velocity-'].update('1')
+            window['-r2_linear_velocity-'].update('1')
             window['-r1_angular_velocity-'].update('0.1745329252')
             window['-r2_angular_velocity-'].update('0.1745329252')
 
