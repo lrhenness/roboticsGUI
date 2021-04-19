@@ -372,6 +372,7 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
                 # time_end
+                print('duration for itteration ', x, ' is:', duration)
                 r1_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
             
