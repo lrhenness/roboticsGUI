@@ -131,7 +131,7 @@ def open_window():
                 else:
                     window[location[0]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(0, grid)
+                    location[0] = grid
                     window[grid].update('S', button_color=('white', 'blue'))
                     window['R1_0'].update(button_color=('white', 'green'))
             elif event == "R1_1" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -142,7 +142,7 @@ def open_window():
                 else:
                     window[location[1]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(1, grid)
+                    location[1] = grid
                     window[grid].update('1', button_color=('white', 'blue'))
                     window['R1_1'].update(button_color=('white', 'green'))
             elif event == "R1_2" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -153,7 +153,7 @@ def open_window():
                 else:
                     window[location[2]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(2, grid)
+                    location[2] = grid
                     window[grid].update('2', button_color=('white', 'blue'))
                     window['R1_2'].update(button_color=('white', 'green'))
             elif event == "R1_3" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -164,7 +164,7 @@ def open_window():
                 else:
                     window[location[3]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(3, grid)
+                    location[3] = grid
                     window[grid].update('3', button_color=('white', 'blue'))
                     window['R1_3'].update(button_color=('white', 'green'))
             elif event == "R2_0" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -175,7 +175,7 @@ def open_window():
                 else:
                     window[location[4]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(4, grid)
+                    location[4] = grid
                     window[grid].update('S', button_color=('white', 'red'))
                     window['R2_0'].update(button_color=('white', 'green'))
             elif event == "R2_1" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -186,7 +186,7 @@ def open_window():
                 else:
                     window[location[5]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(5, grid)
+                    location[5] = grid
                     window[grid].update('1', button_color=('white', 'red'))
                     window['R2_1'].update(button_color=('white', 'green'))
             elif event == "R2_2" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -197,7 +197,7 @@ def open_window():
                 else:
                     window[location[6]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(6, grid)
+                    location[6] = grid
                     window[grid].update('2', button_color=('white', 'red'))
                     window['R2_2'].update(button_color=('white', 'green'))
             elif event == "R2_3" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -208,7 +208,7 @@ def open_window():
                 else:
                     window[location[7]].update('*', button_color=(sg.theme_button_color()))
                 finally:
-                    location.insert(7, grid)
+                    location[7] = grid
                     window[grid].update('3', button_color=('white', 'red'))
                     window['R2_3'].update(button_color=('white', 'green'))
             
