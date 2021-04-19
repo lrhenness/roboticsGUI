@@ -127,7 +127,7 @@ def open_window():
                 try:
                     location[0]
                 except IndexError:
-                    pass
+                    location.insert(0, grid)
                 else:
                     window[location[0]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -138,7 +138,7 @@ def open_window():
                 try:
                     location[1]
                 except IndexError:
-                    pass
+                    location.insert(1, grid)
                 else:
                     window[location[1]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -149,7 +149,7 @@ def open_window():
                 try:
                     location[2]
                 except IndexError:
-                    pass
+                    location.insert(2, grid)
                 else:
                     window[location[2]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -160,7 +160,7 @@ def open_window():
                 try:
                     location[3]
                 except IndexError:
-                    pass
+                    location.insert(3, grid)
                 else:
                     window[location[3]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -171,7 +171,7 @@ def open_window():
                 try:
                     location[4]
                 except IndexError:
-                    pass
+                    location.insert(4, grid)
                 else:
                     window[location[4]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -182,7 +182,7 @@ def open_window():
                 try:
                     location[5]
                 except IndexError:
-                    pass
+                    location.insert(5, grid)
                 else:
                     window[location[5]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -193,7 +193,7 @@ def open_window():
                 try:
                     location[6]
                 except IndexError:
-                    pass
+                    location.insert(6, grid)
                 else:
                     window[location[6]].update('*', button_color=(sg.theme_button_color()))
                 finally:
@@ -204,7 +204,7 @@ def open_window():
                 try:
                     location[7]
                 except IndexError:
-                    pass
+                    location.insert(7, grid)
                 else:
                     window[location[7]].update('*', button_color=(sg.theme_button_color()))
                 finally:
