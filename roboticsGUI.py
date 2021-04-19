@@ -332,7 +332,7 @@ def open_window():
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r1_angular_velocity
                     duration_seconds = (float(turn_angle) / float(r1_angular_velocity))
-                    duration = timedelta(seconds = duration_seconds)
+                    duration = timedelta(seconds = duration_seconds).strftime("%H:%M:%S")
                     print('turn angle: ', turn_angle)
                     print('duration: ', duration)
                     r1_last_angle = new_angle
