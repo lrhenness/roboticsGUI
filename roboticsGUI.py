@@ -216,7 +216,7 @@ def open_window():
         elif event == "Submit" and len(location) != 8 and not (values['-r1_angular_velocity-'] or values['-r2_angular_velocity-']):
             # Making sure the location list is filled and both angular velocities are filled else show error
             window['-debug-'].update('Error: Please select all locations and enter all values before submitting.')
-        elif event == "Submit" and len(location) == 8 and (values['-r1_angular_velocity-'] or values['-r2_angular_velocity-']):
+        elif event == "Submit" and len(location) == 8 and values['-r1_angular_velocity-'] and values['-r2_angular_velocity-']:
             # Input validation for the following inputs:
             # -r1_heading-
             #print('r1_heading: ' + values['-r1_heading-'])
