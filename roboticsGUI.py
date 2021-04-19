@@ -384,8 +384,6 @@ def open_window():
                 #print('day_set:', day_set[y])
                 print('time_start:', time_start[y])
                 print('time_end:', time_end[y])
-                #print('linear_velocity:' + str(linear_velocity[y]))
-                print('angular_velocity', angular_velocity[y])
                 y += 1
 
             # Print debug text or SQL command
