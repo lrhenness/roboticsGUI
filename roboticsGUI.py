@@ -226,8 +226,10 @@ def open_window():
             # -r2_linear_velocity-
             #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
             # -r1_angular_velocity-
+            # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
             #print('r1_angular_velocity: ' + values['-r1_angular_velocity-'])
             # -r2_angular_velocity-
+            # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
             #print('r2_angular_velocity: ' + values['-r2_angular_velocity-'])
             # -start_date-
             #print('start_date: ' + values['-start_date-'])
@@ -328,8 +330,11 @@ def open_window():
                     else: #turn_angle should be exactly 180 degrees
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
-                    #calculate duration given last_angle, new_angle, and r1_angular_velocity
+                    #calculate duration given turn_angle and r1_angular_velocity
+                    duration_seconds = (float(turn_angle) / float(r1_angular_velocity))
+                    duration = timedelta(seconds = duration_seconds)
                     print('turn angle: ', turn_angle)
+                    print('duration: ', duration)
                     r1_last_angle = new_angle
                     
                 else: #odd = forward movement
