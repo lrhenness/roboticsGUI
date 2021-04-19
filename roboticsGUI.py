@@ -344,10 +344,10 @@ def open_window():
                 
 
                 # time_start
-                time_start.insert(x, str(r1_time.strftime("%H:%M:%S")))
+                time_start.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
                 # time_end
                 r1_time += timedelta(seconds = duration)
-                time_end.insert(x, str(r1_time.strftime("%H:%M:%S")))
+                time_end.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
             
                 x += 1
 
@@ -366,12 +366,12 @@ def open_window():
                 #calculate duration of rotation/movement. This will allow us to find time_end
 
                 # time_start
-                time_start.insert(x, str(r2_time.strftime("%H:%M:%S")))
+                time_start.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
                 minutes_to_add = 0
                 seconds_to_add = 30
                 r2_time += timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
-                time_end.insert(x, str(r2_time.strftime("%H:%M:%S")))
+                time_end.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
 
                 x += 1
             # Debug calculated values
