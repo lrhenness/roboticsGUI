@@ -210,9 +210,12 @@ def open_window():
                     window[grid].update('3', button_color=('white', 'red'))
                     window['R2_3'].update(button_color=('white', 'green'))
             
-        elif event == "Submit" and len(location) != 8:
+        elif event == "Submit" and len(location) != 8 and (values['-r1_angular_velocity-'] or values['-r2_angular_velocity-']):
             # Making sure the location list is filled else show error
             window['-debug-'].update('Error: Please select all locations before submitting.')
+        elif event == "Submit" and len(location) != 8 and not (values['-r1_angular_velocity-'] or values['-r2_angular_velocity-']):
+            # Making sure the location list is filled and both angular velocities are filled else show error
+            window['-debug-'].update('Error: Please select all locations and enter all values before submitting.')
         elif event == "Submit" and len(location) == 8:
             # Input validation for the following inputs:
             # -r1_heading-
