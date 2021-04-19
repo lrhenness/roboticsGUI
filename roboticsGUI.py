@@ -80,6 +80,7 @@ def open_window():
     day_set = []
     time_start = []
     time_end = []
+    linear_velocity = []
     angular_velocity = []
     #Main Event Loop
     while True:
@@ -338,6 +339,12 @@ def open_window():
                     duration = (float(turn_angle) / float(r1_angular_velocity))
                     #change angular_velocity to positive or negative depending on the direction of turn needed
                     #and add result to the list
+                    if command_id[x] == 'C03':
+                        #left turn, make angular velocity negative
+                        angular_velocity.insert(x, (0 - r1_angular_velocity))
+                    else:
+                        angular_velocity.insert(x, r1_angular_velocity)
+                    linear_velocity.insert(x, '0')
 
                     #debug
                     print('turn angle: ', turn_angle)
@@ -388,6 +395,8 @@ def open_window():
                 print('id:', id[y])
                 #print('robot_id:', robot_id[y])
                 print('command_id:', command_id[y])
+                print('angular_velocity:', angular_velocity[x])
+                print('linear_velocity:', linear_velocity[x])
                 #print('day_set:', day_set[y])
                 print('time_start:', time_start[y])
                 print('time_end:', time_end[y])
