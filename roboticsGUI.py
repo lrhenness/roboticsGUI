@@ -296,10 +296,9 @@ def open_window():
                     l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
+                    #finding opposite and adjacent sides of the triange to calculate angle of turn
                     opp = ( coordinate1[1] - coordinate0[1] )
-                    print('\nopp: ', opp)
                     adj = ( coordinate1[0] - coordinate0[0] )
-                    print('adj: ', adj)
                     if opp == 0 and adj >= 0:
                         new_angle = 0 #0 degrees (right)
                     elif opp == 0 and adj < 0:
@@ -317,8 +316,6 @@ def open_window():
                             new_angle = (math.atan(opp/adj) + 3.1415926536)
                         else:
                             new_angle = math.atan(opp/adj)
-                    print('r1_last_angle: ', r1_last_angle)
-                    print('new_angle: ', new_angle)
                     #calculate turn_angle given last_angle and new_angle
                     turn_angle = float(new_angle) - float(r1_last_angle)
                     if turn_angle < -3.1415926536:
@@ -351,9 +348,6 @@ def open_window():
                         angular_velocity.insert(x, r1_angular_velocity)
                     linear_velocity.insert(x, '0')
 
-                    #debug
-                    print('turn angle: ', turn_angle)
-                    print('duration: ', duration)
                     #set last_angle for next iteration
                     r1_last_angle = new_angle
                     
@@ -395,7 +389,8 @@ def open_window():
                 time_end.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
 
                 x += 1
-            # Debug calculated values
+
+            # Debug calculated values that will be sent to database
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('\nPrinting position in lists: ', y)
@@ -410,7 +405,7 @@ def open_window():
                 y += 1
 
             # Print debug text or SQL command
-            window['-debug-'].update('Debug output goes here.')
+            window['-debug-'].update('Sending to database...')
 
             #Send commands to MySQL
         
