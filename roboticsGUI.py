@@ -80,8 +80,6 @@ def open_window():
     day_set = []
     time_start = []
     time_end = []
-    linear_velocity = []
-    angular_velocity = []
     #Main Event Loop
     while True:
         event, values = window.read()
@@ -228,9 +226,11 @@ def open_window():
             # -r1_angular_velocity-
             # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
             #print('r1_angular_velocity: ' + values['-r1_angular_velocity-'])
+            r1_angular_velocity = values['-r1_angular_velocity-']
             # -r2_angular_velocity-
             # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
             #print('r2_angular_velocity: ' + values['-r2_angular_velocity-'])
+            r2_angular_velocity = values['-r2_angular_velocity-']
             # -start_date-
             #print('start_date: ' + values['-start_date-'])
             # -start_time-
