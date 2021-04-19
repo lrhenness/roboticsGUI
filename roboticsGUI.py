@@ -230,10 +230,10 @@ def open_window():
             #print('r1_heading: ' + values['-r2_heading-'])
             # -r1_linear_velocity-
             #print('r1_linear_velocity: ' + values['-r1_linear_velocity-'])
-            r1_linear_velocity = float(values['-r1_linear_velocity-'])
+            r1_linear_velocity = values['-r1_linear_velocity-']
             # -r2_linear_velocity-
             #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
-            r2_linear_velocity = float(values['-r2_linear_velocity-'])
+            r2_linear_velocity = values['-r2_linear_velocity-']
             # -r1_angular_velocity-
             # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
             #print('r1_angular_velocity: ' + values['-r1_angular_velocity-'])
