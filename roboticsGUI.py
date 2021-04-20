@@ -222,7 +222,7 @@ def open_window():
                 window['-debug-'].update('Error: Please select all locations before submitting.')
                 continue
             if values['-r1_angular_velocity-']:
-                if values['-r1_angular_velocity-'] > 0:
+                if float(values['-r1_angular_velocity-']) > 0:
                     r1_angular_velocity = float(values['-r1_angular_velocity-'])
                 else:
                     window['-debug-'].update('Error: Please enter a valid angular velocity for robot 1.')
@@ -231,7 +231,7 @@ def open_window():
                 window['-debug-'].update('Error: Please enter an angular velocity for robot 1.')
                 continue
             if values['-r2_angular_velocity-']:
-                if values['-r2_angular_velocity-'] > 0:
+                if float(values['-r2_angular_velocity-']) > 0:
                     r2_angular_velocity = float(values['-r2_angular_velocity-'])
                 else:
                     window['-debug-'].update('Error: Please enter a valid angular velocity for robot 2.')
