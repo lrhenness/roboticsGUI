@@ -1,16 +1,25 @@
 Pick up:
-Just finished adding in rotational calculations. The only thing left to do for the rotations are the following:
-- Add in lines to calculate rotation duration  given turn_angle and r1_angular_velocity
-- Then, make sure it works and port it over to r2!
-- Change weekday to 0-6 (starting Sunday)
+Just finished movement and rotation. Need to build in the following:
+    - Input validation and checking. Need hard limits for:
+        headings: if degrees int 0-359, if radians, the equivelant
+        linear velocity: float from 0.001 to ???
+        angular velocity: float from 0.001 to ???
+        weekday: int from 1 to 7
+        time: regex HH:MM:SS anytime - [0-2][0-9]\:[0-5][0-9]\:[0-5][0-9]
+    - Database healthcheck
+    - Database retrieve (or error on) highest "id" from table "DEPLOY"
+    - Structure arrays into strings to send commands to Database
+    - Send commands to database and check that they "made it there safely" for user
 
-
-Script needs:
+Deploy script needs:
 
 1. Make sure timezone & time is set correctly
+    - Your timezone is ___ and the current time on this machine is ___, is this correct and in tune with robots? y/n
+    - if 'n' then exit script and have them change timezone
 2. install all python dependencies:
     - pySimpleGUI
     - rest
+    - datetime
 3. Spin up MySQL DB
 4. find the IP of local machine and ask for port input
 4. Spin up python3 script given web port
