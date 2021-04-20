@@ -362,8 +362,8 @@ def open_window():
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     #finding opposite and adjacent sides of the triange to calculate distance
-                    opp = ( coordinate1[1] - coordinate0[1] )
-                    adj = ( coordinate1[0] - coordinate0[0] )
+                    opp = abs( coordinate1[1] - coordinate0[1] )
+                    adj = abs( coordinate1[0] - coordinate0[0] )
                     print('Movement. opposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
@@ -466,8 +466,8 @@ def open_window():
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     #finding opposite and adjacent sides of the triange to calculate distance
-                    opp = ( coordinate1[1] - coordinate0[1] )
-                    adj = ( coordinate1[0] - coordinate0[0] )
+                    opp = abs( coordinate1[1] - coordinate0[1] )
+                    adj = abs( coordinate1[0] - coordinate0[0] )
                     print('Movement. opposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
