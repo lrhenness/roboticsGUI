@@ -1,3 +1,6 @@
+ISSUE with input validation for time when attempting to put in a valid time
+
+
 Pick up:
 Just finished movement and rotation. Need to build in the following:
     - Input validation and checking. Need hard limits for:
