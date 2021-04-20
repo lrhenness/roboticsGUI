@@ -43,8 +43,8 @@ def open_window():
         [sg.Input(size=(10,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
         [sg.Input(size=(10,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(10,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
-        [sg.Input(size=(10,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r1_units_angular-')), sg.Text('Angular velocity for Robot 1 (per second)', size=(35,1))],
-        [sg.Input(size=(10,1), default_text='0.2617994', key='-r2_angular_velocity-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r2_units_angular-')), sg.Text('Angular velocity for Robot 2 (per second)', size=(35,1))],
+        [sg.Input(size=(10,1), default_text='10', key='-r1_angular_velocity-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r1_units_angular-')), sg.Text('Angular velocity for Robot 1 (per second)', size=(35,1))],
+        [sg.Input(size=(10,1), default_text='10', key='-r2_angular_velocity-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r2_units_angular-')), sg.Text('Angular velocity for Robot 2 (per second)', size=(35,1))],
         [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(45,1))],
         [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
         [sg.Button('Select', size=(10,1), key=('R1_0')), sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1))],
@@ -372,16 +372,13 @@ def open_window():
 
             # -start_time-
             if values['-start_time-']:
-                try: datetime.strptime(values['-start_time-'], '%H:%M:%S').time()
+                try: 
+                    r1_time, r2_time = datetime.strptime(values['-start_time-'], '%H:%M:%S').time()
                 except ValueError:
                     window['-debug-'].update('Error: Please enter a valid start time in the format HH:MM:SS (24-hour time) or leave blank')
                     continue
-                else:
-                    start_time = values['-start_time-']
             else:
-                time = datetime.now() + timedelta(seconds=10)
-                r1_time = time
-                r2_time = time
+                r1_time, r2_time = datetime.now() + timedelta(seconds=10)
 
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
