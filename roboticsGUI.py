@@ -372,7 +372,7 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
                 # time_end
-                print('duration for itteration ', x, ' is:', duration)
+                print('duration for r1 itteration ', x, ' is:', duration)
                 r1_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
             
@@ -470,7 +470,7 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
                 # time_end
-                print('duration for itteration ', x, ' is:', duration)
+                print('duration for r2 itteration ', x, ' is:', duration)
                 r2_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
 
@@ -481,17 +481,32 @@ def open_window():
             while  y < (( len(location) - 2 ) * 2 ):
                 print('\nPrinting position in lists: ', y)
                 print('id:', id[y])
-                #print('robot_id:', robot_id[y])
+                print('robot_id:', robot_id[y])
                 print('command_id:', command_id[y])
                 print('angular_velocity:', angular_velocity[y])
                 print('linear_velocity:', linear_velocity[y])
-                #print('day_set:', day_set[y])
+                print('day_set:', day_set[y])
                 print('time_start:', time_start[y])
                 print('time_end:', time_end[y])
                 y += 1
 
             # Print debug text or SQL command
             window['-debug-'].update('Sending to database...')
+
+            #Format commands to send
+            """ z = 0
+            while  z < (( len(location) - 2 ) * 2 ):
+                if time_start[z] == time_end[z]:
+                    id.pop(z)
+                    robot_id.pop(z)
+                    command_id.pop(z)
+                    day_set.pop(z)
+                    time_start.pop(z)
+                    time_end.pop(z)
+                    linear_velocity.pop(z)
+                    angular_velocity.pop(z)
+                z += 1
+                #Round time_start and time_end to milliseconds """
 
             #Send commands to MySQL
         
