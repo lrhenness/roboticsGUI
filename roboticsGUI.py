@@ -225,7 +225,7 @@ def open_window():
             # -r1_heading-
             if values['-r1_heading-']:
                 if values['-r1_units_heading-'] == "degrees":
-                    if float(values['-r1_units_heading-']) >= 0 and float(values['-r1_units_heading-']) < 360:
+                    if int(values['-r1_units_heading-']) >= 0 and int(values['-r1_units_heading-']) < 360:
                         r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
                     else:
                         window['-debug-'].update('Error: Please enter a valid heading for robot 1 between 0 and 360.')
