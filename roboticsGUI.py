@@ -39,10 +39,10 @@ def open_window():
         ]
 
     layout_options = [
-        [sg.Input(size=(5,1), focus=True, default_text='0', key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
-        [sg.Input(size=(5,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
-        [sg.Input(size=(5,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
-        [sg.Input(size=(5,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
+        [sg.Input(size=(10,1), focus=True, default_text='0', key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(10,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(10,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
+        [sg.Input(size=(10,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
         [sg.Input(size=(10,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(40,1))],
         [sg.Input(size=(10,1), default_text='0.2617994', key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(40,1))],
         [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(45,1))],
@@ -64,7 +64,7 @@ def open_window():
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
               #[sg.Text('')],
               [sg.Frame('Inputs',[[
-                  sg.Column(layout_grid, pad=((50,15),(15,15))),
+                  sg.Column(layout_grid, pad=((65,15),(15,15))),
                   sg.Text(' '),
                   sg.Column(layout_options, pad=(15,15))
                   ]],
@@ -276,10 +276,14 @@ def open_window():
 
             # -r1_linear_velocity-
             if values['-r1_linear_velocity-']:
-                if float(values['-r1_linear_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
-                    r1_linear_velocity = float(values['-r1_linear_velocity-'])
-                else:
-                    window['-debug-'].update('Error: Please enter a valid linear velocity for robot 1.')
+                try:
+                    if float(values['-r1_linear_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
+                        r1_linear_velocity = float(values['-r1_linear_velocity-'])
+                    else:
+                        window['-debug-'].update('Error: Please enter a valid linear velocity for robot 1.')
+                        continue
+                except ValueError:
+                    window['-debug-'].update('Float Error: Please enter a valid floating point number linear velocity for robot 1.')
                     continue
             else:
                 window['-debug-'].update('Error: Please enter a linear velocity for robot 1.')
@@ -287,10 +291,14 @@ def open_window():
 
             # -r2_linear_velocity-
             if values['-r2_linear_velocity-']:
-                if float(values['-r2_linear_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
-                    r2_linear_velocity = float(values['-r2_linear_velocity-'])
-                else:
-                    window['-debug-'].update('Error: Please enter a valid linear velocity for robot 2.')
+                try:
+                    if float(values['-r2_linear_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
+                        r2_linear_velocity = float(values['-r2_linear_velocity-'])
+                    else:
+                        window['-debug-'].update('Error: Please enter a valid linear velocity for robot 2.')
+                        continue
+                except ValueError:
+                    window['-debug-'].update('Float Error: Please enter a valid floating point number linear velocity for robot 2.')
                     continue
             else:
                 window['-debug-'].update('Error: Please enter a linear velocity for robot 2.')
