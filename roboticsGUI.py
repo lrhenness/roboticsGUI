@@ -221,8 +221,68 @@ def open_window():
             if len(location) != 8:
                 window['-debug-'].update('Error: Please select all locations before submitting.')
                 continue
+
+            # -r1_heading-
+            if values['-r1_heading-']:
+                if values['-r1_units_heading-'] == "degrees":
+                    if float(values['-r1_units_heading-']) >= 0 and float(values['-r1_units_heading-']) < 360:
+                        r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
+                    else:
+                        window['-debug-'].update('Error: Please enter a valid heading for robot 1 between 0 and 360.')
+                        continue
+                else:
+                    if float(values['-r1_units_heading-']) >= 0 and float(values['-r1_units_heading-']) < 6.2831853072:
+                        r1_last_angle = float(values['-r1_heading-'])
+                    else:
+                        window['-debug-'].update('Error: Please enter a valid heading for robot 1 between 0 and 6.2831853072')
+                        continue
+            else:
+                window['-debug-'].update('Error: Please enter an heading for robot 1.')
+                continue
+
+            # -r2_heading-
+            if values['-r2_heading-']:
+                if values['-r2_units_heading-'] == "degrees":
+                    if float(values['-r2_units_heading-']) >= 0 and float(values['-r2_units_heading-']) < 360:
+                        r2_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
+                    else:
+                        window['-debug-'].update('Error: Please enter a valid heading for robot 2 between 0 and 360.')
+                        continue
+                else:
+                    if float(values['-r2_units_heading-']) >= 0 and float(values['-r2_units_heading-']) < 6.2831853072:
+                        r2_last_angle = float(values['-r2_heading-'])
+                    else:
+                        window['-debug-'].update('Error: Please enter a valid heading for robot 2 between 0 and 6.2831853072')
+                        continue
+            else:
+                window['-debug-'].update('Error: Please enter an heading for robot 2.')
+                continue
+
+            # -r1_linear_velocity-
+            if values['-r1_linear_velocity-']:
+                if float(values['-r1_linear_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
+                    r1_linear_velocity = float(values['-r1_linear_velocity-'])
+                else:
+                    window['-debug-'].update('Error: Please enter a valid linear velocity for robot 1.')
+                    continue
+            else:
+                window['-debug-'].update('Error: Please enter a linear velocity for robot 1.')
+                continue
+
+            # -r2_linear_velocity-
+            if values['-r2_linear_velocity-']:
+                if float(values['-r2_linear_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
+                    r2_linear_velocity = float(values['-r2_linear_velocity-'])
+                else:
+                    window['-debug-'].update('Error: Please enter a valid linear velocity for robot 2.')
+                    continue
+            else:
+                window['-debug-'].update('Error: Please enter a linear velocity for robot 2.')
+                continue
+
+            # -r1_angular_velocity-
             if values['-r1_angular_velocity-']:
-                if float(values['-r1_angular_velocity-']) > 0:
+                if float(values['-r1_angular_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
                     r1_angular_velocity = float(values['-r1_angular_velocity-'])
                 else:
                     window['-debug-'].update('Error: Please enter a valid angular velocity for robot 1.')
@@ -230,8 +290,10 @@ def open_window():
             else:
                 window['-debug-'].update('Error: Please enter an angular velocity for robot 1.')
                 continue
+
+            # -r2_angular_velocity-
             if values['-r2_angular_velocity-']:
-                if float(values['-r2_angular_velocity-']) > 0:
+                if float(values['-r2_angular_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
                     r2_angular_velocity = float(values['-r2_angular_velocity-'])
                 else:
                     window['-debug-'].update('Error: Please enter a valid angular velocity for robot 2.')
@@ -239,38 +301,14 @@ def open_window():
             else:
                 window['-debug-'].update('Error: Please enter an angular velocity for robot 2.')
                 continue
-                # -r1_heading-
-                #print('r1_heading: ' + values['-r1_heading-'])
-                # -r2_heading-
-                #print('r1_heading: ' + values['-r2_heading-'])
-                # -r1_linear_velocity-
-                #print('r1_linear_velocity: ' + values['-r1_linear_velocity-'])
-                r1_linear_velocity = values['-r1_linear_velocity-']
-                # -r2_linear_velocity-
-                #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
-                r2_linear_velocity = values['-r2_linear_velocity-']
-                # -start_date-
-                #print('start_date: ' + values['-start_date-'])
-                # -start_time-
-                #print('start_time: ' + values['-start_time-'])
 
-            # Grabbing values from input
-            #last_command = GET LAST COMMAND IN DB
-            last_command = 0
-
-            # Calculate rx_last_angle and convert if necissary
-            if values['-r1_units_heading-'] == "degrees":
-                r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
-            else:
-                r1_last_angle = float(values['-r1_heading-'])
-            if values['-r2_units_heading-'] == "degrees":
-                r2_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
-            else:
-                r2_last_angle = float(values['-r2_heading-'])
-
-            # Calculate weekday if non given
+            # -start_day-
             if values['-start_day-']:
-                start_day = values['-start_day-']
+                if int(values['-start_day-']) >= 1 and int(values['-start_day-']) <= 7: # UPDATE WITH BETTER VALIDATION
+                    start_day = values['-start_day-']
+                else:
+                    window['-debug-'].update('Error: Please enter a valid start day between 1 and 7.')
+                    continue
             else:
                 start_day = datetime.today().weekday() # 0 (Monday) through 6 (Sunday)
                 # The following translates weeday from 0-6 (Monday-Sunday) to 1-7 (Sunday-Saturday)
@@ -278,15 +316,22 @@ def open_window():
                 if start_day == 7:
                     start_day = 0
 
-            # Calculate time if none given
+            # -start_time-
             if values['-start_time-']:
-                start_time = values['-start_time-']
+                try: datetime.strptime(values['-start_time-'], '%H:%M:%S').time()
+                except ValueError:
+                    window['-debug-'].update('Error: Please enter a valid start time in the format HH:MM:SS (24-hour time) or leave blank')
+                    continue
+                else:
+                    start_time = values['-start_time-']
             else:
                 time = datetime.now() + timedelta(seconds=10)
                 r1_time = time
                 r2_time = time
-            x = 0
 
+            #last_command = GET LAST COMMAND IN DB
+            last_command = 0
+            x = 0
             # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
             while x < ( len(location) - 2 ):
                 last_command += 1
