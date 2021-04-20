@@ -390,14 +390,88 @@ def open_window():
                 # day_set
                 day_set.insert(x, str(start_day))
 
-                #calculate duration of rotation/movement. This will allow us to find time_end
+                #Calculate duration of rotation/movement. This will allow us to find time_end
+                if (x % 2) == 0: #even = rotation movement
+                    #calculate new_angle given coordinates
+                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    coordinate0 = location[l]
+                    coordinate1 = location[(l+1)]
+                    #finding opposite and adjacent sides of the triange to calculate angle of turn
+                    opp = ( coordinate1[1] - coordinate0[1] )
+                    adj = ( coordinate1[0] - coordinate0[0] )
+                    if opp == 0 and adj >= 0:
+                        new_angle = 0 #0 degrees (right)
+                    elif opp == 0 and adj < 0:
+                        new_angle = 3.1415926536 #180 degrees (left)
+                    elif adj == 0 and opp >= 0:
+                        new_angle = 1.5707963268 #90 degrees (up)
+                    elif adj == 0 and opp < 0:
+                        new_angle = 4.7123889804 #270 degrees (down)
+                    else:
+                        if opp < 1 and adj < 1:
+                            new_angle = (math.atan(opp/adj) + 3.1415926536) #to account for horseplay in the way degrees/radians relate to grid locations
+                        elif opp < 1 and adj > 1:
+                            new_angle = (math.atan(opp/adj) + 6.2831853072)
+                        elif opp > 1 and adj < 1:
+                            new_angle = (math.atan(opp/adj) + 3.1415926536)
+                        else:
+                            new_angle = math.atan(opp/adj)
+                    #calculate turn_angle given last_angle and new_angle
+                    turn_angle = float(new_angle) - float(r2_last_angle)
+                    if turn_angle < -3.1415926536:
+                        turn_angle += 6.2831853072
+                        #left turn
+                        command_id.insert(x, 'C03')
+                    elif turn_angle > 3.1415926536:
+                        turn_angle = abs(turn_angle - 6.2831853072)
+                        #right turn
+                        command_id.insert(x, 'C04')
+                    elif turn_angle < 0 and turn_angle > -3.1415926536:
+                        turn_angle = abs(turn_angle)
+                        #right turn
+                        command_id.insert(x, 'C04')
+                    elif turn_angle > 0 and turn_angle < 3.1415926536:
+                        #left turn
+                        command_id.insert(x, 'C03')
+                    else: #turn_angle should be exactly 180 degrees
+                        #turn right 180 degrees
+                        command_id.insert(x, 'C04')
+                    #calculate duration given turn_angle and r2_angular_velocity
+                    duration = (float(turn_angle) / float(r2_angular_velocity))
+                    #change angular_velocity to positive or negative depending on the direction of turn needed
+                    #and add result to the list
+                    if command_id[x] == 'C03':
+                        #left turn, make angular velocity negative
+                        angular_velocity.insert(x, (0 - r2_angular_velocity))
+                    elif command_id[x] == 'C04':
+                        #right turn, keep angular velocity positive
+                        angular_velocity.insert(x, r2_angular_velocity)
+                    linear_velocity.insert(x, '0')
+
+                    #set last_angle for next iteration
+                    r2_last_angle = new_angle
+                    
+                else: #odd = forward movement
+                    command_id.insert(x, 'C01') 
+                    angular_velocity.insert(x, '0')
+                    linear_velocity.insert(x, r2_linear_velocity)
+                    #calculate distance given pythagorean theorem
+                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    coordinate0 = location[l]
+                    coordinate1 = location[(l+1)]
+                    #finding opposite and adjacent sides of the triange to calculate distance
+                    opp = ( coordinate1[1] - coordinate0[1] )
+                    adj = ( coordinate1[0] - coordinate0[0] )
+                    #pythagorean theorem to find missing side's length using math.hypot
+                    hyp = math.hypot(opp,adj)
+                    #calculate duration given distance and linear_velocity
+                    duration = (float(hyp) / float(r2_linear_velocity))
 
                 # time_start
                 time_start.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
-                minutes_to_add = 0
-                seconds_to_add = 30
-                r2_time += timedelta(minutes = minutes_to_add, seconds = seconds_to_add)
                 # time_end
+                print('duration for itteration ', x, ' is:', duration)
+                r2_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
 
                 x += 1
