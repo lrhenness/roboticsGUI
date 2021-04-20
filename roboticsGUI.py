@@ -301,6 +301,7 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
                     opp = ( coordinate1[1] - coordinate0[1] )
                     adj = ( coordinate1[0] - coordinate0[0] )
+                    print('Turn. \topposite:', opp, '\tadjacent:', adj)
                     if opp == 0 and adj >= 0:
                         new_angle = 0 #0 degrees (right)
                     elif opp == 0 and adj < 0:
@@ -364,7 +365,7 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate distance
                     opp = abs( coordinate1[1] - coordinate0[1] )
                     adj = abs( coordinate1[0] - coordinate0[0] )
-                    print('Movement. opposite:', opp, '\tadjacent:', adj)
+                    print('Movement. \topposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
                         hyp = adj
@@ -405,6 +406,7 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
                     opp = ( coordinate1[1] - coordinate0[1] )
                     adj = ( coordinate1[0] - coordinate0[0] )
+                    print('Turn. \topposite:', opp, '\tadjacent:', adj)
                     if opp == 0 and adj >= 0:
                         new_angle = 0 #0 degrees (right)
                     elif opp == 0 and adj < 0:
@@ -468,7 +470,7 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate distance
                     opp = abs( coordinate1[1] - coordinate0[1] )
                     adj = abs( coordinate1[0] - coordinate0[0] )
-                    print('Movement. opposite:', opp, '\tadjacent:', adj)
+                    print('Movement. \topposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
                         hyp = adj
