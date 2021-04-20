@@ -373,12 +373,15 @@ def open_window():
             # -start_time-
             if values['-start_time-']:
                 try: 
-                    r1_time, r2_time = datetime.strptime(values['-start_time-'], '%H:%M:%S')
+                    time = datetime.strptime(values['-start_time-'], '%H:%M:%S').time()
                 except ValueError:
                     window['-debug-'].update('Error: Please enter a valid start time in the format HH:MM:SS (24-hour time) or leave blank')
                     continue
             else:
-                r1_time, r2_time = datetime.now() + timedelta(seconds=10)
+                time = datetime.now() + timedelta(seconds=10)
+            finally:
+                r1_time = time
+                r2_time = time
 
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
