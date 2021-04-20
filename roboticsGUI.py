@@ -216,36 +216,43 @@ def open_window():
                     window[grid].update('3', button_color=('white', 'red'))
                     window['R2_3'].update(button_color=('white', 'green'))
             
-        elif event == "Submit" and len(location) != 8 and (values['-r1_angular_velocity-'] or values['-r2_angular_velocity-']):
-            # Making sure the location list is filled else show error
-            window['-debug-'].update('Error: Please select all locations before submitting.')
-        elif event == "Submit" and len(location) != 8 and not (values['-r1_angular_velocity-'] or values['-r2_angular_velocity-']):
-            # Making sure the location list is filled and both angular velocities are filled else show error
-            window['-debug-'].update('Error: Please select all locations and enter all values before submitting.')
-        elif event == "Submit" and len(location) == 8 and values['-r1_angular_velocity-'] and values['-r2_angular_velocity-']:
-            # Input validation for the following inputs:
-            # -r1_heading-
-            #print('r1_heading: ' + values['-r1_heading-'])
-            # -r2_heading-
-            #print('r1_heading: ' + values['-r2_heading-'])
-            # -r1_linear_velocity-
-            #print('r1_linear_velocity: ' + values['-r1_linear_velocity-'])
-            r1_linear_velocity = values['-r1_linear_velocity-']
-            # -r2_linear_velocity-
-            #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
-            r2_linear_velocity = values['-r2_linear_velocity-']
-            # -r1_angular_velocity-
-            # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
-            #print('r1_angular_velocity: ' + values['-r1_angular_velocity-'])
-            r1_angular_velocity = float(values['-r1_angular_velocity-'])
-            # -r2_angular_velocity-
-            # SHOULD NOT BE LESS THAN 0.15 DEGREES/SECOND
-            #print('r2_angular_velocity: ' + values['-r2_angular_velocity-'])
-            r2_angular_velocity = float(values['-r2_angular_velocity-'])
-            # -start_date-
-            #print('start_date: ' + values['-start_date-'])
-            # -start_time-
-            #print('start_time: ' + values['-start_time-'])
+        elif event == "Submit":
+            # Input validation time!!!
+            if len(location) != 8:
+                window['-debug-'].update('Error: Please select all locations before submitting.')
+                continue
+            if values['-r1_angular_velocity-']:
+                if values['-r1_angular_velocity-'] > 0:
+                    r1_angular_velocity = float(values['-r1_angular_velocity-'])
+                else:
+                    window['-debug-'].update('Error: Please enter a valid angular velocity for robot 1.')
+                    continue
+            else:
+                window['-debug-'].update('Error: Please enter an angular velocity for robot 1.')
+                continue
+            if values['-r2_angular_velocity-']:
+                if values['-r2_angular_velocity-'] > 0:
+                    r2_angular_velocity = float(values['-r2_angular_velocity-'])
+                else:
+                    window['-debug-'].update('Error: Please enter a valid angular velocity for robot 2.')
+                    continue
+            else:
+                window['-debug-'].update('Error: Please enter an angular velocity for robot 2.')
+                continue
+                # -r1_heading-
+                #print('r1_heading: ' + values['-r1_heading-'])
+                # -r2_heading-
+                #print('r1_heading: ' + values['-r2_heading-'])
+                # -r1_linear_velocity-
+                #print('r1_linear_velocity: ' + values['-r1_linear_velocity-'])
+                r1_linear_velocity = values['-r1_linear_velocity-']
+                # -r2_linear_velocity-
+                #print('r2_linear_velocity: ' + values['-r2_linear_velocity-'])
+                r2_linear_velocity = values['-r2_linear_velocity-']
+                # -start_date-
+                #print('start_date: ' + values['-start_date-'])
+                # -start_time-
+                #print('start_time: ' + values['-start_time-'])
 
             # Grabbing values from input
             #last_command = GET LAST COMMAND IN DB
