@@ -43,8 +43,8 @@ def open_window():
         [sg.Input(size=(10,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
         [sg.Input(size=(10,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(10,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
-        [sg.Input(size=(10,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(40,1))],
-        [sg.Input(size=(10,1), default_text='0.2617994', key='-r2_angular_velocity-'), sg.Text('Angular velocity for Robot 2 in radians/second', size=(40,1))],
+        [sg.Input(size=(10,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r1_units_angular-')), sg.Text('Angular velocity for Robot 1 (per second)', size=(35,1))],
+        [sg.Input(size=(10,1), default_text='0.2617994', key='-r2_angular_velocity-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r2_units_angular-')), sg.Text('Angular velocity for Robot 2 (per second)', size=(35,1))],
         [sg.Input(size=(10,1), key='-start_day-'), sg.Text('Weekday for movement: (1-7) or blank for today (1 = Sunday)', size=(45,1))],
         [sg.Input(size=(10,1), key='-start_time-'), sg.Text('Time for movement: HH:MM:SS or blank for T+10 seconds', size=(40,1))],
         [sg.Button('Select', size=(10,1), key=('R1_0')), sg.Text('Robot 1 starting location (Select grid location first)', size=(40,1))],
@@ -306,11 +306,26 @@ def open_window():
 
             # -r1_angular_velocity-
             if values['-r1_angular_velocity-']:
-                if float(values['-r1_angular_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
-                    r1_angular_velocity = float(values['-r1_angular_velocity-'])
+                if values['-r1_units_angular-'] == "degrees":
+                    try:
+                        if int(values['-r1_angular_velocity-']) >= 0 and int(values['-r1_angular_velocity-']) < 360:
+                            r1_angular_velocity = ( float(values['-r1_angular_velocity-']) * ( math.pi / 180 )) #convert degrees to radians
+                        else:
+                            window['-debug-'].update('Degrees Error: Please enter a valid angular velocity for robot 1 between 0 and 360 degrees per second.')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Integer Error: Please enter a valid integer angular velocity for robot 1 between 0 and 360 degrees per second.')
+                        continue
                 else:
-                    window['-debug-'].update('Error: Please enter a valid angular velocity for robot 1.')
-                    continue
+                    try:
+                        if float(values['-r1_angular_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
+                            r1_angular_velocity = float(values['-r1_angular_velocity-'])
+                        else:
+                            window['-debug-'].update('Radians Error: Please enter a valid angular velocity for robot 1 between 0 and ??? radians per second.')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Float Error: Please enter a valid floating point angular velocity for robot 1 between 0 and ??? radians per second.')
+                        continue
             else:
                 window['-debug-'].update('Error: Please enter an angular velocity for robot 1.')
                 continue
