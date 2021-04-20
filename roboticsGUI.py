@@ -40,7 +40,7 @@ def open_window():
 
     layout_options = [
         [sg.Input(size=(10,1), focus=True, default_text='0', key='-r1_heading-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r1_units_heading-')), sg.Text('Current heading for Robot 1. 90 for directly up', size=(35,1))],
-        [sg.Input(size=(10,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(10,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
+        [sg.Input(size=(10,1), default_text='0', key='-r2_heading-'), sg.Combo(['radians', 'degrees'], size=(8,1), key=('-r2_units_heading-')), sg.Text('Current heading for Robot 2. 90 for directly up', size=(35,1))],
         [sg.Input(size=(10,1), default_text='1', key='-r1_linear_velocity-'), sg.Text('Linear velocity for Robot 1 in meters/second', size=(45,1))],
         [sg.Input(size=(10,1), default_text='1', key='-r2_linear_velocity-'), sg.Text('Linear velocity for Robot 2 in meters/second', size=(45,1))],
         [sg.Input(size=(10,1), default_text='0.2617994', key='-r1_angular_velocity-'), sg.Text('Angular velocity for Robot 1 in radians/second', size=(40,1))],
@@ -55,6 +55,7 @@ def open_window():
         [sg.Button('Select', size=(10,1), key=('R2_1')), sg.Text('Robot 2 first location', size=(40,1))],
         [sg.Button('Select', size=(10,1), key=('R2_2')), sg.Text('Robot 2 second location', size=(40,1))],
         [sg.Button('Select', size=(10,1), key=('R2_3')), sg.Text('Robot 2 third location', size=(40,1))],
+        [sg.Text(' ')],
         [sg.Button('Submit', size=(10,1)), sg.Button('Clear', size=(10,1)), sg.Button('Exit', size=(10,1)), sg.Button('Debug Fill', size=(10,1))],
         [sg.Text(' ', size=(50,10), key='-debug-')]
         ]
