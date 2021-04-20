@@ -308,7 +308,7 @@ def open_window():
             if values['-r1_angular_velocity-']:
                 if values['-r1_units_angular-'] == "degrees":
                     try:
-                        if int(values['-r1_angular_velocity-']) >= 0 and int(values['-r1_angular_velocity-']) < 360:
+                        if int(values['-r1_angular_velocity-']) > 0 and int(values['-r1_angular_velocity-']) < 360:
                             r1_angular_velocity = ( float(values['-r1_angular_velocity-']) * ( math.pi / 180 )) #convert degrees to radians
                         else:
                             window['-debug-'].update('Degrees Error: Please enter a valid angular velocity for robot 1 between 0 and 360 degrees per second.')
@@ -332,11 +332,26 @@ def open_window():
 
             # -r2_angular_velocity-
             if values['-r2_angular_velocity-']:
-                if float(values['-r2_angular_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
-                    r2_angular_velocity = float(values['-r2_angular_velocity-'])
+                if values['-r2_units_angular-'] == "degrees":
+                    try:
+                        if int(values['-r2_angular_velocity-']) > 0 and int(values['-r2_angular_velocity-']) < 360:
+                            r2_angular_velocity = ( float(values['-r2_angular_velocity-']) * ( math.pi / 180 )) #convert degrees to radians
+                        else:
+                            window['-debug-'].update('Degrees Error: Please enter a valid angular velocity for robot 2 between 0 and 360 degrees per second.')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Integer Error: Please enter a valid integer angular velocity for robot 2 between 0 and 360 degrees per second.')
+                        continue
                 else:
-                    window['-debug-'].update('Error: Please enter a valid angular velocity for robot 2.')
-                    continue
+                    try:
+                        if float(values['-r2_angular_velocity-']) > 0: # UPDATE WITH BETTER VALIDATION
+                            r2_angular_velocity = float(values['-r2_angular_velocity-'])
+                        else:
+                            window['-debug-'].update('Radians Error: Please enter a valid angular velocity for robot 2 between 0 and ??? radians per second.')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Float Error: Please enter a valid floating point angular velocity for robot 2 between 0 and ??? radians per second.')
+                        continue
             else:
                 window['-debug-'].update('Error: Please enter an angular velocity for robot 2.')
                 continue
