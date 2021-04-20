@@ -295,7 +295,7 @@ def open_window():
                 #Calculate duration of rotation/movement. This will allow us to find time_end
                 if (x % 2) == 0: #even = rotation movement
                     #calculate new_angle given coordinates
-                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    l = (((x+2)/2)-1) #translates coordinates in location[] array with position in current array
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
@@ -358,7 +358,7 @@ def open_window():
                     angular_velocity.insert(x, '0')
                     linear_velocity.insert(x, r1_linear_velocity)
                     #calculate distance given pythagorean theorem
-                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    l = (((x+1)/2)-1) #translates coordinates in location[] array with position in current array
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     #finding opposite and adjacent sides of the triange to calculate distance
@@ -399,7 +399,7 @@ def open_window():
                 #Calculate duration of rotation/movement. This will allow us to find time_end
                 if (x % 2) == 0: #even = rotation movement
                     #calculate new_angle given coordinates
-                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    l = ((x+1)/2) #translates coordinates in location[] array with position in current array
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
@@ -462,7 +462,7 @@ def open_window():
                     angular_velocity.insert(x, '0')
                     linear_velocity.insert(x, r2_linear_velocity)
                     #calculate distance given pythagorean theorem
-                    l = int(((int(x)+2)/2)-1) #translates coordinates in location[] array with position in current array
+                    l = ((x+2)/2) #translates coordinates in location[] array with position in current array
                     coordinate0 = location[l]
                     coordinate1 = location[(l+1)]
                     #finding opposite and adjacent sides of the triange to calculate distance
