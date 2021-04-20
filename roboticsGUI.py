@@ -225,16 +225,24 @@ def open_window():
             # -r1_heading-
             if values['-r1_heading-']:
                 if values['-r1_units_heading-'] == "degrees":
-                    if int(values['-r1_heading-']) >= 0 and int(values['-r1_heading-']) < 360:
-                        r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
-                    else:
-                        window['-debug-'].update('Error: Please enter a valid heading for robot 1 between 0 and 360.')
+                    try:
+                        if int(values['-r1_heading-']) >= 0 and int(values['-r1_heading-']) < 360:
+                            r1_last_angle = ( float(values['-r1_heading-']) * ( math.pi / 180 )) #convert degrees to radians
+                        else:
+                            window['-debug-'].update('Degrees Error: Please enter a valid heading for robot 1 between 0 and 360.')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Integer Error: Please enter a valid integer heading for robot 1 between 0 and 360.')
                         continue
                 else:
-                    if float(values['-r1_heading-']) >= 0 and float(values['-r1_heading-']) < 6.2831853072:
-                        r1_last_angle = float(values['-r1_heading-'])
-                    else:
-                        window['-debug-'].update('Error: Please enter a valid heading for robot 1 between 0 and 6.2831853072')
+                    try:
+                        if float(values['-r1_heading-']) >= 0 and float(values['-r1_heading-']) < 6.2831853072:
+                            r1_last_angle = float(values['-r1_heading-'])
+                        else:
+                            window['-debug-'].update('Radians Error: Please enter a valid heading for robot 1 between 0 and 6.2831853072')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Float Error: Please enter a valid float heading for robot 1 between 0 and 6.2831853072')
                         continue
             else:
                 window['-debug-'].update('Error: Please enter an heading for robot 1.')
@@ -243,16 +251,24 @@ def open_window():
             # -r2_heading-
             if values['-r2_heading-']:
                 if values['-r2_units_heading-'] == "degrees":
-                    if int(values['-r2_heading-']) >= 0 and int(values['-r2_heading-']) < 360:
-                        r2_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
-                    else:
-                        window['-debug-'].update('Error: Please enter a valid heading for robot 2 between 0 and 360.')
+                    try:
+                        if int(values['-r2_heading-']) >= 0 and int(values['-r2_heading-']) < 360:
+                            r2_last_angle = ( float(values['-r2_heading-']) * ( math.pi / 180 )) #convert degrees to radians
+                        else:
+                            window['-debug-'].update('Degrees Error: Please enter a valid heading for robot 2 between 0 and 360.')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Integer Error: Please enter a valid integer heading for robot 2 between 0 and 360.')
                         continue
                 else:
-                    if float(values['-r2_heading-']) >= 0 and float(values['-r2_heading-']) < 6.2831853072:
-                        r2_last_angle = float(values['-r2_heading-'])
-                    else:
-                        window['-debug-'].update('Error: Please enter a valid heading for robot 2 between 0 and 6.2831853072')
+                    try:
+                        if float(values['-r2_heading-']) >= 0 and float(values['-r2_heading-']) < 6.2831853072:
+                            r2_last_angle = float(values['-r2_heading-'])
+                        else:
+                            window['-debug-'].update('Radians Error: Please enter a valid heading for robot 2 between 0 and 6.2831853072')
+                            continue
+                    except ValueError:
+                        window['-debug-'].update('Float Error: Please enter a valid float heading for robot 2 between 0 and 6.2831853072')
                         continue
             else:
                 window['-debug-'].update('Error: Please enter an heading for robot 2.')
