@@ -366,7 +366,12 @@ def open_window():
                     adj = ( coordinate1[0] - coordinate0[0] )
                     print('Movement. opposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
-                    hyp = math.hypot(opp,adj)
+                    if opp == 0 and adj > 1:
+                        hyp = adj
+                    elif adj == 0 and opp > 1:
+                        hyp = opp
+                    else:
+                        hyp = math.hypot(opp,adj)
                     #calculate duration given distance and linear_velocity
                     duration = (float(hyp) / float(r1_linear_velocity))
 
@@ -463,8 +468,14 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate distance
                     opp = ( coordinate1[1] - coordinate0[1] )
                     adj = ( coordinate1[0] - coordinate0[0] )
+                    print('Movement. opposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
-                    hyp = math.hypot(opp,adj)
+                    if opp == 0 and adj > 1:
+                        hyp = adj
+                    elif adj == 0 and opp > 1:
+                        hyp = opp
+                    else:
+                        hyp = math.hypot(opp,adj)
                     #calculate duration given distance and linear_velocity
                     duration = (float(hyp) / float(r2_linear_velocity))
 
