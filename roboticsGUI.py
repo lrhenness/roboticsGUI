@@ -379,9 +379,8 @@ def open_window():
                     continue
             else:
                 time = datetime.now() + timedelta(seconds=10)
-            finally:
-                r1_time = time
-                r2_time = time
+            r1_time = time
+            r2_time = time
 
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
