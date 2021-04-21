@@ -599,14 +599,25 @@ def open_window():
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('\nPrinting position in lists: ', y)
-                print('id:', id[y])
-                print('robot_id:', robot_id[y])
-                print('command_id:', command_id[y])
-                print('angular_velocity:', angular_velocity[y])
-                print('linear_velocity:', linear_velocity[y])
-                print('day_set:', day_set[y])
-                print('time_start:', time_start[y])
-                print('time_end:', time_end[y])
+                if time_start[y] == time_end[y]:
+                    print('Popped!')
+                    id.pop(y)
+                    robot_id.pop(y)
+                    command_id.pop(y)
+                    angular_velocity.pop(y)
+                    linear_velocity.pop(y)
+                    day_set.pop(y)
+                    time_start.pop(y)
+                    time_end.pop(y)
+                else:
+                    print('id:', id[y])
+                    print('robot_id:', robot_id[y])
+                    print('command_id:', command_id[y])
+                    print('angular_velocity:', angular_velocity[y])
+                    print('linear_velocity:', linear_velocity[y])
+                    print('day_set:', day_set[y])
+                    print('time_start:', time_start[y])
+                    print('time_end:', time_end[y])
                 y += 1
 
             # Print debug text or SQL command
