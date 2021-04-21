@@ -595,6 +595,7 @@ def open_window():
                 print('\nPrinting position in lists: ', y)
                 if time_start[y] == time_end[y]:
                     print('Popped!')
+                    id.append('')
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
@@ -603,7 +604,7 @@ def open_window():
                     time_start.pop(y)
                     time_end.pop(y)
                 else:
-                    id.insert(y, int(last_command))
+                    id.append(int(last_command))
                     print('id:', id[y])
                     print('robot_id:', robot_id[y])
                     print('command_id:', command_id[y])
