@@ -595,7 +595,6 @@ def open_window():
                 print('\nPrinting position in lists: ', y)
                 if time_start[y] == time_end[y]:
                     print('Popped!')
-                    id.append('')
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
@@ -605,16 +604,18 @@ def open_window():
                     time_end.pop(y)
                 else:
                     id.append(int(last_command))
-                    print('id:', id[last_command])
-                    print('robot_id:', robot_id[last_command])
-                    print('command_id:', command_id[last_command])
-                    print('angular_velocity:', angular_velocity[last_command])
-                    print('linear_velocity:', linear_velocity[last_command])
-                    print('day_set:', day_set[last_command])
-                    print('time_start:', time_start[last_command])
-                    print('time_end:', time_end[last_command])
                     last_command += 1
                 y += 1
+
+            for z in range (0, last_command):
+                print('id:', id[z])
+                print('robot_id:', robot_id[z])
+                print('command_id:', command_id[z])
+                print('angular_velocity:', angular_velocity[z])
+                print('linear_velocity:', linear_velocity[z])
+                print('day_set:', day_set[z])
+                print('time_start:', time_start[z])
+                print('time_end:', time_end[z])
 
             # Print debug text or SQL command
             window['-debug-'].update('Sending to database...')
