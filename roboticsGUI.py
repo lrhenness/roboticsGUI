@@ -73,6 +73,7 @@ def open_window():
               )]
               ]
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    id = []
     location = []
     robot_id = []
     command_id = []
@@ -594,7 +595,6 @@ def open_window():
                 print('\nPrinting position in lists: ', y)
                 if time_start[y] == time_end[y]:
                     print('Popped!')
-                    id.pop(y)
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
@@ -603,6 +603,7 @@ def open_window():
                     time_start.pop(y)
                     time_end.pop(y)
                 else:
+                    id.append(int(last_command))
                     print('robot_id:', robot_id[y])
                     print('command_id:', command_id[y])
                     print('angular_velocity:', angular_velocity[y])
