@@ -123,8 +123,8 @@ def open_window():
             window['-r2_heading-'].update('0')
             window['-r1_linear_velocity-'].update('1')
             window['-r2_linear_velocity-'].update('1')
-            window['-r1_angular_velocity-'].update('0.1745329252')
-            window['-r2_angular_velocity-'].update('0.1745329252')
+            window['-r1_angular_velocity-'].update('10')
+            window['-r2_angular_velocity-'].update('10')
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0" and grid not in location: # Make sure the grid selected is not selected by another location
@@ -485,7 +485,7 @@ def open_window():
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
                 # time_end
                 print('duration for r1 itteration ', x, ' is:', duration)
-                r1_time += timedelta(seconds = duration)
+                r1_time = r1_time + timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
             
                 x += 1
