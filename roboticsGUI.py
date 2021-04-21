@@ -485,7 +485,7 @@ def open_window():
                 time_start.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
                 # time_end
                 print('duration for r1 itteration ', x, ' is:', duration)
-                r1_time = datetime.combine(date.today(), time(r1_time)) + timedelta(seconds = duration)
+                r1_time = datetime.combine(date.today(), r1_time) + timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.strftime("%H:%M:%S.%f")))
             
                 x += 1
