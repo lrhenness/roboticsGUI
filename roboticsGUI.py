@@ -605,14 +605,14 @@ def open_window():
                     time_end.pop(y)
                 else:
                     id.append(int(last_command))
-                    print('id:', id[y])
-                    print('robot_id:', robot_id[y])
-                    print('command_id:', command_id[y])
-                    print('angular_velocity:', angular_velocity[y])
-                    print('linear_velocity:', linear_velocity[y])
-                    print('day_set:', day_set[y])
-                    print('time_start:', time_start[y])
-                    print('time_end:', time_end[y])
+                    print('id:', id[last_command])
+                    print('robot_id:', robot_id[last_command])
+                    print('command_id:', command_id[last_command])
+                    print('angular_velocity:', angular_velocity[last_command])
+                    print('linear_velocity:', linear_velocity[last_command])
+                    print('day_set:', day_set[last_command])
+                    print('time_start:', time_start[last_command])
+                    print('time_end:', time_end[last_command])
                     last_command += 1
                 y += 1
 
