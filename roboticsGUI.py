@@ -592,7 +592,6 @@ def open_window():
             last_command = 0
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                print('\nPrinting position in lists: ', y)
                 if time_start[last_command] == time_end[last_command]:
                     print('Popped!')
                     robot_id.pop(y)
@@ -603,11 +602,12 @@ def open_window():
                     time_start.pop(y)
                     time_end.pop(y)
                 else:
-                    id.append(int(last_command))
+                    id.append(int(last_command)+1)
                     last_command += 1
                 y += 1
 
             for z in range (0, last_command):
+                print('\nPrinting position in lists: ', last_command)
                 print('id:', id[z])
                 print('robot_id:', robot_id[z])
                 print('command_id:', command_id[z])
