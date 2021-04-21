@@ -593,7 +593,7 @@ def open_window():
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('\nPrinting position in lists: ', y)
-                if time_start[y] == time_end[y]:
+                if time_start[last_command] == time_end[last_command]:
                     print('Popped!')
                     robot_id.pop(y)
                     command_id.pop(y)
