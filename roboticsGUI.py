@@ -479,7 +479,7 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r1_time.time()))
                 # time_end
-                print('duration for r1 itteration ', x, ' is:', duration)
+                #print('duration for r1 itteration ', x, ' is:', duration)
                 r1_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.time()))
             
@@ -503,7 +503,7 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
                     opp = ( coordinate1[1] - coordinate0[1] )
                     adj = ( coordinate1[0] - coordinate0[0] )
-                    print('Turn. \topposite:', opp, '\tadjacent:', adj)
+                    #print('Turn. \topposite:', opp, '\tadjacent:', adj)
                     if opp == 0 and adj >= 0:
                         new_angle = 0 #0 degrees (right)
                     elif opp == 0 and adj < 0:
@@ -567,7 +567,7 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate distance
                     opp = abs( coordinate1[1] - coordinate0[1] )
                     adj = abs( coordinate1[0] - coordinate0[0] )
-                    print('Move. \topposite:', opp, '\tadjacent:', adj)
+                    #print('Move. \topposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
                         hyp = adj
@@ -581,7 +581,7 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r2_time.time()))
                 # time_end
-                print('duration for r2 itteration ', x, ' is:', duration)
+                #print('duration for r2 itteration ', x, ' is:', duration)
                 r2_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r2_time.time()))
 
@@ -593,7 +593,6 @@ def open_window():
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 if time_start[last_command] == time_end[last_command]:
-                    print('Popped!')
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
@@ -607,7 +606,7 @@ def open_window():
                 y += 1
 
             for z in range (0, last_command):
-                print('\nPrinting position in lists: ', last_command)
+                print('\nPrinting position in lists: ', z)
                 print('id:', id[z])
                 print('robot_id:', robot_id[z])
                 print('command_id:', command_id[z])
