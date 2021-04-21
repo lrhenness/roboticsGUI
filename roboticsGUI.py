@@ -1,6 +1,6 @@
 import PySimpleGUIWeb as sg
 import re
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 import math
 
 #sg.theme('Dark')
