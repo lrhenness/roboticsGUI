@@ -74,7 +74,6 @@ def open_window():
               ]
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     location = []
-    id = []
     robot_id = []
     command_id = []
     day_set = []
@@ -604,7 +603,6 @@ def open_window():
                     time_start.pop(y)
                     time_end.pop(y)
                 else:
-                    print('id:', id[y])
                     print('robot_id:', robot_id[y])
                     print('command_id:', command_id[y])
                     print('angular_velocity:', angular_velocity[y])
