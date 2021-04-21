@@ -382,14 +382,9 @@ def open_window():
             r1_time = time
             r2_time = time
 
-            #last_command = GET LAST COMMAND IN DB
-            last_command = 0
             x = 0
             # first robot. runs 6 times, 3 for turns and 3 for movements: 0,1,2,3,4,5
             while x < ( len(location) - 2 ):
-                last_command += 1
-                # id
-                id.insert(x, last_command)
                 
                 # robot_id
                 robot_id.insert(x, 'r1d1')
@@ -492,10 +487,7 @@ def open_window():
 
             # second robot. runs 6 times, 3 for turns and 3 for movements: 6,7,8,9,10,11
             while x < (( len(location) - 2 ) * 2 ):
-                last_command += 1
-                # id
-                id.insert(x, last_command)
-                
+
                 # robot_id
                 robot_id.insert(x, 'r2d2')
 
@@ -596,6 +588,8 @@ def open_window():
                 x += 1
 
             # Debug calculated values that will be sent to database
+            #last_command = GET LAST COMMAND IN DB
+            last_command = 0
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('\nPrinting position in lists: ', y)
@@ -618,6 +612,7 @@ def open_window():
                     print('day_set:', day_set[y])
                     print('time_start:', time_start[y])
                     print('time_end:', time_end[y])
+                    last_command += 1
                 y += 1
 
             # Print debug text or SQL command
