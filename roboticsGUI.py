@@ -587,11 +587,11 @@ def open_window():
                     duration = (float(hyp) / float(r2_linear_velocity))
 
                 # time_start
-                time_start.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
+                time_start.insert(x, str(r2_time.time()))
                 # time_end
                 print('duration for r2 itteration ', x, ' is:', duration)
-                r2_time = datetime.combine(date.today(), time(r2_time)) + timedelta(seconds = duration)
-                time_end.insert(x, str(r2_time.strftime("%H:%M:%S.%f")))
+                r2_time += timedelta(seconds = duration)
+                time_end.insert(x, str(r2_time.time()))
 
                 x += 1
 
