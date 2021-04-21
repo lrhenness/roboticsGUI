@@ -603,7 +603,8 @@ def open_window():
                     time_start.pop(y)
                     time_end.pop(y)
                 else:
-                    id.append(int(last_command))
+                    id.insert(y, int(last_command))
+                    print('id:', id[y])
                     print('robot_id:', robot_id[y])
                     print('command_id:', command_id[y])
                     print('angular_velocity:', angular_velocity[y])
