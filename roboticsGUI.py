@@ -667,7 +667,8 @@ def main():
 
             # Connect to Database
             try:
-                global db = mysql.connector.connect(
+                global db
+                db = mysql.connector.connect(
                     host=values['-hostname-'],
                     user=values['-username-'],
                     password=values['-password-'],
