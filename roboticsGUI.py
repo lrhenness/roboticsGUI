@@ -29,8 +29,8 @@ def final_window():
     # fetch all of the rows from the query
     data = cursor.fetchall ()
     # print the rows
-    for row in data :
-        print row[1]
+    for row in data:
+        print(row[1])
         window['-table-'].update(row)
 
     while True:
