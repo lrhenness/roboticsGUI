@@ -11,7 +11,7 @@ def final_window():
         [sg.Text('')],
         [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', pad=((15,1),(1,1)))],
         [sg.Text('', key='-table-', size=(30, 20))],
-        [sg.Button('Exit', key='exit', size=(10,2))]
+        [sg.Text('Please close the tab to exit', size=(10,2))]
     ]
 
     layout_final = [
@@ -33,26 +33,12 @@ def final_window():
         print(row)
         #window['-table-'].update('Under Construction')
 
-    while True:
+    """ while True:
         event, values = window.read()
-        if event == "exit" or event == sg.WIN_CLOSED or event is None:
-            try:
-                window.close()
-            except:
-                pass
-            try:
-                window.close()
-            except:
-                pass
-            try:
-                window.close()
-            except:
-                pass
-            break
     try:
         window.close()
     except:
-        pass
+        pass """
     # What you just read was me not taking the time to learn the correct way to close multiple windows :')
 
 def open_window():
