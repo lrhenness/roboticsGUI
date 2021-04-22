@@ -671,7 +671,7 @@ def open_window():
                 print('day_set:', day_set[z])
                 print('time_start:', time_start[z])
                 print('time_end:', time_end[z])
-                val = (id[str(z)], robot_id[str(z)], day_set[str(z)], time_start[str(z)], time_end[str(z)], linear_velocity[str(z)], angular_velocity[str(z)])
+                val = (str(id[z]), str(robot_id[z]), str(day_set[z]), str(time_start[z]), str(time_end[z]), str(linear_velocity[z]), str(angular_velocity[z]))
                 mycursor.execute(sql, val)
                 db.commit()
                 print(mycursor.rowcount, "record inserted.")
