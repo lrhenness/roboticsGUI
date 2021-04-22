@@ -595,11 +595,12 @@ def open_window():
             mycursor = db.cursor()
             # For information on these commands see:
             # https://www.w3schools.com/python/python_mysql_select.asp
-            mycursor.execute("SELECT id FROM DEPLOY")
+            mycursor.execute("SELECT id FROM DEPLOY ORDER BY id")
             result = mycursor.fetchall()
+            print('result:', result)
             if result:
                 #populated, now find the largest id
-                last_command = int(max(result))
+                last_command = int(result[-1])
             else:
                 last_command = 0
             print('last_command:', last_command)
