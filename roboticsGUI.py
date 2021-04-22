@@ -727,12 +727,16 @@ def main():
 
             # Connect to Database
             global db
-            db = mysql.connector.connect(
-                host=values['-hostname-'],
-                user=values['-username-'],
-                password=values['-password-'],
-                database=values['-database-']
-            )
+            try:
+                db = mysql.connector.connect(
+                    host=values['-hostname-'],
+                    user=values['-username-'],
+                    password=values['-password-'],
+                    database=values['-database-']
+                )
+            except:
+                window['-output-'].update('There was an error connecting. Try Again.')
+                continue
             if db.is_connected():
                 # Connection Successful
                 window['connect'].update(button_color=('white', 'green'))
