@@ -640,15 +640,19 @@ def open_window():
     window.close()
 
 def main():
-    layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
-              [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
-              [sg.Text('')],
-              [sg.Text('Database options:', justification="center")],
-              [sg.Input(size=(10,1), justification="center", focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
-              [sg.Input(size=(10,1), justification="center", key='-username-'), sg.Text('Username')],
-              [sg.Input(size=(10,1), justification="center", password_char = '*', key='-password-'), sg.Text('Password')],
-              [sg.Input(size=(10,1), justification="center", key='-database-'), sg.Text('Database')],
-              [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")]]
+    layout = [
+        [sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
+        [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
+        [sg.Text('')],
+        [sg.Text('Database options:', justification="center")],
+        [sg.Input(size=(10,1), justification="center", focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
+        [sg.Input(size=(10,1), justification="center", key='-username-'), sg.Text('Username')],
+        [sg.Input(size=(10,1), justification="center", password_char = '*', key='-password-'), sg.Text('Password')],
+        [sg.Input(size=(10,1), justification="center", key='-database-'), sg.Text('Database')],
+        [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")],
+        [sg.Text('')],
+        [sg.Text('Please connect to MySQL.'), key="-output-"],
+        ]
     window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()
@@ -671,6 +675,14 @@ def main():
                 if (db):
                     # Connection Successful
                     window['connect'].update(button_color=('white', 'green'))
+                    window['-output-'].update('Connection success! Starting program.')
+                    sleep(1)
+                    window['-output-'].update('Connection success! Starting program..')
+                    sleep(1)
+                    window['-output-'].update('Connection success! Starting program...')
+                    sleep(1)
+                    open_window()
+                    window.close() 
                 else:
                     # Connection Unsuccessful
                     continue
