@@ -32,7 +32,7 @@ def final_window():
     for row in data:
         print(str(row))
         workplease = str(row)
-        window['-table-'].update('workplease')
+        #window['-table-'].update('workplease')
 
     while True:
         event, values = window.read()
