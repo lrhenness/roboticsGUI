@@ -675,7 +675,6 @@ def open_window():
                 db.commit()
                 print(mycursor.rowcount, "record inserted.")
                 z += 1
-            time.sleep(1)
             final_window()
         
     window.close()
