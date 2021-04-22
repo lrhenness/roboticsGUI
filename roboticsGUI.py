@@ -612,6 +612,7 @@ def open_window():
             # Print debug text or SQL command
             window['-debug-'].update('Sending to database...')
             #Send commands to MySQL
+            mycursor = db.cursor()
             sql = "INSERT INTO DEPLOY (id, robot_id, day_set, time_start, time_end, linear_velocity, angular_velocity) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             for z in range (current_command, last_command):
                 print('\nPrinting position in lists: ', z)
