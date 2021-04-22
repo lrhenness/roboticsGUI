@@ -645,7 +645,7 @@ def main():
               [sg.Text('Database options:', justification="center")],
               [sg.Input(size=(10,1), justification="center", focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
               [sg.Input(size=(10,1), justification="center", key='-username-'), sg.Text('Username')],
-              [sg.Input(size=(10,1), justification="center", password_char = "*", key='-password-'), sg.Text('Password')],
+              [sg.Input(size=(10,1), justification="center", password_char = '*', key='-password-'), sg.Text('Password')],
               [sg.Input(size=(10,1), justification="center", key='-database-'), sg.Text('Database')],
               [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")]]
     window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
