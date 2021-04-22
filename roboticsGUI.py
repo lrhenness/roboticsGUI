@@ -9,9 +9,9 @@ import time
 def final_window():
     layout_info = [
         [sg.Text('')],
-        [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', pad=((15,1),(1,1)))],
+        [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', pad=((15,15),(1,1)))],
         [sg.Text('', key='-table-', size=(30, 20))],
-        [sg.Text('Please close the tab to exit', size=(10,2))]
+        [sg.Text('Please close the tab to exit', pad=((15,15),(1,1)))]
     ]
 
     layout_final = [
