@@ -6,6 +6,38 @@ import mysql.connector
 import time
 
 #sg.theme('Dark')
+def final_window():
+    layout_info = [
+        [sg.Text('')],
+        [sg.Text('MySQL Database has been updated! The current state of the table is:', pad=((15,1),(1,1)))],
+        [sg.Multiline('', key='-table-', size=(30, 20))],
+        [sg.Button('Exit', key='exit', size=(10,2))]
+    ]
+
+    layout_final = [
+        [sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
+        [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
+        [sg.Frame('Final',[[
+            sg.Column(layout_info, pad=((65,15),(15,15)))
+        ]], element_justification="center", pad=((25,25),(25,25)),
+        )]
+    ]
+
+    window = sg.Window("RobotGUI Main", layout_final, web_debug=False, web_ip='0.0.0.0', web_port=8080)
+    cursor = db.cursor()
+    cursor.execute(""" SELECT * FROM album """)
+    # fetch all of the rows from the query
+    data = cursor.fetchall ()
+    # print the rows
+    for row in data :
+        print row[1]
+        window['-table-'].update(row)
+
+    while True:
+        event, values = window.read()
+        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
+            break
+    window.close()
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
@@ -608,9 +640,6 @@ def open_window():
             y = 0
             index = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                print('time_start:', time_start)
-                print('time_end:  ', time_end)
-                print('y:', y)
                 if time_start[index] == time_end[index]:
                     robot_id.pop(y)
                     command_id.pop(y)
@@ -684,23 +713,14 @@ def main():
             #input validation for textboxes
 
             # Connect to Database
-            try:
-                global db
-                db = mysql.connector.connect(
-                    host=values['-hostname-'],
-                    user=values['-username-'],
-                    password=values['-password-'],
-                    database=values['-database-']
-                )
-            except:
-                print('There was an error connecting with the following creds:')
-                print('hostname:', values['-hostname-'])
-                print('username:', values['-username-'])
-                print('password:', values['-password-'])
-                print('database:', values['-database-'])
-                window['connect'].update(button_color=('white', 'red'))
-                continue
-            if (db):
+            global db
+            db = mysql.connector.connect(
+                host=values['-hostname-'],
+                user=values['-username-'],
+                password=values['-password-'],
+                database=values['-database-']
+            )
+            if db.is_connected():
                 # Connection Successful
                 window['connect'].update(button_color=('white', 'green'))
                 window['-output-'].update('Connection success! Starting program.')
@@ -710,9 +730,14 @@ def main():
                 window['-output-'].update('Connection success! Starting program...')
                 time.sleep(1)
                 open_window()
-                window.close() 
+                window.close()
             else:
-                # Connection Unsuccessful
+                print('There was an error connecting with the following creds:')
+                print('hostname:', values['-hostname-'])
+                print('username:', values['-username-'])
+                print('password:', values['-password-'])
+                print('database:', values['-database-'])
+                window['connect'].update(button_color=('white', 'red'))
                 continue
 
         elif event == "fill":
