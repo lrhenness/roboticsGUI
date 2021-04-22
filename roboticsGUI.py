@@ -38,11 +38,18 @@ def final_window():
         if event == "exit" or event == sg.WIN_CLOSED or event is None:
             try:
                 window.close()
+            except:
+                pass
             try:
                 window.close()
+            except:
+                pass
             break
     try:
         window.close()
+    except:
+        pass
+    # What you just read was me not taking the time to learn the correct way to close multiple windows :')
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
