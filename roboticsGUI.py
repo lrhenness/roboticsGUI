@@ -25,7 +25,7 @@ def final_window():
 
     window = sg.Window("RobotGUI Main", layout_final, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     cursor = db.cursor()
-    cursor.execute(""" SELECT * FROM album """)
+    cursor.execute(""" SELECT * FROM DEPLOY """)
     # fetch all of the rows from the query
     data = cursor.fetchall ()
     # print the rows
