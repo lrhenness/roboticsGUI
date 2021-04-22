@@ -44,6 +44,10 @@ def final_window():
                 window.close()
             except:
                 pass
+            try:
+                window.close()
+            except:
+                pass
             break
     try:
         window.close()
