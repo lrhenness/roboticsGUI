@@ -608,6 +608,7 @@ def open_window():
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('time_start:', time_start)
+                print('time_end:  ', time_end)
                 print('y:', y)
                 if time_start[y] == time_end[y]:
                     robot_id.pop(y)
