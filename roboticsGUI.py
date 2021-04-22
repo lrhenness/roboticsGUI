@@ -630,7 +630,8 @@ def open_window():
             #Send commands to MySQL
             mycursor = db.cursor()
             sql = "INSERT INTO DEPLOY (id, robot_id, day_set, time_start, time_end, linear_velocity, angular_velocity) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            for z in range ((current_command + 1), (last_command + 1)):
+            z = 0
+            for i in range (current_command, last_command):
                 print('\nPrinting position in lists: ', z)
                 print('id:', id[z])
                 print('robot_id:', robot_id[z])
@@ -644,6 +645,7 @@ def open_window():
                 mycursor.execute(sql, val)
                 db.commit()
                 print(mycursor.rowcount, "record inserted.")
+                z += 1
         
     window.close()
 
