@@ -6,6 +6,7 @@ import mysql.connector
 import time
 
 #sg.theme('Dark')
+db
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
