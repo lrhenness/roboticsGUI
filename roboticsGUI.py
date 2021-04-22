@@ -644,7 +644,7 @@ def open_window():
 def main():
     layout_mysql = [
         [sg.Text('')],
-        [sg.Text('Database options:', justification="center")],
+        [sg.Text('Database options:', pad=((150,1),(1,1)))],
         [sg.Input(size=(10,1), pad=((150,1),(1,1)), focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
         [sg.Input(size=(10,1), pad=((150,1),(1,1)), key='-username-'), sg.Text('Username')],
         [sg.Input(size=(10,1), pad=((150,1),(1,1)), password_char = '*', key='-password-'), sg.Text('Password')],
