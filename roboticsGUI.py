@@ -18,7 +18,7 @@ def final_window():
         [sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
         [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
         [sg.Text('')],
-        [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', justification="center", font='Any 24', size=(125,1)))],
+        [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', justification="center", font='Any 24', size=(125,1))],
         [sg.Text('', key='-table-', justification="center", size=(30, 20))],
         [sg.Text('Please close the tab to exit', justification="center", font='Any 24', size=(125,1))]
     ]
