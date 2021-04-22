@@ -732,6 +732,7 @@ def main():
                     database=values['-database-']
                 )
             except:
+                window['connect'].update(button_color=('white', 'red'))
                 window['-output-'].update('There was an error connecting. Try Again.')
                 continue
             if db.is_connected():
