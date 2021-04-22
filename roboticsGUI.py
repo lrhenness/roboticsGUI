@@ -600,7 +600,7 @@ def open_window():
             print('result:', result)
             if result:
                 #populated, now find the largest id
-                last_command = int(result[-1])
+                last_command = int(result[-1][0])
             else:
                 last_command = 0
             print('last_command:', last_command)
