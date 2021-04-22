@@ -36,10 +36,13 @@ def final_window():
     while True:
         event, values = window.read()
         if event == "exit" or event == sg.WIN_CLOSED or event is None:
-            window.close()
-            window.close()
+            try:
+                window.close()
+            try:
+                window.close()
             break
-    window.close()
+    try:
+        window.close()
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
