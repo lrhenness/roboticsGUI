@@ -17,10 +17,10 @@ def final_window():
     layout_final = [
         [sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
         [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
-        [sg.Frame('Final',[[
-            sg.Column(layout_info, pad=((65,15),(15,15)))
-        ]], element_justification="center", pad=((25,25),(25,25)),
-        )]
+        [sg.Text('')],
+        [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', justification="center", pad=((15,15),(1,1)))],
+        [sg.Text('', key='-table-', justification="center", size=(30, 20))],
+        [sg.Text('Please close the tab to exit', justification="center", pad=((15,15),(1,1)))]
     ]
 
     window = sg.Window("RobotGUI Main", layout_final, web_debug=False, web_ip='0.0.0.0', web_port=8080)
