@@ -650,7 +650,7 @@ def main():
         [sg.Input(size=(10,1), pad=((15,1),(1,1)), password_char = '*', key='-password-'), sg.Text(' Password')],
         [sg.Input(size=(10,1), pad=((15,1),(1,1)), key='-database-'), sg.Text(' Database')],
         [sg.Button("Connect to MySQL", size=(15,2), pad=((10,10),(15,15)), key="connect")],
-        [sg.Button("Debug Fill", size=(10,1), pad=((10,10),(15,15)), key="fill"), sg.Button("Without MySQL", size=(10,1), pad=((10,10),(15,15)), key="open")]
+        [sg.Button("Debug Fill", size=(10,1), pad=((10,10),(15,15)), key="fill"), sg.Button("Without MySQL", size=(10,1), pad=((10,10),(15,15)), key="open")],
         [sg.Text('')],
         [sg.Text('Please connect to MySQL.', key="-output-")]
     ]
