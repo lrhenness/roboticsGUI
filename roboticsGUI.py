@@ -9,7 +9,7 @@ import time
 def final_window():
     layout_info = [
         [sg.Text('')],
-        [sg.Text('MySQL Database has been updated! The current state of the table is:', pad=((15,1),(1,1)))],
+        [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', pad=((15,1),(1,1)))],
         [sg.Text('', key='-table-', size=(30, 20))],
         [sg.Button('Exit', key='exit', size=(10,2))]
     ]
@@ -29,10 +29,9 @@ def final_window():
     # fetch all of the rows from the query
     data = cursor.fetchall()
     # print the rows
-    window['-table-'].update('Under Construction')
     for row in data:
         print(row)
-        workplease = str(row)
+        #window['-table-'].update('Under Construction')
 
     while True:
         event, values = window.read()
