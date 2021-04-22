@@ -606,11 +606,12 @@ def open_window():
             print('last_command:', last_command)
             current_command = last_command
             y = 0
+            index = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 print('time_start:', time_start)
                 print('time_end:  ', time_end)
                 print('y:', y)
-                if time_start[y] == time_end[y]:
+                if time_start[index] == time_end[index]:
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
@@ -618,10 +619,10 @@ def open_window():
                     day_set.pop(y)
                     time_start.pop(y)
                     time_end.pop(y)
-                    y -= 1
                 else:
                     id.append(int(last_command)+1)
                     last_command += 1
+                    index += 1
                 y += 1
 
             # Print debug text or SQL command
