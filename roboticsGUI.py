@@ -654,6 +654,7 @@ def main():
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         if event == "open":
+            print('opening new window...')
             open_window()
             window.close()
         
