@@ -617,6 +617,7 @@ def open_window():
                     day_set.pop(y)
                     time_start.pop(y)
                     time_end.pop(y)
+                    y -= 1
                 else:
                     id.append(int(last_command)+1)
                     last_command += 1
