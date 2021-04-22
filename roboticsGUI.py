@@ -30,7 +30,7 @@ def final_window():
     data = cursor.fetchall ()
     # print the rows
     for row in data:
-        print(row[1])
+        print(row)
         window['-table-'].update(str(row))
 
     while True:
