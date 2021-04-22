@@ -36,7 +36,8 @@ def final_window():
     while True:
         event, values = window.read()
         if event == "exit" or event == sg.WIN_CLOSED or event is None:
-            exit()
+            window.close()
+            window.close()
             break
     window.close()
 
