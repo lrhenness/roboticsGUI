@@ -672,20 +672,6 @@ def main():
                     password=values['-password-'],
                     database=values['-database-']
                 )
-                if (db):
-                    # Connection Successful
-                    window['connect'].update(button_color=('white', 'green'))
-                    window['-output-'].update('Connection success! Starting program.')
-                    time.sleep(1)
-                    window['-output-'].update('Connection success! Starting program..')
-                    time.sleep(1)
-                    window['-output-'].update('Connection success! Starting program...')
-                    time.sleep(1)
-                    open_window()
-                    window.close() 
-                else:
-                    # Connection Unsuccessful
-                    continue
             except:
                 print('There was an error connecting with the following creds:')
                 print('hostname:', values['-hostname-'])
@@ -693,6 +679,20 @@ def main():
                 print('password:', values['-password-'])
                 print('database:', values['-database-'])
                 window['connect'].update(button_color=('white', 'red'))
+                continue
+            if (db):
+                # Connection Successful
+                window['connect'].update(button_color=('white', 'green'))
+                window['-output-'].update('Connection success! Starting program.')
+                time.sleep(1)
+                window['-output-'].update('Connection success! Starting program..')
+                time.sleep(1)
+                window['-output-'].update('Connection success! Starting program...')
+                time.sleep(1)
+                open_window()
+                window.close() 
+            else:
+                # Connection Unsuccessful
                 continue
 
         elif event == "fill":
