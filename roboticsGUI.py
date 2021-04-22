@@ -739,11 +739,11 @@ def main():
                 # Connection Successful
                 window['connect'].update(button_color=('white', 'green'))
                 window['-output-'].update('Connection success! Starting program.')
-                time.sleep(1)
-                window['-output-'].update('Connection success! Starting program..')
-                time.sleep(1)
+                time.sleep(0.3)
                 window['-output-'].update('Connection success! Starting program...')
-                time.sleep(1)
+                time.sleep(0.3)
+                window['-output-'].update('Connection success! Starting program.....')
+                time.sleep(0.3)
                 open_window()
                 window.close()
             else:
