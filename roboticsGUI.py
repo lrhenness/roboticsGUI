@@ -651,7 +651,7 @@ def main():
         [sg.Input(size=(10,1), justification="center", key='-database-'), sg.Text('Database')],
         [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")],
         [sg.Text('')],
-        [sg.Text('Please connect to MySQL.'), key="-output-"],
+        [sg.Text('Please connect to MySQL.', key="-output-")]
         ]
     window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
