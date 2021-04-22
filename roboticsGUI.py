@@ -2,6 +2,7 @@ import PySimpleGUIWeb as sg
 import re
 from datetime import date, datetime, time, timedelta
 import math
+import mysql.connector
 
 #sg.theme('Dark')
 
@@ -650,15 +651,43 @@ def main():
               [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")]]
     window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
-        print('Made it here')
         event, values = window.read()
-        print('Made it here 2')
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
-        if event == "open":
-            print('opening new window...')
+        elif event == "open":
             open_window()
             window.close()
+        elif event == "connect":
+            #input validation for textboxes
+
+            # Connect to Database
+            try:
+                db = mysql.connector.connect(
+                    host=values['-hostname-'],
+                    user=values['-username-'],
+                    password=values['-password-'],
+                    database=values['-database-']
+                )
+                if (db):
+                    # Connection Successful
+                    window['connect'].update(button_color=('white', 'green'))
+                else:
+                    # Connection Unsuccessful
+                    continue
+            except:
+                print('There was an error connecting with the following creds:')
+                print('hostname:', values['-hostname-'])
+                print('username:', values['-username-'])
+                print('password:', values['-password-'])
+                print('database:', values['-database-'])
+                window['connect'].update(button_color=('white', 'red'))
+                continue
+
+        elif event == "fill":
+            window['-hostname-'].update('localhost')
+            window['-username-'].update('elk')
+            window['-password-'].update('password')
+            window['-database-'].update('mydatabase')
         
     window.close()
 if __name__ == "__main__":
