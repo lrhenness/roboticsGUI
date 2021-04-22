@@ -6,7 +6,6 @@ import mysql.connector
 import time
 
 #sg.theme('Dark')
-db
 
 def open_window():
     # Appologies for the giant and un-maintainable wall of text that follows.
@@ -668,7 +667,7 @@ def main():
 
             # Connect to Database
             try:
-                db = mysql.connector.connect(
+                global db = mysql.connector.connect(
                     host=values['-hostname-'],
                     user=values['-username-'],
                     password=values['-password-'],
