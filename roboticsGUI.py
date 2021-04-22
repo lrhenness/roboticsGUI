@@ -20,7 +20,7 @@ def final_window():
         [sg.Text('')],
         [sg.Text('MySQL Database has been updated! The current state of the table is: (Display under construction)', justification="center", font='Any 24', size=(125,1)))],
         [sg.Text('', key='-table-', justification="center", size=(30, 20))],
-        [sg.Text('Please close the tab to exit', justification="center", font='Any 24', size=(125,1)))]
+        [sg.Text('Please close the tab to exit', justification="center", font='Any 24', size=(125,1))]
     ]
 
     window = sg.Window("RobotGUI Main", layout_final, web_debug=False, web_ip='0.0.0.0', web_port=8080)
