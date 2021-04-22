@@ -25,7 +25,7 @@ def final_window():
 
     window = sg.Window("RobotGUI Main", layout_final, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     cursor = db.cursor()
-    cursor.execute(""" SELECT * FROM DEPLOY """)
+    cursor.execute(""" SELECT * FROM deploy """)
     # fetch all of the rows from the query
     data = cursor.fetchall()
     # print the rows
@@ -636,7 +636,7 @@ def open_window():
             mycursor = db.cursor()
             # For information on these commands see:
             # https://www.w3schools.com/python/python_mysql_select.asp
-            mycursor.execute("SELECT id FROM DEPLOY ORDER BY id")
+            mycursor.execute("SELECT id FROM deploy ORDER BY id")
             result = mycursor.fetchall()
             print('result:', result)
             if result:
@@ -667,7 +667,7 @@ def open_window():
             window['-debug-'].update('Sending to database...')
             #Send commands to MySQL
             mycursor = db.cursor()
-            sql = "INSERT INTO DEPLOY (id, robot_id, day_set, time_start, time_end, linear_velocity, angular_velocity) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            sql = "INSERT INTO deploy (id, robot_id, day_set, time_start, time_end, linear_velocity, angular_velocity) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             z = 0
             for i in range (current_command, last_command):
                 print('\nPrinting position in lists: ', z)
