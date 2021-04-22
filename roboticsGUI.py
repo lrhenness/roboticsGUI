@@ -607,6 +607,8 @@ def open_window():
             current_command = last_command
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
+                print('time_start:', time_start)
+                print('y:', y)
                 if time_start[y] == time_end[y]:
                     robot_id.pop(y)
                     command_id.pop(y)
