@@ -650,7 +650,9 @@ def main():
               [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")]]
     window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
+        print('Made it here')
         event, values = window.read()
+        print('Made it here 2')
         if event == "Exit" or event == sg.WIN_CLOSED or event is None:
             break
         if event == "open":
