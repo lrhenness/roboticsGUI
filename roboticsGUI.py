@@ -592,7 +592,16 @@ def open_window():
 
             # Debug calculated values that will be sent to database
             #last_command = GET LAST COMMAND IN DB
-            last_command = 0
+            mycursor = db.cursor()
+            # For information on these commands see:
+            # https://www.w3schools.com/python/python_mysql_select.asp
+            mycursor.execute("SELECT id FROM DEPLOY")
+            result = mycursor.fetchall()
+            if result:
+                #populated, now find the largest id
+                last_command = max(result)
+            else:
+                last_command = 0
             current_command = last_command
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
