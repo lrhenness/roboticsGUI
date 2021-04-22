@@ -3,6 +3,7 @@ import re
 from datetime import date, datetime, time, timedelta
 import math
 import mysql.connector
+import time
 
 #sg.theme('Dark')
 
@@ -676,11 +677,11 @@ def main():
                     # Connection Successful
                     window['connect'].update(button_color=('white', 'green'))
                     window['-output-'].update('Connection success! Starting program.')
-                    sleep(1)
+                    time.sleep(1)
                     window['-output-'].update('Connection success! Starting program..')
-                    sleep(1)
+                    time.sleep(1)
                     window['-output-'].update('Connection success! Starting program...')
-                    sleep(1)
+                    time.sleep(1)
                     open_window()
                     window.close() 
                 else:
