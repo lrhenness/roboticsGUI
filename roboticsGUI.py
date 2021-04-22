@@ -645,10 +645,10 @@ def main():
     layout_mysql = [
         [sg.Text('')],
         [sg.Text('Database options:', justification="center")],
-        [sg.Input(size=(10,1), pad=((30,1),(1,1)), focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
-        [sg.Input(size=(10,1), key='-username-'), sg.Text('Username')],
-        [sg.Input(size=(10,1), password_char = '*', key='-password-'), sg.Text('Password')],
-        [sg.Input(size=(10,1), key='-database-'), sg.Text('Database')],
+        [sg.Input(size=(10,1), pad=((150,1),(1,1)), focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
+        [sg.Input(size=(10,1), pad=((150,1),(1,1)), key='-username-'), sg.Text('Username')],
+        [sg.Input(size=(10,1), pad=((150,1),(1,1)), password_char = '*', key='-password-'), sg.Text('Password')],
+        [sg.Input(size=(10,1), pad=((150,1),(1,1)), key='-database-'), sg.Text('Database')],
         [sg.Button("Start Program", size=(15,2), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(15,2), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(15,2), pad=((10,10),(15,15)), key="fill")],
         [sg.Text('')],
         [sg.Text('Please connect to MySQL.', key="-output-")]
