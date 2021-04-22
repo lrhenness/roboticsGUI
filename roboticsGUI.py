@@ -607,7 +607,7 @@ def open_window():
             current_command = last_command
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                if time_start[last_command] == time_end[last_command]:
+                if time_start[y] == time_end[y]:
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
