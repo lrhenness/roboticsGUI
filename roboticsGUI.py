@@ -33,12 +33,12 @@ def final_window():
         print(row)
         #window['-table-'].update('Under Construction')
 
-    """ while True:
+    while True:
         event, values = window.read()
-    try:
-        window.close()
-    except:
-        pass """
+        if event == sg.WIN_CLOSED or event is None:
+            window.close()
+            break
+    window.close()
     # What you just read was me not taking the time to learn the correct way to close multiple windows :')
 
 def open_window():
