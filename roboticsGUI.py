@@ -73,8 +73,8 @@ def open_window():
                   ]],
                   title_location='TITLE_LOCATION_TOP',
                   pad=((25,25),(25,25)),
-              )]
-              ]
+              )]]
+
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     id = []
     location = []
@@ -593,6 +593,7 @@ def open_window():
             # Debug calculated values that will be sent to database
             #last_command = GET LAST COMMAND IN DB
             last_command = 0
+            current_command = last_command
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 if time_start[last_command] == time_end[last_command]:
@@ -608,7 +609,11 @@ def open_window():
                     last_command += 1
                 y += 1
 
-            for z in range (0, last_command):
+            # Print debug text or SQL command
+            window['-debug-'].update('Sending to database...')
+            #Send commands to MySQL
+            sql = "INSERT INTO DEPLOY (id, robot_id, day_set, time_start, time_end, linear_velocity, angular_velocity) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            for z in range (current_command, last_command):
                 print('\nPrinting position in lists: ', z)
                 print('id:', id[z])
                 print('robot_id:', robot_id[z])
@@ -618,26 +623,10 @@ def open_window():
                 print('day_set:', day_set[z])
                 print('time_start:', time_start[z])
                 print('time_end:', time_end[z])
-
-            # Print debug text or SQL command
-            window['-debug-'].update('Sending to database...')
-
-            #Format commands to send
-            """ z = 0
-            while  z < (( len(location) - 2 ) * 2 ):
-                if time_start[z] == time_end[z]:
-                    id.pop(z)
-                    robot_id.pop(z)
-                    command_id.pop(z)
-                    day_set.pop(z)
-                    time_start.pop(z)
-                    time_end.pop(z)
-                    linear_velocity.pop(z)
-                    angular_velocity.pop(z)
-                z += 1
-                #Round time_start and time_end to milliseconds """
-
-            #Send commands to MySQL
+                val = (id[z], robot_id[z], day_set[z], time_start[z], time_end[z], linear_velocity[z], angular_velocity[z])
+                mycursor.execute(sql, val)
+                db.commit()
+                print(mycursor.rowcount, "record inserted.")
         
     window.close()
 
@@ -649,7 +638,7 @@ def main():
         [sg.Input(size=(10,1), pad=((15,1),(1,1)), key='-username-'), sg.Text(' Username')],
         [sg.Input(size=(10,1), pad=((15,1),(1,1)), password_char = '*', key='-password-'), sg.Text(' Password')],
         [sg.Input(size=(10,1), pad=((15,1),(1,1)), key='-database-'), sg.Text(' Database')],
-        [sg.Button("Connect to MySQL", size=(26,2), pad=((10,10),(15,15)), key="connect")],
+        [sg.Button("Connect to MySQL", size=(26,2), pad=((11,10),(15,15)), key="connect")],
         [sg.Button("Debug Fill", size=(13,1), pad=((10,1),(2,5)), key="fill"), sg.Button("Without MySQL", size=(13,1), pad=((1,10),(2,5)), key="open")],
         [sg.Text('')],
         [sg.Text('Please connect to MySQL.', key="-output-")]
