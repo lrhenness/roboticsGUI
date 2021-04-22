@@ -27,16 +27,16 @@ def final_window():
     cursor = db.cursor()
     cursor.execute(""" SELECT * FROM DEPLOY """)
     # fetch all of the rows from the query
-    data = cursor.fetchall ()
+    data = str(cursor.fetchall())
     # print the rows
     for row in data:
-        print(str(row))
+        print(row)
         workplease = str(row)
         #window['-table-'].update('workplease')
 
     while True:
         event, values = window.read()
-        if event == "Exit" or event == sg.WIN_CLOSED or event is None:
+        if event == "exit" or event == sg.WIN_CLOSED or event is None:
             break
     window.close()
 
