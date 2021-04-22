@@ -602,6 +602,7 @@ def open_window():
                 last_command = max(result)
             else:
                 last_command = 0
+            print('last_command:', last_command)
             current_command = last_command
             y = 0
             while  y < (( len(location) - 2 ) * 2 ):
