@@ -641,7 +641,13 @@ def open_window():
 def main():
     layout = [[sg.Text("Robotics GUI Capstone Project", justification="center", font='Any 38', size=(125,2))],
               [sg.Text('Made by Luken Henness', justification="center", font='Any 16', size=(125,1))],
-              [sg.Button("Start Program", size=(35,4), pad=((150,150),(15,15)), key="open")]]
+              [sg.Text('')],
+              [sg.Text('Database options:')],
+              [sg.Input(size=(10,1), focus=True, default_text='localhost', key='-hostname-'), sg.Text('Hostname')],
+              [sg.Input(size=(10,1), key='-username-'), sg.Text('Username')],
+              [sg.Input(size=(10,1), password_char = "*", key='-password-'), sg.Text('Password')],
+              [sg.Input(size=(10,1), key='-database-'), sg.Text('Database')],
+              [sg.Button("Start Program", size=(25,3), pad=((10,10),(15,15)), key="open"), sg.Button("Connect to MySQL", size=(25,3), pad=((10,10),(15,15)), key="connect"), sg.Button("Debug Fill", size=(25,3), pad=((10,10),(15,15)), key="fill")]]
     window = sg.Window("RobotGUI", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     while True:
         event, values = window.read()

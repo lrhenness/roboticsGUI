@@ -1,14 +1,9 @@
-ISSUE with input validation for time when attempting to put in a valid time
-
-
 Pick up:
+
 Just finished movement and rotation. Need to build in the following:
     - Input validation and checking. Need hard limits for:
-        headings: if degrees int 0-359, if radians, the equivelant
-        linear velocity: float from 0.001 to ???
-        angular velocity: float from 0.001 to ???
-        weekday: int from 1 to 7
-        time: regex HH:MM:SS anytime - [0-2][0-9]\:[0-5][0-9]\:[0-5][0-9]
+        angular velocity
+        linear velocity
     - Database healthcheck
     - Database retrieve (or error on) highest "id" from table "DEPLOY"
     - Structure arrays into strings to send commands to Database
@@ -21,6 +16,7 @@ Deploy script needs:
     - if 'n' then exit script and have them change timezone
 2. install all python dependencies:
     - pySimpleGUI
+    - mysql-connector-python
     - rest
     - datetime
 3. Spin up MySQL DB
