@@ -31,7 +31,8 @@ def final_window():
     # print the rows
     for row in data:
         print(row)
-        window['-table-'].update(str(row))
+        workplease = str(row)
+        window['-table-'].update(workplease)
 
     while True:
         event, values = window.read()
