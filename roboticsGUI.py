@@ -599,7 +599,7 @@ def open_window():
             result = mycursor.fetchall()
             if result:
                 #populated, now find the largest id
-                last_command = max(result)
+                last_command = int(max(result))
             else:
                 last_command = 0
             print('last_command:', last_command)
