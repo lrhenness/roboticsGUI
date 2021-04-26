@@ -758,9 +758,9 @@ def main():
 
         elif event == "fill":
             window['-hostname-'].update('localhost')
-            window['-username-'].update('root')
-            window['-password-'].update('')
-            window['-database-'].update('robot_control')
+            window['-username-'].update('elk')
+            window['-password-'].update('password')
+            window['-database-'].update('test')
         
     window.close()
 if __name__ == "__main__":
