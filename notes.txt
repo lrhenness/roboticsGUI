@@ -1,28 +1,16 @@
-Pick up:
-
-Just finished movement and rotation. Need to build in the following:
-    - Input validation and checking. Need hard limits for:
-        angular velocity
-        linear velocity
-    - Database healthcheck to start program
-    - Database retrieve (or error on) highest "id" from table "DEPLOY"
-    - Structure arrays into strings to send commands to Database
-    - Send commands to database and check that they "made it there safely" for user
-
 Deploy script needs:
 
 1. Make sure timezone & time is set correctly
     - Your timezone is ___ and the current time on this machine is ___, is this correct and in tune with robots? y/n
     - if 'n' then exit script and have them change timezone
 2. install all python dependencies:
-    - pySimpleGUI
-    - mysql-connector-python
-    - rest
-    - datetime
+    + pySimpleGUIWeb
+    + mysql-connector-python
+    + rest
+    + datetime
 3. Check the MySQL Database for the following:
     - Can I reach MySQL and log in?
     - does the database exist?
     - Does the DEPLOY table exist?
     - Does each field in the table exist?
-4. find the IP of local machine and ask for port input
 4. Spin up python3 script given web port
