@@ -276,8 +276,12 @@ def open_window():
                         window['-debug-'].update('Float Error: Please enter a valid float heading for robot 1 between 0 and 6.2831853072')
                         continue
             else:
-                window['-debug-'].update('Error: Please enter an heading for robot 1.')
-                continue
+                if location[0] != (-1,-1):
+                    window['-debug-'].update('Error: Please enter an heading for robot 1.')
+                    continue
+                else:
+                    # Enter a value of 0 because it doesn't matter
+                    r1_last_angle = 0
 
             # -r2_heading-
             if values['-r2_heading-']:
@@ -302,8 +306,12 @@ def open_window():
                         window['-debug-'].update('Float Error: Please enter a valid float heading for robot 2 between 0 and 6.2831853072')
                         continue
             else:
-                window['-debug-'].update('Error: Please enter an heading for robot 2.')
-                continue
+                if location[4] != (-1,-1):
+                    window['-debug-'].update('Error: Please enter an heading for robot 2.')
+                    continue
+                else:
+                    # Enter a value of 0 because it doesn't matter
+                    r2_last_angle = 0
 
             # -r1_linear_velocity-
             if values['-r1_linear_velocity-']:
@@ -317,8 +325,12 @@ def open_window():
                     window['-debug-'].update('Float Error: Please enter a valid floating point number linear velocity for robot 1.')
                     continue
             else:
-                window['-debug-'].update('Error: Please enter a linear velocity for robot 1.')
-                continue
+                if location[0] != (-1,-1):
+                    window['-debug-'].update('Error: Please enter a linear velocity for robot 1.')
+                    continue
+                else:
+                    # Enter a value of 0 because it doesn't matter
+                    r1_linear_velocity = 0
 
             # -r2_linear_velocity-
             if values['-r2_linear_velocity-']:
@@ -332,8 +344,12 @@ def open_window():
                     window['-debug-'].update('Float Error: Please enter a valid floating point number linear velocity for robot 2.')
                     continue
             else:
-                window['-debug-'].update('Error: Please enter a linear velocity for robot 2.')
-                continue
+                if location[4] != (-1,-1):
+                    window['-debug-'].update('Error: Please enter a linear velocity for robot 2.')
+                    continue
+                else:
+                    # Enter a value of 0 because it doesn't matter
+                    r2_linear_velocity = 0
 
             # -r1_angular_velocity-
             if values['-r1_angular_velocity-']:
@@ -358,8 +374,12 @@ def open_window():
                         window['-debug-'].update('Float Error: Please enter a valid floating point angular velocity for robot 1 between 0 and ??? radians per second.')
                         continue
             else:
-                window['-debug-'].update('Error: Please enter an angular velocity for robot 1.')
-                continue
+                if location[0] != (-1,-1):
+                    window['-debug-'].update('Error: Please enter an angular velocity for robot 1.')
+                    continue
+                else:
+                    # Enter a value of 0 because it doesn't matter
+                    r1_angular_velocity = 0
 
             # -r2_angular_velocity-
             if values['-r2_angular_velocity-']:
@@ -384,8 +404,12 @@ def open_window():
                         window['-debug-'].update('Float Error: Please enter a valid floating point angular velocity for robot 2 between 0 and ??? radians per second.')
                         continue
             else:
-                window['-debug-'].update('Error: Please enter an angular velocity for robot 2.')
-                continue
+                if location[4] != (-1,-1):
+                    window['-debug-'].update('Error: Please enter an angular velocity for robot 2.')
+                    continue
+                else:
+                    # Enter a value of 0 because it doesn't matter
+                    r2_angular_velocity = 0
 
             # -start_day-
             if values['-start_day-']:
