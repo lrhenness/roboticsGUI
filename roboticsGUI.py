@@ -471,7 +471,10 @@ def open_window():
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r1_angular_velocity
-                    duration = (float(turn_angle) / float(r1_angular_velocity))
+                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                        duration = float(0)
+                    else:
+                        uration = (float(turn_angle) / float(r1_angular_velocity))
                     #change angular_velocity to positive or negative depending on the direction of turn needed
                     #and add result to the list
                     if command_id[x] == 'C03':
@@ -576,7 +579,10 @@ def open_window():
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r2_angular_velocity
-                    duration = (float(turn_angle) / float(r2_angular_velocity))
+                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                        duration = float(0)
+                    else:
+                        duration = (float(turn_angle) / float(r2_angular_velocity))
                     #change angular_velocity to positive or negative depending on the direction of turn needed
                     #and add result to the list
                     if command_id[x] == 'C03':
@@ -610,7 +616,10 @@ def open_window():
                     else:
                         hyp = math.hypot(opp,adj)
                     #calculate duration given distance and linear_velocity
-                    duration = (float(hyp) / float(r2_linear_velocity))
+                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                        duration = float(0)
+                    else:
+                        duration = (float(hyp) / float(r2_linear_velocity))
 
                 # time_start
                 time_start.insert(x, str(r2_time.time()))
@@ -640,6 +649,7 @@ def open_window():
             index = 0
             while  y < (( len(location) - 2 ) * 2 ):
                 if time_start[index] == time_end[index]:
+                    print('Popping the index: ', y)
                     robot_id.pop(y)
                     command_id.pop(y)
                     angular_velocity.pop(y)
