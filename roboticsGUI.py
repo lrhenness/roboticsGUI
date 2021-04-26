@@ -277,7 +277,7 @@ def open_window():
                         continue
             else:
                 if location[0] != (-1,-1):
-                    window['-debug-'].update('Error: Please enter an heading for robot 1.')
+                    window['-debug-'].update('Error: Please enter a heading for robot 1.')
                     continue
                 else:
                     # Enter a value of 0 because it doesn't matter
@@ -307,7 +307,7 @@ def open_window():
                         continue
             else:
                 if location[4] != (-1,-1):
-                    window['-debug-'].update('Error: Please enter an heading for robot 2.')
+                    window['-debug-'].update('Error: Please enter a heading for robot 2.')
                     continue
                 else:
                     # Enter a value of 0 because it doesn't matter
