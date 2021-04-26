@@ -111,7 +111,7 @@ def open_window():
 
     window = sg.Window("RobotGUI Main", layout, web_debug=False, web_ip='0.0.0.0', web_port=8080)
     id = []
-    location = []
+    location = [(-1,-1),(-1,-1),(-1,-1),(-1,-1),(-1,-1),(-1,-1),(-1,-1),(-1,-1)]
     robot_id = []
     command_id = []
     day_set = []
@@ -172,99 +172,86 @@ def open_window():
 
         elif event in ('R1_0', 'R1_1', 'R1_2', 'R1_3', 'R2_0', 'R2_1', 'R2_2', 'R2_3') and 'grid' in locals():
             if event == "R1_0" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[0]
-                except IndexError:
-                    location.insert(0, grid)
-                else:
+                if location[0] != (-1,-1):
                     window[location[0]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[0] = grid
-                    window[grid].update('S', button_color=('white', 'blue'))
-                    window['R1_0'].update(button_color=('white', 'green'))
+                location[0] = grid
+                window[grid].update('S', button_color=('white', 'blue'))
+                window['R1_0'].update(button_color=('white', 'green'))
             elif event == "R1_1" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[1]
-                except IndexError:
-                    location.insert(1, grid)
-                else:
+                if location[1] != (-1,-1):
                     window[location[1]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[1] = grid
-                    window[grid].update('1', button_color=('white', 'blue'))
-                    window['R1_1'].update(button_color=('white', 'green'))
+                location[1] = grid
+                window[grid].update('1', button_color=('white', 'blue'))
+                window['R1_1'].update(button_color=('white', 'green'))
             elif event == "R1_2" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[2]
-                except IndexError:
-                    location.insert(2, grid)
-                else:
+                if location[2] != (-1,-1):
                     window[location[2]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[2] = grid
-                    window[grid].update('2', button_color=('white', 'blue'))
-                    window['R1_2'].update(button_color=('white', 'green'))
+                location[2] = grid
+                window[grid].update('2', button_color=('white', 'blue'))
+                window['R1_2'].update(button_color=('white', 'green'))
             elif event == "R1_3" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[3]
-                except IndexError:
-                    location.insert(3, grid)
-                else:
+                if location[3] != (-1,-1):
                     window[location[3]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[3] = grid
-                    window[grid].update('3', button_color=('white', 'blue'))
-                    window['R1_3'].update(button_color=('white', 'green'))
+                location[3] = grid
+                window[grid].update('3', button_color=('white', 'blue'))
+                window['R1_3'].update(button_color=('white', 'green'))
             elif event == "R2_0" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[4]
-                except IndexError:
-                    location.insert(4, grid)
-                else:
+                if location[4] != (-1,-1):
                     window[location[4]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[4] = grid
-                    window[grid].update('S', button_color=('white', 'red'))
-                    window['R2_0'].update(button_color=('white', 'green'))
+                location[4] = grid
+                window[grid].update('S', button_color=('white', 'red'))
+                window['R2_0'].update(button_color=('white', 'green'))
             elif event == "R2_1" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[5]
-                except IndexError:
-                    location.insert(5, grid)
-                else:
+                if location[5] != (-1,-1):
                     window[location[5]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[5] = grid
-                    window[grid].update('1', button_color=('white', 'red'))
-                    window['R2_1'].update(button_color=('white', 'green'))
+                location[5] = grid
+                window[grid].update('1', button_color=('white', 'red'))
+                window['R2_1'].update(button_color=('white', 'green'))
             elif event == "R2_2" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[6]
-                except IndexError:
-                    location.insert(6, grid)
-                else:
+                if location[6] != (-1,-1):
                     window[location[6]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[6] = grid
-                    window[grid].update('2', button_color=('white', 'red'))
-                    window['R2_2'].update(button_color=('white', 'green'))
+                location[6] = grid
+                window[grid].update('2', button_color=('white', 'red'))
+                window['R2_2'].update(button_color=('white', 'green'))
             elif event == "R2_3" and grid not in location: # Make sure the grid selected is not selected by another location
-                try:
-                    location[7]
-                except IndexError:
-                    location.insert(7, grid)
-                else:
+                if location[7] != (-1,-1):
                     window[location[7]].update('*', button_color=(sg.theme_button_color()))
-                finally:
-                    location[7] = grid
-                    window[grid].update('3', button_color=('white', 'red'))
-                    window['R2_3'].update(button_color=('white', 'green'))
+                location[7] = grid
+                window[grid].update('3', button_color=('white', 'red'))
+                window['R2_3'].update(button_color=('white', 'green'))
             
         elif event == "Submit":
             # Input validation time!!!
-            if len(location) != 8:
-                window['-debug-'].update('Error: Please select all locations before submitting.')
+            #robot 1 locations checking. Blank entries are (-1,-1)
+            if location[0] == (-1,-1) and location[4] == (-1,-1):
+                window['-debug-'].update('Error: Please select a starting location for either robot before submitting.')
                 continue
+            elif location[0] != (-1,-1) and location[1] == (-1,-1):
+                window['-debug-'].update('Error: Please select the first location for robot 1 before submitting.')
+                continue
+            elif location[0] != (-1,-1) and location[1] == (-1,-1) and location[2] != (-1,-1):
+                window['-debug-'].update('Error: Robot 1 cannot have a second location without a first. Please clear or select robot 1 location 1')
+                continue
+            elif location[0] != (-1,-1) and location[2] == (-1,-1) and location[3] != (-1,-1):
+                window['-debug-'].update('Error: Robot 1 cannot have a third location without a second. Please clear or select robot 1 location 2')
+                continue
+            elif location[0] != (-1,-1) and location[1] == (-1,-1) and location[3] != (-1,-1):
+                window['-debug-'].update('Error: Robot 1 cannot have a third location without a first. Please clear or select robot 1 location 1')
+                continue
+            #robot 2 locations checking. Blank entries are (-1,-1)
+            if location[4] != (-1,-1) and location[5] == (-1,-1):
+                window['-debug-'].update('Error: Please select the first location for robot 2 before submitting.')
+                continue
+            elif location[4] != (-1,-1) and location[5] == (-1,-1) and location[6] != (-1,-1):
+                window['-debug-'].update('Error: robot 1 cannot have a second location without a first. Please clear or select robot 2 location 1')
+                continue
+            elif location[4] != (-1,-1) and location[6] == (-1,-1) and location[7] != (-1,-1):
+                window['-debug-'].update('Error: robot 1 cannot have a third location without a second. Please clear or select robot 2 location 2')
+                continue
+            elif location[4] != (-1,-1) and location[5] == (-1,-1) and location[7] != (-1,-1):
+                window['-debug-'].update('Error: robot 1 cannot have a third location without a first. Please clear or select robot 2 location 1')
+                continue
+            print('Made it past location validation! location:\n', location)
 
             # -r1_heading-
             if values['-r1_heading-']:
@@ -518,7 +505,10 @@ def open_window():
                     else:
                         hyp = math.hypot(opp,adj)
                     #calculate duration given distance and linear_velocity
-                    duration = (float(hyp) / float(r1_linear_velocity))
+                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                        duration = float(0)
+                    else:
+                        duration = (float(hyp) / float(r1_linear_velocity))
 
                 # time_start
                 time_start.insert(x, str(r1_time.time()))
