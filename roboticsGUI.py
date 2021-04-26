@@ -781,7 +781,7 @@ def main():
                 continue
 
         elif event == "fill":
-			window['-hostname-'].update('localhost')
+            window['-hostname-'].update('localhost')
             window['-username-'].update('root')
             window['-password-'].update('')
             window['-database-'].update('robot_control')
