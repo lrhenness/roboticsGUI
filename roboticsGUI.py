@@ -651,13 +651,13 @@ def open_window():
                 print('robot_id:\n', robot_id)
                 if time_start[index] == time_end[index]:
                     print('Popping the index: ', y)
-                    robot_id.pop(y)
-                    command_id.pop(y)
-                    angular_velocity.pop(y)
-                    linear_velocity.pop(y)
-                    day_set.pop(y)
-                    time_start.pop(y)
-                    time_end.pop(y)
+                    robot_id.pop(index)
+                    command_id.pop(index)
+                    angular_velocity.pop(index)
+                    linear_velocity.pop(index)
+                    day_set.pop(index)
+                    time_start.pop(index)
+                    time_end.pop(index)
                 else:
                     id.append(int(last_command)+1)
                     last_command += 1
