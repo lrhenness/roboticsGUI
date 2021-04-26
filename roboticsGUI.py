@@ -474,7 +474,7 @@ def open_window():
                     if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
                         duration = float(0)
                     else:
-                        uration = (float(turn_angle) / float(r1_angular_velocity))
+                        duration = (float(turn_angle) / float(r1_angular_velocity))
                     #change angular_velocity to positive or negative depending on the direction of turn needed
                     #and add result to the list
                     if command_id[x] == 'C03':
