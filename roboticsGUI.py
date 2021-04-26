@@ -647,6 +647,7 @@ def open_window():
             current_command = last_command
             y = 0
             index = 0
+            print('robot_id:\n', robot_id)
             while  y < (( len(location) - 2 ) * 2 ):
                 if time_start[index] == time_end[index]:
                     print('Popping the index: ', y)
