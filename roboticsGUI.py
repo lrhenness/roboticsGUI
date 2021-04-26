@@ -471,7 +471,7 @@ def open_window():
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r1_angular_velocity
-                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                    if coordinate1 == (-1,-1): #if next position is null
                         duration = float(0)
                     else:
                         duration = (float(turn_angle) / float(r1_angular_velocity))
@@ -508,7 +508,7 @@ def open_window():
                     else:
                         hyp = math.hypot(opp,adj)
                     #calculate duration given distance and linear_velocity
-                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                    if coordinate1 == (-1,-1): #if next position is null
                         duration = float(0)
                     else:
                         duration = (float(hyp) / float(r1_linear_velocity))
@@ -579,7 +579,7 @@ def open_window():
                         #turn right 180 degrees
                         command_id.insert(x, 'C04')
                     #calculate duration given turn_angle and r2_angular_velocity
-                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                    if coordinate1 == (-1,-1): #if next position is null
                         duration = float(0)
                     else:
                         duration = (float(turn_angle) / float(r2_angular_velocity))
@@ -616,7 +616,7 @@ def open_window():
                     else:
                         hyp = math.hypot(opp,adj)
                     #calculate duration given distance and linear_velocity
-                    if coordinate0 == (-1,-1) and coordinate1 == (-1,-1):
+                    if coordinate1 == (-1,-1): #if next position is null
                         duration = float(0)
                     else:
                         duration = (float(hyp) / float(r2_linear_velocity))
