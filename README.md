@@ -20,7 +20,7 @@ Currently the scope of this project is restrained to bare essentials for functio
 
 ``` sudo sh roboticsGUI/prereq.sh ```
 
-4. Make sure your MySQL database is running and you know the username and password for a user with read/write to the deploy table
+4. Make sure your MySQL database is running and you know the username and password for a user with read/write to the "deploy" table in any database.
 5. Run the program!
 
 ``` echo "Starting..." && python3 roboticsGUI.py ```
