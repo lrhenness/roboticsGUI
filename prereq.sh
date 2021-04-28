@@ -14,12 +14,6 @@ case $input in
         sleep 2
         apt update
         apt install -y mysql-server
-        # mysql_secure_installation
-        # read -r -p "Enter the USERNAME you chose for MySQL " user
-        # read -r -p "Enter the PASSWORD you chose for MySQL " pass
-        # read -r -p "Enter a new DATABASE name to use for MySQL " db
-        # mysql -u $user -p$pass -e "CREATE DATABASE $db;"
-        # mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
         mysql -u root -e "CREATE DATABASE roboticsGUI;"
         mysql -u root -D roboticsGUI -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
         mysql -u root -e "CREATE USER 'robotics'@'localhost' IDENTIFIED BY 'GUI';"
@@ -54,6 +48,15 @@ case $input in
         echo "    Use robotics    for username   "
         echo "    Use GUI         for password   "
         echo "    Use roboticsGUI for database   "
+        echo "==================================="
+        echo "==============WARNING!============="
+        echo "==================================="
+        echo "      MySQL is unsecure in the     "
+        echo "       current configuration.      "
+        echo "  Please run the following to set  "
+        echo "        up MySQL securely:         "
+        echo "                                   "
+        echo "     mysql_secure_installation     "
         echo "==================================="
         ;;
 esac
