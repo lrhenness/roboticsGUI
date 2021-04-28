@@ -14,12 +14,14 @@ case $input in
         sleep 2
         apt update
         apt install -y mysql-server
-        #mysql_secure_installation
-        read -r -p "Enter the USERNAME you chose for MySQL " user
-        read -r -p "Enter the PASSWORD you chose for MySQL " pass
-        read -r -p "Enter a new DATABASE name to use for MySQL " db
-        mysql -u $user -p$pass -e "CREATE DATABASE $db;"
-        mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
+        # mysql_secure_installation
+        # read -r -p "Enter the USERNAME you chose for MySQL " user
+        # read -r -p "Enter the PASSWORD you chose for MySQL " pass
+        # read -r -p "Enter a new DATABASE name to use for MySQL " db
+        # mysql -u $user -p$pass -e "CREATE DATABASE $db;"
+        # mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
+        mysql -u root -e "CREATE DATABASE reboticsGUI;"
+        mysql -u root -D roboticsGUI -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
         ;;
     [nN][oO]|[nN])
         echo "Answered no. Continuing..."
@@ -46,9 +48,10 @@ echo "==================================="
 case $input in
     [yY][eE][sS]|[yY])
         echo "             For MySQL:            "
-        echo "     Use localhost for hostname    "
-        echo "     Use the username, password,   "
-        echo "   and database chosen previously. "
+        echo "    Use localhost for hostname     "
+        echo "    Use root for username          "
+        echo "    Use a blank password           "
+        echo "    Use roboticsGUI for database   "
         echo "==================================="
         ;;
 esac
