@@ -19,9 +19,9 @@ case $input in
         apt update
         apt install -y mysql-server
         mysql_secure_installation
-        read -r -p "Enter the username chosen for MySQL " user
-        read -r -p "Enter the password chosen for MySQL " pass
-        read -r -p "Enter a database name to use for MySQL " db
+        read -r -p "Enter the USERNAME you chose for MySQL " user
+        read -r -p "Enter the PASSWORD you chose for MySQL " pass
+        read -r -p "Enter a new DATABASE name to use for MySQL " db
         mysql -u $user -p$pass -e "CREATE DATABASE $db;"
         mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
         ;;
