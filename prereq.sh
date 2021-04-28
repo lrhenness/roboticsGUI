@@ -20,7 +20,7 @@ case $input in
         # read -r -p "Enter a new DATABASE name to use for MySQL " db
         # mysql -u $user -p$pass -e "CREATE DATABASE $db;"
         # mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
-        mysql -u root -e "CREATE DATABASE reboticsGUI;"
+        mysql -u root -e "CREATE DATABASE roboticsGUI;"
         mysql -u root -D roboticsGUI -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
         mysql -u root -e "CREATE USER 'robotics'@'localhost' IDENTIFIED BY 'GUI';"
         mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'robotics'@'localhost';"
