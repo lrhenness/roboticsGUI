@@ -50,15 +50,19 @@ echo "==================================="
 echo "    You can now run the program    "
 echo "      python3 roboticsGUI.py       "
 echo "==================================="
-echo "             For MySQL:            "
-echo "     Use localhost for hostname    "
-echo "     Use the username, password,   "
-echo "   and database chosen previously. "
-echo "==================================="
+case $input in
+    [nN][oO]|[nN])
+        echo "             For MySQL:            "
+        echo "     Use localhost for hostname    "
+        echo "     Use the username, password,   "
+        echo "   and database chosen previously. "
+        echo "==================================="
+        ;;
+esac
 
 # Run program now?
-read -r -p "Would you like to run the program now? [Y/n] " input
-case $input in
+read -r -p "Would you like to run the program now? [Y/n] " prog
+case $prog in
     [yY][eE][sS]|[yY])
         echo "Answered yes. Starting on localhost port 8080..."
         SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
