@@ -7,14 +7,10 @@ if [ `whoami` != root ]; then
 fi
 
 # MySQL section
-read -r -p "Is MySQL up and running with a \"deploy\" table? [Y/n] " input
+read -r -p "Would you like to set up a local MySQL instance with a \"deploy\" table? [Y/n] " input
 case $input in
     [yY][eE][sS]|[yY])
-        echo "Answered yes. Continuing..."
-        sleep 2
-        ;;
-    [nN][oO]|[nN])
-        echo "Answered no. Script will install and configure a local instance of MySQL..."
+        echo "Answered yes. Script will install and configure a local instance of MySQL..."
         sleep 2
         apt update
         apt install -y mysql-server
@@ -24,6 +20,10 @@ case $input in
         read -r -p "Enter a new DATABASE name to use for MySQL " db
         mysql -u $user -p$pass -e "CREATE DATABASE $db;"
         mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
+        ;;
+    [nN][oO]|[nN])
+        echo "Answered no. Continuing..."
+        sleep 2
         ;;
     *)
         echo "Invalid input..."
@@ -44,7 +44,7 @@ echo "    You can now run the program    "
 echo "      python3 roboticsGUI.py       "
 echo "==================================="
 case $input in
-    [nN][oO]|[nN])
+    [yY][eE][sS]|[yY])
         echo "             For MySQL:            "
         echo "     Use localhost for hostname    "
         echo "     Use the username, password,   "
