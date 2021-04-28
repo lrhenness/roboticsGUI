@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if sudo
-if [[ "$EUID" = 0 ]]; then
+if "$EUID" = 0; then
     echo "already root"
 else
     echo "Please run this script with sudo privileges."
