@@ -1,10 +1,8 @@
 #!/bin/bash
 
 # Check if sudo
-if [ "$EUID" = 0 ]; then
-    echo "already root"
-else
-    echo "Please run this script with sudo privileges."
+if [ `whoami` != root ]; then
+    echo "Please run this script as root or using sudo."
     exit 1
 fi
 
