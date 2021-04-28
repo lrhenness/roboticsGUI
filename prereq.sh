@@ -22,6 +22,8 @@ case $input in
         # mysql -u $user -p$pass -D $db -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
         mysql -u root -e "CREATE DATABASE reboticsGUI;"
         mysql -u root -D roboticsGUI -e "CREATE TABLE deploy (id int, robot_id text, day_set int, time_start time, time_end time, linear_velocity float, angular_velocity float);"
+        mysql -u root -e "CREATE USER 'robotics'@'localhost' IDENTIFIED BY 'GUI';"
+        mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'robotics'@'localhost';"
         ;;
     [nN][oO]|[nN])
         echo "Answered no. Continuing..."
@@ -48,9 +50,9 @@ echo "==================================="
 case $input in
     [yY][eE][sS]|[yY])
         echo "             For MySQL:            "
-        echo "    Use localhost for hostname     "
-        echo "    Use root for username          "
-        echo "    Use a blank password           "
+        echo "    Use localhost   for hostname   "
+        echo "    Use robotics    for username   "
+        echo "    Use GUI         for password   "
         echo "    Use roboticsGUI for database   "
         echo "==================================="
         ;;
