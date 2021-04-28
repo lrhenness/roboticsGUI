@@ -18,7 +18,7 @@ case $input in
         sleep 2
         apt update
         apt install -y mysql-server
-        mysql_secure_installation
+        #mysql_secure_installation
         read -r -p "Enter the USERNAME you chose for MySQL " user
         read -r -p "Enter the PASSWORD you chose for MySQL " pass
         read -r -p "Enter a new DATABASE name to use for MySQL " db
