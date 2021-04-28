@@ -122,9 +122,6 @@ def open_window():
     #Main Event Loop
     while True:
         event, values = window.read()
-
-        # Print event to command line
-        #print('event: ', event)
         # Check if event is a grid button being pressed
         if re.match('\([0-9]*\,\ *[0-9]*\)', str(event)):
             window['-is_grid-'].update('Yes')
@@ -251,7 +248,6 @@ def open_window():
             elif location[4] != (-1,-1) and location[5] == (-1,-1) and location[7] != (-1,-1):
                 window['-debug-'].update('Error: robot 1 cannot have a third location without a first. Please clear or select robot 2 location 1')
                 continue
-            print('Made it past location validation! location:\n', location)
 
             # -r1_heading-
             if values['-r1_heading-']:
@@ -456,7 +452,6 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
                     opp = ( coordinate1[1] - coordinate0[1] )
                     adj = ( coordinate1[0] - coordinate0[0] )
-                    print('Turn. \topposite:', opp, '\tadjacent:', adj)
                     if opp == 0 and adj >= 0:
                         new_angle = 0 #0 degrees (right)
                     elif opp == 0 and adj < 0:
@@ -523,7 +518,6 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate distance
                     opp = abs( coordinate1[1] - coordinate0[1] )
                     adj = abs( coordinate1[0] - coordinate0[0] )
-                    print('Move. \topposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
                         hyp = adj
@@ -540,7 +534,6 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r1_time.time()))
                 # time_end
-                #print('duration for r1 itteration ', x, ' is:', duration)
                 r1_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r1_time.time()))
             
@@ -564,7 +557,6 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate angle of turn
                     opp = ( coordinate1[1] - coordinate0[1] )
                     adj = ( coordinate1[0] - coordinate0[0] )
-                    #print('Turn. \topposite:', opp, '\tadjacent:', adj)
                     if opp == 0 and adj >= 0:
                         new_angle = 0 #0 degrees (right)
                     elif opp == 0 and adj < 0:
@@ -631,7 +623,6 @@ def open_window():
                     #finding opposite and adjacent sides of the triange to calculate distance
                     opp = abs( coordinate1[1] - coordinate0[1] )
                     adj = abs( coordinate1[0] - coordinate0[0] )
-                    #print('Move. \topposite:', opp, '\tadjacent:', adj)
                     #pythagorean theorem to find missing side's length using math.hypot
                     if opp == 0 and adj > 1:
                         hyp = adj
@@ -648,7 +639,6 @@ def open_window():
                 # time_start
                 time_start.insert(x, str(r2_time.time()))
                 # time_end
-                #print('duration for r2 itteration ', x, ' is:', duration)
                 r2_time += timedelta(seconds = duration)
                 time_end.insert(x, str(r2_time.time()))
 
@@ -661,20 +651,16 @@ def open_window():
             # https://www.w3schools.com/python/python_mysql_select.asp
             mycursor.execute("SELECT id FROM deploy ORDER BY id")
             result = mycursor.fetchall()
-            print('result:', result)
             if result:
                 #populated, now find the largest id
                 last_command = int(result[-1][0])
             else:
                 last_command = 0
-            print('last_command:', last_command)
             current_command = last_command
             y = 0
             index = 0
             while  y < (( len(location) - 2 ) * 2 ):
-                print('robot_id:\n', robot_id)
                 if time_start[index] == time_end[index]:
-                    print('Popping the index: ', y)
                     robot_id.pop(index)
                     command_id.pop(index)
                     angular_velocity.pop(index)
@@ -695,15 +681,6 @@ def open_window():
             sql = "INSERT INTO deploy (id, robot_id, day_set, time_start, time_end, linear_velocity, angular_velocity) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             z = 0
             for i in range (current_command, last_command):
-                print('\nPrinting position in lists: ', z)
-                print('id:', id[z])
-                print('robot_id:', robot_id[z])
-                print('command_id:', command_id[z])
-                print('angular_velocity:', angular_velocity[z])
-                print('linear_velocity:', linear_velocity[z])
-                print('day_set:', day_set[z])
-                print('time_start:', time_start[z])
-                print('time_end:', time_end[z])
                 val = (str(id[z]), str(robot_id[z]), str(day_set[z]), str(time_start[z]), str(time_end[z]), str(linear_velocity[z]), str(angular_velocity[z]))
                 mycursor.execute(sql, val)
                 db.commit()
